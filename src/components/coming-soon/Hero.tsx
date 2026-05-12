@@ -1,6 +1,7 @@
-import { useEffect, useRef } from "react";
+import { Fragment, useEffect, useRef } from "react";
 import anime from "animejs";
 import { ArrowRight } from "lucide-react";
+import klisusLogo from "@/assets/klisus-logo.jpeg";
 
 const HEADLINE_WORDS = [
   { text: "The", accent: false },
@@ -114,48 +115,48 @@ export function Hero() {
           ref={logoRef}
           href="#"
           aria-label="Klisus home"
-          className="inline-flex items-center justify-center opacity-0 will-change-transform"
+          className="inline-flex flex-col items-center gap-3 opacity-0 will-change-transform"
         >
           <span
             ref={logoMarkRef}
             aria-hidden="true"
-            className="inline-flex h-20 w-20 items-center justify-center will-change-transform"
-            style={{
-              filter:
-                "drop-shadow(0 0 24px rgba(168, 213, 168, 0.28)) drop-shadow(0 0 6px rgba(168, 213, 168, 0.18))",
-            }}
+            className="inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_28px_rgba(168,213,168,0.22)] will-change-transform"
           >
             <img
-              src="/favicon.ico"
+              src={klisusLogo}
               alt="Klisus"
               className="block h-full w-full object-contain"
             />
+          </span>
+          <span className="text-[20px] font-bold tracking-[0.22em] text-white">
+            KLISUS
           </span>
         </a>
 
         <h1
           ref={headlineRef}
           aria-label="The Blockchain for Climate Action"
-          className="max-w-[16ch] text-balance text-[clamp(40px,7vw,88px)] font-semibold leading-[1.05] tracking-[-0.02em] text-white"
+          className="mt-2 max-w-[16ch] text-balance text-[clamp(40px,7vw,88px)] font-semibold leading-[1.08] tracking-[-0.02em] text-white"
         >
           {HEADLINE_WORDS.map((w, wi) => (
-            <span
-              key={wi}
-              className={`inline-block whitespace-nowrap ${
-                w.accent ? "text-[#A8D5A8]" : ""
-              }`}
-            >
-              {[...w.text].map((ch, ci) => (
-                <span
-                  key={ci}
-                  className="letter inline-block opacity-0 will-change-transform"
-                  style={{ transform: "translateY(0.4em)" }}
-                >
-                  {ch}
-                </span>
-              ))}
-              {wi < HEADLINE_WORDS.length - 1 && " "}
-            </span>
+            <Fragment key={wi}>
+              <span
+                className={`inline-block whitespace-nowrap ${
+                  w.accent ? "text-[#A8D5A8]" : ""
+                }`}
+              >
+                {[...w.text].map((ch, ci) => (
+                  <span
+                    key={ci}
+                    className="letter inline-block opacity-0 will-change-transform"
+                    style={{ transform: "translateY(0.4em)" }}
+                  >
+                    {ch}
+                  </span>
+                ))}
+              </span>
+              {wi < HEADLINE_WORDS.length - 1 ? " " : null}
+            </Fragment>
           ))}
         </h1>
 
