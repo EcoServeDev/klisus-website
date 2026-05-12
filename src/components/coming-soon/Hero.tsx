@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import anime from "animejs";
 import { ArrowRight } from "lucide-react";
-import klisusLogo from "@/assets/klisus-logo.jpeg";
 
 const HEADLINE_WORDS = [
   { text: "The", accent: false },
@@ -115,21 +114,22 @@ export function Hero() {
           ref={logoRef}
           href="#"
           aria-label="Klisus home"
-          className="inline-flex items-center gap-3.5 opacity-0 will-change-transform"
+          className="inline-flex items-center justify-center opacity-0 will-change-transform"
         >
           <span
             ref={logoMarkRef}
             aria-hidden="true"
-            className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white p-1.5 shadow-[0_0_0_1px_rgba(255,255,255,0.06),0_0_24px_rgba(168,213,168,0.18)]"
+            className="inline-flex h-20 w-20 items-center justify-center will-change-transform"
+            style={{
+              filter:
+                "drop-shadow(0 0 24px rgba(168, 213, 168, 0.28)) drop-shadow(0 0 6px rgba(168, 213, 168, 0.18))",
+            }}
           >
             <img
-              src={klisusLogo}
-              alt=""
+              src="/favicon.ico"
+              alt="Klisus"
               className="block h-full w-full object-contain"
             />
-          </span>
-          <span className="text-[22px] font-bold tracking-[0.18em] text-white">
-            KLISUS
           </span>
         </a>
 
