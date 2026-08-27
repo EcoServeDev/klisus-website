@@ -84,7 +84,7 @@ const Consulting = () => {
           content="At Klisus, we help organizations navigate the growing complexity of sustainability with solutions shaped by science, data, and on-ground expertise." 
         />
         <meta name="keywords" content="ESG consulting, sustainability consulting, carbon strategy, net-zero planning, ESG reporting, climate risk assessment" />
-        <link rel="canonical" href="https://klisus.io/services" />
+        <link rel="canonical" href="https://klisus.com/services" />
       </Helmet>
 
       <Layout>

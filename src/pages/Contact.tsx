@@ -43,7 +43,7 @@ const Contact = () => {
           name="description" 
           content="Contact Klisus to discuss blockchain carbon credits, ESG consulting, MRV solutions, or partnership opportunities. We respond within 24 hours." 
         />
-        <link rel="canonical" href="https://klisus.io/contact" />
+        <link rel="canonical" href="https://klisus.com/contact" />
       </Helmet>
 
       <Layout>

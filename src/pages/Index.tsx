@@ -19,12 +19,12 @@ const Index = () => {
           name="keywords"
           content="satellite land verification, EUDR reports, independent verification"
         />
-        <link rel="canonical" href="https://klisus.io" />
+        <link rel="canonical" href="https://klisus.com" />
 
         <meta property="og:title" content="Klisus — Satellite Proof for Every Land Claim" />
         <meta property="og:description" content={DESCRIPTION} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://klisus.io" />
+        <meta property="og:url" content="https://klisus.com" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Klisus — Satellite Proof for Every Land Claim" />

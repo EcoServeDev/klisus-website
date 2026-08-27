@@ -47,7 +47,7 @@ const Careers = () => {
           name="description" 
           content="Join Klisus and help build blockchain solutions for climate action. View open positions and apply to be part of our mission-driven team." 
         />
-        <link rel="canonical" href="https://klisus.io/careers" />
+        <link rel="canonical" href="https://klisus.com/careers" />
       </Helmet>
 
       <Layout>

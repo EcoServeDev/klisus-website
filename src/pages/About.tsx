@@ -44,7 +44,7 @@ const About = () => {
           name="description" 
           content="Learn about Klisus - pioneers in blockchain-powered climate solutions. Our mission is to drive sustainable futures through technology and expert consulting." 
         />
-        <link rel="canonical" href="https://klisus.io/about" />
+        <link rel="canonical" href="https://klisus.com/about" />
       </Helmet>
 
       <Layout>

@@ -88,7 +88,7 @@ const Products = () => {
           content="Explore Klisus blockchain products: tokenized carbon credits marketplace, farmer plantation support, forest MRV monitoring, and ESG dashboards." 
         />
         <meta name="keywords" content="blockchain carbon credits, sustainable forestation MRV, climate farmer incentives, carbon marketplace, ESG dashboard" />
-        <link rel="canonical" href="https://klisus.io/products" />
+        <link rel="canonical" href="https://klisus.com/products" />
       </Helmet>
 
       <Layout>

@@ -67,7 +67,7 @@ const Insights = () => {
           name="description" 
           content="Expert insights on blockchain carbon credits, MRV technology, sustainable agriculture, and ESG strategy from the Klisus team." 
         />
-        <link rel="canonical" href="https://klisus.io/insights" />
+        <link rel="canonical" href="https://klisus.com/insights" />
       </Helmet>
 
       <Layout>
