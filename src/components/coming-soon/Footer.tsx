@@ -47,10 +47,10 @@ export function Footer() {
         {/* Countdown */}
         <div className="mb-14 text-center">
           <div className="mb-3.5 text-[11px] uppercase tracking-[0.28em] text-[#6f6f6f]">
-            Launching
+            Free land checker
           </div>
           <div className="text-[clamp(28px,4vw,44px)] font-medium tracking-[-0.01em] text-white">
-            <span className="text-[#A8D5A8]">Q2</span> 2026
+            Live <span className="text-[#A8D5A8]">14 Sep</span> 2026
           </div>
         </div>
 

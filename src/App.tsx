@@ -6,8 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import Products from "./pages/Products";
-import Consulting from "./pages/Consulting";
+import ComingSoon from "./pages/ComingSoon";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import Insights from "./pages/Insights";
@@ -25,8 +24,13 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/consulting" element={<Consulting />} />
+            {/* /products and /consulting are unpublished during the pivot to
+                independent satellite verification — they described the old
+                tokenization story and intentionally 404. */}
+            <Route path="/land-checker" element={<ComingSoon />} />
+            <Route path="/reports" element={<ComingSoon />} />
+            <Route path="/methodology" element={<ComingSoon />} />
+            <Route path="/research" element={<ComingSoon />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/insights" element={<Insights />} />
