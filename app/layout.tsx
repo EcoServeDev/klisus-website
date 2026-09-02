@@ -26,6 +26,8 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://klisus.com"),
+  // Self-referencing canonical per route (resolved against metadataBase).
+  alternates: { canonical: "./" },
   title: {
     default: "KliSus — Climate Intelligence & Economics",
     template: "%s — KliSus",
@@ -56,8 +58,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-md focus:bg-ndvi-green focus:px-4 focus:py-2 focus:text-forest-black"
+        >
+          Skip to content
+        </a>
         <SiteNav />
-        <main className="flex-1">{children}</main>
+        <main id="main" className="flex-1">{children}</main>
         <SiteFooter />
       </body>
     </html>

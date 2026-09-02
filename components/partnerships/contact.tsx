@@ -18,6 +18,7 @@ export default function Contact() {
         <div className="animate-fade-up rounded-sm border border-line bg-surface-1">
           <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
             <div>
+              <h2 className="sr-only">Contact</h2>
               <Eyebrow n="04" className="mb-4">
                 CONTACT
               </Eyebrow>

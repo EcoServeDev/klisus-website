@@ -88,7 +88,7 @@ export default function EvidenceRecordMock({
       {cta ? (
         <>
           <div
-            className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-forest-black to-transparent"
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-forest-black to-transparent"
             aria-hidden="true"
           />
           <div className="absolute inset-x-0 bottom-6 flex justify-center">

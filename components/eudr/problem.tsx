@@ -24,6 +24,12 @@ export default function ProblemSection() {
           </p>
         </div>
         <FlowStrip className="mt-12" items={["Location", "History", "Evidence"]} />
+        <a
+          href="#how-it-works"
+          className="mt-8 inline-block px-2 py-1 text-[14px] text-ndvi-green underline underline-offset-4 transition-colors hover:text-cream"
+        >
+          See How It Works →
+        </a>
       </div>
     </section>
   );

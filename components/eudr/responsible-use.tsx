@@ -8,6 +8,7 @@ export default function ResponsibleUseSection() {
   return (
     <section className="paper-section bg-paper">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+        <h2 className="sr-only">Responsible use</h2>
         <Eyebrow n="06" paper className="mb-6">
           RESPONSIBLE USE
         </Eyebrow>

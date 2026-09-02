@@ -20,6 +20,7 @@ export default function Ecosystem() {
     <section className="border-t border-line">
       <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
         <div className="max-w-2xl">
+          <h2 className="sr-only">Institutional and ecosystem engagement</h2>
           <Eyebrow n="03" className="mb-4">
             INSTITUTIONAL &amp; ECOSYSTEM ENGAGEMENT
           </Eyebrow>

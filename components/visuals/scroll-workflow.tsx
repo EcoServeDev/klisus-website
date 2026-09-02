@@ -169,13 +169,11 @@ function SceneFrame({ children }: { children: React.ReactNode }) {
 export default function ScrollWorkflow() {
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [active, setActive] = useState(0);
-  const [reduced, setReduced] = useState(false);
 
+  // The reduced-motion/mobile layout is CSS-driven (motion-safe variants), so
+  // the server render is already correct; the observer is harmless when the
+  // sticky panel is display:none.
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setReduced(true);
-      return;
-    }
     const intersecting = new Set<number>();
     const observer = new IntersectionObserver(
       (entries) => {
@@ -204,16 +202,14 @@ export default function ScrollWorkflow() {
             ref={(el) => {
               stepRefs.current[i] = el;
             }}
-            className={`flex flex-col justify-center py-8 ${
-              reduced ? "" : "lg:min-h-[45vh]"
-            }`}
+            className="flex flex-col justify-center py-8 motion-safe:lg:min-h-[45vh]"
           >
             <WorkflowStep n={step.n} title={step.title} active={i === active}>
               {step.body}
             </WorkflowStep>
             {/* Inline scene: always on mobile; on desktop only when motion
                 is reduced (the sticky panel is not rendered then). */}
-            <div className={`mt-6 ${reduced ? "" : "lg:hidden"}`}>
+            <div className="mt-6 motion-safe:lg:hidden">
               <SceneFrame>
                 <Scene step={i} />
               </SceneFrame>
@@ -222,8 +218,8 @@ export default function ScrollWorkflow() {
         ))}
       </div>
 
-      {!reduced ? (
-        <div className="hidden lg:block">
+      {
+        <div className="hidden motion-safe:lg:block">
           <div
             className="sticky top-24 h-[70vh] overflow-hidden rounded-sm border border-line bg-surface-1"
             aria-hidden="true"
@@ -240,7 +236,7 @@ export default function ScrollWorkflow() {
             ))}
           </div>
         </div>
-      ) : null}
+      }
     </div>
   );
 }

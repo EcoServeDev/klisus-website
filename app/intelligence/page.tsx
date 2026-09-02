@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/button";
 import Card from "@/components/ui/card";
 import CTABand from "@/components/ui/cta-band";
 import Eyebrow from "@/components/ui/eyebrow";
@@ -101,8 +100,8 @@ export default function IntelligencePage() {
           <p className="mt-6 font-mono text-[12px] text-muted">
             {"Research & Insights · Date"}
           </p>
-          <span aria-disabled="true" className="mt-5 inline-block text-[14px] text-muted">
-            Read →
+          <span className="mt-5 inline-block text-[14px] text-muted">
+            Read →<span className="sr-only"> (coming soon)</span>
           </span>
         </Card>
         <div className="mt-10 flex flex-wrap items-end justify-between gap-4 border-t border-line pt-6">
@@ -140,13 +139,13 @@ export default function IntelligencePage() {
                   {channel.body}
                 </p>
                 {channel.soon ? (
-                  <span aria-disabled="true" className="mt-5 text-[14px] text-muted">
-                    Explore →
+                  <span className="mt-5 text-[14px] text-muted">
+                    Explore →<span className="sr-only"> (coming soon)</span>
                   </span>
                 ) : (
-                  <Button href="#" variant="ghost" className="mt-4 self-start">
-                    Read on Substack →
-                  </Button>
+                  <span className="mt-5 text-[14px] text-muted">
+                    Read on Substack →<span className="sr-only"> (coming soon)</span>
+                  </span>
                 )}
               </Card>
             ))}
@@ -158,8 +157,8 @@ export default function IntelligencePage() {
       <CTABand
         title="Stay ahead of the change."
         lede="Explore the intelligence shaping climate, land, nature, and economics."
-        primary={{ label: "Read on Substack →", href: "#" }}
-        secondary={{ label: "Contact KliSus →", href: "mailto:teams@klisus.com" }}
+        primary={{ label: "Contact KliSus →", href: "mailto:teams@klisus.com" }}
+        secondary={{ label: "Explore EUDR Land Evidence →", href: "/solutions/eudr-land-evidence" }}
       />
     </>
   );

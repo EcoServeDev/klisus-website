@@ -63,6 +63,8 @@ export default function SiteNav() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const solutionsTriggerRef = useRef<HTMLButtonElement>(null);
+  const mobileTriggerRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setSolutionsOpen(false);
@@ -75,20 +77,42 @@ export default function SiteNav() {
       if (!dropdownRef.current?.contains(e.target as Node)) setSolutionsOpen(false);
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSolutionsOpen(false);
+      if (e.key === "Escape") {
+        setSolutionsOpen(false);
+        solutionsTriggerRef.current?.focus();
+      }
     };
+    const onFocusOut = (e: FocusEvent) => {
+      if (!dropdownRef.current?.contains(e.relatedTarget as Node)) setSolutionsOpen(false);
+    };
+    const panel = dropdownRef.current;
     document.addEventListener("mousedown", onDown);
     document.addEventListener("keydown", onKey);
+    panel?.addEventListener("focusout", onFocusOut);
     return () => {
       document.removeEventListener("mousedown", onDown);
       document.removeEventListener("keydown", onKey);
+      panel?.removeEventListener("focusout", onFocusOut);
     };
   }, [solutionsOpen]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    // Keep scroll-locked background content out of the tab order while the
+    // sheet is open (the sheet lives inside <header>, which stays live).
+    const inertTargets = document.querySelectorAll("main, footer");
+    for (const el of inertTargets) el.toggleAttribute("inert", mobileOpen);
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) {
+        setMobileOpen(false);
+        mobileTriggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      for (const el of inertTargets) el.removeAttribute("inert");
+      document.removeEventListener("keydown", onKey);
     };
   }, [mobileOpen]);
 
@@ -109,8 +133,8 @@ export default function SiteNav() {
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
+              ref={solutionsTriggerRef}
               aria-expanded={solutionsOpen}
-              aria-haspopup="menu"
               onClick={() => setSolutionsOpen((v) => !v)}
               className={`inline-flex items-center gap-1 text-[14px] transition-colors hover:text-cream ${
                 solutionsActive
@@ -129,15 +153,11 @@ export default function SiteNav() {
               </svg>
             </button>
             {solutionsOpen ? (
-              <div
-                role="menu"
-                className="absolute left-0 top-full mt-3 w-80 rounded-sm border border-line bg-surface-2 p-2 shadow-2xl"
-              >
+              <div className="absolute left-0 top-full mt-3 w-80 rounded-sm border border-line bg-surface-2 p-2 shadow-2xl">
                 {SOLUTIONS_ITEMS.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href as never}
-                    role="menuitem"
                     className="block rounded-sm p-3 transition-colors hover:bg-surface-1"
                   >
                     <span className="block text-[14px] font-medium text-cream">
@@ -150,7 +170,6 @@ export default function SiteNav() {
                 ))}
                 <Link
                   href="/solutions"
-                  role="menuitem"
                   className="block border-t border-line p-3 text-[12px] text-ndvi-green transition-colors hover:text-cream"
                 >
                   All solutions →
@@ -171,6 +190,7 @@ export default function SiteNav() {
         {/* Mobile trigger */}
         <button
           type="button"
+          ref={mobileTriggerRef}
           className="p-2 text-cream md:hidden"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}

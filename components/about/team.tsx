@@ -38,7 +38,7 @@ function PhotoPlaceholder() {
         <circle cx="48" cy="34" r="14" />
         <path d="M20 82c0-15.5 12.5-26 28-26s28 10.5 28 26" />
       </svg>
-      <span className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.08em] text-muted/60">
+      <span className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.08em] text-muted">
         [PHOTO]
       </span>
     </div>

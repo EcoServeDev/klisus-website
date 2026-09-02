@@ -5,7 +5,8 @@ import Link from "next/link";
  * content doc — do not edit), then the baseline row.
  */
 
-const COLUMNS: { title: string; links: { label: string; href: string; external?: boolean }[] }[] = [
+// href: null renders a non-interactive "soon" entry — never a dead "#" link.
+const COLUMNS: { title: string; links: { label: string; href: string | null; external?: boolean }[] }[] = [
   {
     title: "Solutions",
     links: [
@@ -25,7 +26,7 @@ const COLUMNS: { title: string; links: { label: string; href: string; external?:
   {
     title: "Connect",
     links: [
-      { label: "Substack", href: "#" },
+      { label: "Substack", href: null },
       { label: "X", href: "https://x.com/Klisus_io", external: true },
       { label: "LinkedIn", href: "https://www.linkedin.com/company/klisus/", external: true },
     ],
@@ -63,7 +64,14 @@ export default function SiteFooter() {
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    {link.external ? (
+                    {link.href === null ? (
+                      <span className="text-[14px] text-muted">
+                        {link.label}{" "}
+                        <span className="font-mono text-[11px] uppercase tracking-[0.08em]">
+                          · soon
+                        </span>
+                      </span>
+                    ) : link.external ? (
                       <a
                         href={link.href}
                         target="_blank"

@@ -10,7 +10,8 @@ const GRID = [8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96];
 
 export default function HeroPlate({ className = "" }: { className?: string }) {
   return (
-    <div className={`absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
+    <div className={`absolute inset-0 overflow-hidden ${className}`}>
+      <div className="absolute inset-0" aria-hidden="true">
       {/* (a) imagery plate */}
       <Image
         src="/hero-plate.jpg"
@@ -21,8 +22,9 @@ export default function HeroPlate({ className = "" }: { className?: string }) {
         className="object-cover"
       />
 
-      {/* (b) scrim */}
+      {/* (b) scrim + readability gradient behind the text column */}
       <div className="absolute inset-0 bg-forest-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-forest-black/80 via-forest-black/30 to-transparent" />
 
       {/* (c) coordinate grid + labels */}
       <svg className="absolute inset-0 h-full w-full">
@@ -110,8 +112,10 @@ export default function HeroPlate({ className = "" }: { className?: string }) {
         />
       </svg>
 
-      {/* attribution */}
-      <p className="absolute bottom-3 right-4 font-mono text-[10px] text-cream/40">
+      </div>
+
+      {/* attribution — a license-required notice: readable, visible to AT */}
+      <p className="absolute bottom-3 right-4 rounded-sm bg-forest-black/60 px-2 py-0.5 font-mono text-[10px] text-cream/75">
         Contains modified Copernicus Sentinel data (2026)
       </p>
     </div>

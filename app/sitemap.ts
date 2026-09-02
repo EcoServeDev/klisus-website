@@ -3,10 +3,8 @@ import type { MetadataRoute } from "next";
 // /plot-check/* is proxied to the product origin, which carries its own SEO —
 // excluded here deliberately.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const page = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({
     url: `https://klisus.com${path}`,
-    lastModified: now,
     changeFrequency: "weekly",
     priority,
   });
