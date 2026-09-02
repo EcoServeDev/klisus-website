@@ -5,7 +5,9 @@ import CTABand from "@/components/ui/cta-band";
 import IndexRow, { IndexList } from "@/components/ui/index-row";
 import SectionHeading from "@/components/ui/section-heading";
 import SectionRule from "@/components/ui/section-rule";
+import EvidencePlate from "@/components/visuals/evidence-plate";
 import EvidenceRecordMock from "@/components/visuals/evidence-record-mock";
+import { PLATES } from "@/lib/plates";
 
 export const metadata: Metadata = {
   title: "Solutions",
@@ -99,18 +101,27 @@ export default function SolutionsPage() {
             title="More intelligence. More solutions."
             lede="KliSus is building solutions across climate, land, nature, and environmental economics — turning complex environmental data into decision-ready intelligence."
           />
-          <IndexList className="mt-12 lg:col-span-12">
-            {GROWING_SOLUTIONS.map((s) => (
-              <IndexRow key={s.n} n={s.n} title={s.title}>
-                {s.body}
-              </IndexRow>
-            ))}
-          </IndexList>
-          <div className="mt-10 lg:col-span-12">
-            <Button href="/intelligence" variant="secondary">
-              Explore KliSus Intelligence →
-            </Button>
+          <div className="mt-12 lg:col-span-7">
+            <IndexList>
+              {GROWING_SOLUTIONS.map((s) => (
+                <IndexRow key={s.n} n={s.n} title={s.title}>
+                  {s.body}
+                </IndexRow>
+              ))}
+            </IndexList>
+            <div className="mt-10">
+              <Button href="/intelligence" variant="secondary">
+                Explore KliSus Intelligence →
+              </Button>
+            </div>
           </div>
+          {/* Real analytical figure: vegetation-index change at the Jharkhand
+              example site — ink only where greenness changed. */}
+          <EvidencePlate
+            plate={PLATES["jharkhand-ndvi-delta"]}
+            n="01"
+            className="mt-12 lg:col-span-4 lg:col-start-9"
+          />
         </div>
       </section>
 

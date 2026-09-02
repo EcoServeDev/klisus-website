@@ -1,5 +1,7 @@
 import CornerTicks from "@/components/ui/corner-ticks";
 import SectionRule from "@/components/ui/section-rule";
+import EvidencePlate from "@/components/visuals/evidence-plate";
+import { PLATES } from "@/lib/plates";
 
 /**
  * 06 — RESPONSIBLE USE. The page's single paper event, set as a dossier
@@ -16,6 +18,7 @@ export default function ResponsibleUseSection() {
         srTitle="Responsible use"
       />
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-24">
+        <EvidencePlate plate={PLATES["nyeri-tc"]} n="06" className="mb-10" />
         <div className="relative py-8">
           <CornerTicks />
           <div className="mx-auto max-w-[68ch] space-y-5 px-6 text-[16px] leading-[1.7] sm:px-10">

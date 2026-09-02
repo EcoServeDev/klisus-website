@@ -3,6 +3,7 @@ import CTABand from "@/components/ui/cta-band";
 import EudrHero from "@/components/eudr/hero";
 import ProblemSection from "@/components/eudr/problem";
 import ApproachSection from "@/components/eudr/approach";
+import ChangeEvidenceSection from "@/components/eudr/change-evidence";
 import ReceiveSection from "@/components/eudr/receive";
 import OutputsSection from "@/components/eudr/outputs";
 import WhySection from "@/components/eudr/why";
@@ -19,6 +20,7 @@ export default function EUDRLandEvidencePage() {
       <EudrHero />
       <ProblemSection />
       <ApproachSection />
+      <ChangeEvidenceSection />
       <ReceiveSection />
       <OutputsSection />
       <WhySection />

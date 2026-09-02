@@ -1,11 +1,10 @@
 import Button from "@/components/ui/button";
 import SectionHeading from "@/components/ui/section-heading";
 import SectionRule from "@/components/ui/section-rule";
-import FlowStrip from "@/components/visuals/flow-strip";
 
 /**
- * 03 — EUDR LAND EVIDENCE. Ruled opener; copy in the left columns, the
- * vertical coordinates→evidence flow hanging in the right columns.
+ * 03 — EUDR LAND EVIDENCE. Ruled opener; copy in the left columns, a quiet
+ * pointer to the change timeline on the product page in the right columns.
  */
 export default function EudrSolution() {
   return (
@@ -24,19 +23,19 @@ export default function EudrSolution() {
               </Button>
             </div>
           </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <FlowStrip
-              direction="vertical"
-              items={[
-                "Coordinates",
-                "Geospatial Analysis",
-                "Land-Use Assessment",
-                "Structured Evidence",
-              ]}
-            />
-            <p className="mt-6 font-mono text-[13px] text-paper-muted">
-              From coordinates to traceable land evidence.
+          <div className="border-t border-paper-line pt-6 lg:col-span-5 lg:col-start-8">
+            <p className="voice-label">THE CHANGE TIMELINE</p>
+            <p className="mt-4 max-w-[44ch] text-[14px] leading-relaxed text-paper-muted">
+              Six years of the same nine kilometres of the Apuí frontier —
+              assessed frame by frame.
             </p>
+            <Button
+              href="/solutions/eudr-land-evidence#how-it-works"
+              variant="ghost"
+              className="mt-6 !px-0"
+            >
+              See the full change timeline →
+            </Button>
           </div>
         </div>
       </div>

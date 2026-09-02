@@ -1,7 +1,7 @@
 import IndexRow, { IndexList } from "@/components/ui/index-row";
 import SectionHeading from "@/components/ui/section-heading";
 import SectionRule from "@/components/ui/section-rule";
-import ScrollWorkflow from "@/components/visuals/scroll-workflow";
+import ChangeTimeline from "@/components/visuals/change-timeline";
 
 const STEPS = [
   {
@@ -49,9 +49,11 @@ export default function ApproachSection() {
           </IndexList>
         </div>
       </section>
+      {/* No overflow-hidden on this section or its wrapper — the timeline's
+          sticky stage depends on it. */}
       <section aria-label="How an assessment progresses" className="border-t border-paper-line">
-        <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-          <ScrollWorkflow />
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <ChangeTimeline />
         </div>
       </section>
     </>
