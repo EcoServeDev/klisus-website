@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   KliSus marketing tokens.
+   Dark ground inherits the product palette verbatim (klisus/packages/ui) so
+   the hand-off into klisus.com/plot-check never feels like leaving the brand.
+   The paper layer is the product's PDF report palette — editorial sections
+   literally look like KliSus evidence documents.
+--------------------------------------------------------------------------- */
+:root {
+  /* ground (dark) */
+  --forest-black: #0d1512;
+  --surface-1: #131c18;
+  --surface-2: #1a2620;
+  --line: #2a362f;
+  --cream: #ede7da;
+  --muted: #9a937f;
+
+  /* accent + signal — semantic only, used sparingly */
+  --ndvi-green: #4ba36a;
+  --review-amber: #c9a227;
+  --risk-rust: #b4552d; /* borders/chips/>=18px text only (AA limit) */
+  --risk-rust-text: #d4764a; /* body-size rust text on dark */
+
+  /* paper layer (light editorial sections, report mock) */
+  --paper: #fdfcf8;
+  --ink: #0d1512;
+  --paper-muted: #5c5346;
+  --paper-surface: #f5f1e6;
+  --paper-line: #e2dccf;
+}
+
+@theme inline {
+  --color-forest-black: var(--forest-black);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+  --color-ndvi-green: var(--ndvi-green);
+  --color-review-amber: var(--review-amber);
+  --color-risk-rust: var(--risk-rust);
+  --color-risk-rust-text: var(--risk-rust-text);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-paper-muted: var(--paper-muted);
+  --color-paper-surface: var(--paper-surface);
+  --color-paper-line: var(--paper-line);
+
+  /* Three voices: Inter for UI/body, Newsreader for editorial headlines,
+     IBM Plex Mono for the data voice (coordinates, eyebrows, tags). */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-newsreader);
+  --font-mono: var(--font-plex-mono);
+}
+
+@layer base {
+  body {
+    background: var(--forest-black);
+    color: var(--cream);
+  }
+
+  /* Editorial voice: Newsreader at weight 500, tight tracking. */
+  .font-display {
+    letter-spacing: -0.015em;
+    font-weight: 500;
+  }
+
+  /* Data voice: "this is measured, not marketed." */
+  .font-mono {
+    letter-spacing: 0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ndvi-green);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Eyebrow signature — 11px mono uppercase, wide tracked. */
+  .eyebrow {
+    font-family: var(--font-plex-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .paper-section .eyebrow,
+  .eyebrow-paper {
+    color: var(--paper-muted);
+  }
+
+  /* Tag/chip signature — PLOT-LEVEL, TRACEABLE, ... */
+  .tag {
+    font-family: var(--font-plex-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 2px 8px;
+  }
+}
+
+/* Motion: one entrance per element, guarded. Nothing loops, nothing floats. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+  .stagger > * {
+    animation: fade-up 0.5s ease-out both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  @keyframes draw-stroke {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  .animate-draw {
+    animation: draw-stroke 0.6s ease-out 0.3s both;
+  }
+  @keyframes pulse-once {
+    0% {
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.6;
+    }
+  }
+  .animate-pulse-once {
+    animation: pulse-once 1.2s ease-out both;
+  }
+}
