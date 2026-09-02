@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import AboutHero from "@/components/about/hero";
+import WhyWeExist from "@/components/about/why-we-exist";
+import Team from "@/components/about/team";
+import CTABand from "@/components/ui/cta-band";
 
 export const metadata: Metadata = {
   title: "About",
@@ -7,9 +11,16 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
-      <h1 className="font-display text-[40px] text-cream">About</h1>
-      <p className="mt-4 text-muted">Placeholder — built in Phase B.</p>
-    </section>
+    <>
+      <AboutHero />
+      <WhyWeExist />
+      <Team />
+      <CTABand
+        title="Better intelligence. Better decisions."
+        lede="KliSus is building the intelligence layer for a world where environmental change increasingly shapes economic decisions."
+        primary={{ label: "Explore Our Solutions →", href: "/solutions" }}
+        secondary={{ label: "Explore KliSus Intelligence →", href: "/intelligence" }}
+      />
+    </>
   );
 }

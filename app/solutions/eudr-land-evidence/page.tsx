@@ -1,4 +1,12 @@
 import type { Metadata } from "next";
+import CTABand from "@/components/ui/cta-band";
+import EudrHero from "@/components/eudr/hero";
+import ProblemSection from "@/components/eudr/problem";
+import ApproachSection from "@/components/eudr/approach";
+import ReceiveSection from "@/components/eudr/receive";
+import OutputsSection from "@/components/eudr/outputs";
+import WhySection from "@/components/eudr/why";
+import ResponsibleUseSection from "@/components/eudr/responsible-use";
 
 export const metadata: Metadata = {
   title: "EUDR Land Evidence",
@@ -7,9 +15,20 @@ export const metadata: Metadata = {
 
 export default function EUDRLandEvidencePage() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
-      <h1 className="font-display text-[40px] text-cream">EUDR Land Evidence</h1>
-      <p className="mt-4 text-muted">Placeholder — built in Phase B.</p>
-    </section>
+    <>
+      <EudrHero />
+      <ProblemSection />
+      <ApproachSection />
+      <ReceiveSection />
+      <OutputsSection />
+      <WhySection />
+      <ResponsibleUseSection />
+      <CTABand
+        title="Know the land behind your supply chain."
+        lede="Start your EUDR land evidence assessment with KliSus."
+        primary={{ label: "Request a Plot Assessment →", href: "/plot-check" }}
+        secondary={{ label: "Contact KliSus →", href: "mailto:teams@klisus.com" }}
+      />
+    </>
   );
 }

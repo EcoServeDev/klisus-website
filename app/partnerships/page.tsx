@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import PartnershipsHero from "@/components/partnerships/hero";
+import WhyPartner from "@/components/partnerships/why-partner";
+import WhomWeServe from "@/components/partnerships/whom-we-serve";
+import Ecosystem from "@/components/partnerships/ecosystem";
+import Contact from "@/components/partnerships/contact";
+import Closing from "@/components/partnerships/closing";
 
 export const metadata: Metadata = {
   title: "Partnerships",
@@ -7,9 +13,13 @@ export const metadata: Metadata = {
 
 export default function PartnershipsPage() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
-      <h1 className="font-display text-[40px] text-cream">Partnerships</h1>
-      <p className="mt-4 text-muted">Placeholder — built in Phase B.</p>
-    </section>
+    <>
+      <PartnershipsHero />
+      <WhyPartner />
+      <WhomWeServe />
+      <Ecosystem />
+      <Contact />
+      <Closing />
+    </>
   );
 }
