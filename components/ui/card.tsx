@@ -1,4 +1,7 @@
-/** Quiet hairline card. Hover shifts the border only — nothing moves. */
+/**
+ * Squared hairline container — reserved for depicted document objects and
+ * figures. Not for enumerable content (use IndexRow), no hover on statics.
+ */
 export default function Card({
   children,
   paper = false,
@@ -13,10 +16,8 @@ export default function Card({
   return (
     <div
       style={style}
-      className={`rounded-sm border p-6 transition-colors ${
-        paper
-          ? "border-paper-line bg-paper-surface"
-          : "border-line bg-surface-1 hover:border-ndvi-green/40"
+      className={`rounded-[2px] border p-6 ${
+        paper ? "border-paper-line bg-paper-surface" : "border-line bg-surface-1"
       } ${className}`}
     >
       {children}

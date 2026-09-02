@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   KliSus marketing tokens.
+   KliSus marketing tokens — "the survey dossier".
    Dark ground inherits the product palette verbatim (klisus/packages/ui) so
    the hand-off into klisus.com/plot-check never feels like leaving the brand.
    The paper layer is the product's PDF report palette — editorial sections
-   literally look like KliSus evidence documents.
+   are set as actual dossier pages.
 --------------------------------------------------------------------------- */
 :root {
   /* ground (dark) */
@@ -22,7 +22,7 @@
   --risk-rust: #b4552d; /* borders/chips/>=18px text only (AA limit) */
   --risk-rust-text: #d4764a; /* body-size rust text on dark */
 
-  /* paper layer (light editorial sections, report mock) */
+  /* paper layer (dossier spreads, report mock) */
   --paper: #fdfcf8;
   --ink: #0d1512;
   --paper-muted: #5c5346;
@@ -47,28 +47,52 @@
   --color-paper-surface: var(--paper-surface);
   --color-paper-line: var(--paper-line);
 
-  /* Three voices: Inter for UI/body, Newsreader for editorial headlines,
-     IBM Plex Mono for the data voice (coordinates, eyebrows, tags). */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-newsreader);
-  --font-mono: var(--font-plex-mono);
+  /* Two families, three voices: Archivo carries display (wdth 125) AND
+     body (wdth 100); Fragment Mono is everything measured. */
+  --font-sans: var(--font-archivo);
+  --font-mono: var(--font-fragment);
 }
 
 @layer base {
   body {
     background: var(--forest-black);
     color: var(--cream);
+    font-variation-settings: "wdth" 100;
   }
 
-  /* Editorial voice: Newsreader at weight 500, tight tracking. */
+  /* Display voice: wide, heavy, tight — the dossier headline. */
   .font-display {
-    letter-spacing: -0.015em;
-    font-weight: 500;
+    font-family: var(--font-archivo);
+    font-variation-settings: "wdth" 125;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    line-height: 0.98;
   }
 
-  /* Data voice: "this is measured, not marketed." */
+  /* Lede voice: light and large — where editorial warmth lives now. */
+  .voice-lede {
+    font-family: var(--font-archivo);
+    font-variation-settings: "wdth" 100;
+    font-weight: 300;
+    line-height: 1.35;
+  }
+
+  /* Label voice: the running label / eyebrow replacement. */
+  .voice-label {
+    font-family: var(--font-fragment);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .paper-section .voice-label,
+  .voice-label-paper {
+    color: var(--paper-muted);
+  }
+
+  /* Data voice: Fragment Mono is naturally wide — no extra tracking. */
   .font-mono {
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
   }
 
   :focus-visible {
@@ -78,29 +102,17 @@
 }
 
 @layer components {
-  /* Eyebrow signature — 11px mono uppercase, wide tracked. */
-  .eyebrow {
-    font-family: var(--font-plex-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--muted);
+  /* Dot leader — the term…value connector in ledgers. */
+  .dot-leader {
+    margin-inline: 0.75rem;
+    flex: 1 1 0%;
+    align-self: flex-end;
+    border-bottom: 1px dotted var(--line);
+    transform: translateY(-0.3em);
   }
-  .paper-section .eyebrow,
-  .eyebrow-paper {
-    color: var(--paper-muted);
-  }
-
-  /* Tag/chip signature — PLOT-LEVEL, TRACEABLE, ... */
-  .tag {
-    font-family: var(--font-plex-mono);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    border: 1px solid var(--line);
-    border-radius: 2px;
-    padding: 2px 8px;
+  .paper-section .dot-leader,
+  .dot-leader-paper {
+    border-bottom-color: var(--paper-line);
   }
 }
 
@@ -122,6 +134,15 @@
   .stagger > * {
     animation: fade-up 0.5s ease-out both;
     animation-delay: calc(var(--i, 0) * 60ms);
+  }
+  @keyframes rule-in {
+    from {
+      transform: scaleX(0);
+    }
+  }
+  .animate-rule {
+    transform-origin: left;
+    animation: rule-in 0.6s ease-out both;
   }
   @keyframes draw-stroke {
     to {

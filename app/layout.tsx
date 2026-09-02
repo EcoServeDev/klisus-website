@@ -1,26 +1,23 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Newsreader } from "next/font/google";
+import { Archivo, Fragment_Mono } from "next/font/google";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// The dossier voices: Archivo variable (the width axis carries the display
+// voice — Expanded ~125 for headlines, normal width for body) and Fragment
+// Mono for everything measured (coordinates, numerals, labels, wordmark).
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const fragmentMono = Fragment_Mono({
+  variable: "--font-fragment",
   subsets: ["latin"],
-  weight: ["500"],
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: "400",
   display: "swap",
 });
 
@@ -51,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${newsreader.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${archivo.variable} ${fragmentMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <script

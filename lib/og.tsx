@@ -1,7 +1,7 @@
 /**
- * Shared OG card (Satori): the product's report-card pattern adapted for the
- * marketing site. 1200×630, forest-black ground, eyebrow / headline / footer.
- * Inter-only — Satori needs static TTFs (assets/, traced via next.config).
+ * Shared OG card (Satori) in the dossier voices: Archivo Expanded (static
+ * wdth-125/wght-650 instance) for the headline, Fragment Mono for labels.
+ * 1200×630, forest-black ground, ruled footer.
  */
 
 import { ImageResponse } from "next/og";
@@ -15,9 +15,10 @@ async function font(file: string) {
 }
 
 export async function ogCard({ title, subtitle }: { title: string; subtitle?: string }) {
-  const [regular, semibold] = await Promise.all([
-    font("Inter-Regular.ttf"),
-    font("Inter-SemiBold.ttf"),
+  const [display, body, mono] = await Promise.all([
+    font("ArchivoExpanded-SemiBold.ttf"),
+    font("Archivo-Regular.ttf"),
+    font("FragmentMono-Regular.ttf"),
   ]);
 
   return new ImageResponse(
@@ -32,33 +33,39 @@ export async function ogCard({ title, subtitle }: { title: string; subtitle?: st
           padding: "64px 72px",
           backgroundColor: "#0D1512",
           color: "#EDE7DA",
-          fontFamily: "Inter",
+          fontFamily: "Archivo",
         }}
       >
         <div
           style={{
-            fontSize: 28,
-            letterSpacing: "0.12em",
+            display: "flex",
+            justifyContent: "space-between",
+            fontFamily: "Fragment Mono",
+            fontSize: 24,
+            letterSpacing: "0.08em",
             textTransform: "uppercase",
             color: "#9A937F",
+            borderBottom: "1px solid #2A362F",
+            paddingBottom: 24,
           }}
         >
-          KliSus · Climate Intelligence &amp; Economics
+          <span>KliSus / Climate Intelligence &amp; Economics</span>
+          <span>25.2048° N, 55.2708° E</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 56,
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.15,
-              maxWidth: 980,
+              fontFamily: "Archivo Expanded",
+              fontSize: 58,
+              letterSpacing: "-0.01em",
+              lineHeight: 1.05,
+              maxWidth: 1020,
             }}
           >
             {title}
           </div>
           {subtitle ? (
-            <div style={{ fontSize: 28, color: "#9A937F", maxWidth: 900, lineHeight: 1.4 }}>
+            <div style={{ fontSize: 26, color: "#9A937F", maxWidth: 880, lineHeight: 1.4 }}>
               {subtitle}
             </div>
           ) : null}
@@ -69,23 +76,25 @@ export async function ogCard({ title, subtitle }: { title: string; subtitle?: st
             justifyContent: "space-between",
             alignItems: "center",
             borderTop: "1px solid #2A362F",
-            paddingTop: 28,
-            fontSize: 22,
+            paddingTop: 24,
+            fontFamily: "Fragment Mono",
+            fontSize: 20,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             color: "#9A937F",
           }}
         >
           <span>klisus.com</span>
-          <span style={{ color: "#4BA36A" }}>Evidence for decisions</span>
+          <span style={{ color: "#4BA36A" }}>[ Evidence for decisions ]</span>
         </div>
       </div>
     ),
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Inter", data: regular, weight: 400 as const, style: "normal" as const },
-        { name: "Inter", data: semibold, weight: 600 as const, style: "normal" as const },
+        { name: "Archivo Expanded", data: display, weight: 600 as const, style: "normal" as const },
+        { name: "Archivo", data: body, weight: 400 as const, style: "normal" as const },
+        { name: "Fragment Mono", data: mono, weight: 400 as const, style: "normal" as const },
       ],
     },
   );

@@ -1,13 +1,11 @@
-/** Chip signature: PLOT-LEVEL, TRACEABLE, REVIEW REQUIRED, ... */
+/**
+ * TEMPORARY SHIM — the pill chip is retired; Tag now renders BracketLabel so
+ * un-migrated call sites keep building. Migrate imports to
+ * `@/components/ui/bracket-label`, then delete this file.
+ */
+import BracketLabel from "@/components/ui/bracket-label";
 
 type Tone = "neutral" | "green" | "amber" | "paper";
-
-const TONES: Record<Tone, string> = {
-  neutral: "border-line text-muted",
-  green: "border-ndvi-green/50 bg-ndvi-green/10 text-ndvi-green",
-  amber: "border-review-amber/50 bg-review-amber/10 text-review-amber",
-  paper: "border-paper-line text-paper-muted",
-};
 
 export default function Tag({
   children,
@@ -18,5 +16,9 @@ export default function Tag({
   tone?: Tone;
   className?: string;
 }) {
-  return <span className={`tag ${TONES[tone]} ${className}`}>{children}</span>;
+  return (
+    <BracketLabel tone={tone} className={className}>
+      {children}
+    </BracketLabel>
+  );
 }

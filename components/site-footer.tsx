@@ -46,10 +46,10 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-mono text-[13px] font-bold uppercase tracking-[0.18em] text-cream">
+            <p className="font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
               KliSus
             </p>
-            <p className="eyebrow mt-2">Climate Intelligence &amp; Economics</p>
+            <p className="voice-label mt-2">Climate Intelligence &amp; Economics</p>
             <p className="mt-4 font-mono text-[13px] text-muted">
               <a href="mailto:teams@klisus.com" className="transition-colors hover:text-cream">
                 teams@klisus.com
@@ -58,9 +58,9 @@ export default function SiteFooter() {
               Dubai, UAE
             </p>
           </div>
-          {COLUMNS.map((col) => (
+          {COLUMNS.map((col, ci) => (
             <div key={col.title}>
-              <p className="eyebrow mb-4">{col.title}</p>
+              <p className="voice-label mb-4">{`0${ci + 1} / ${col.title}`}</p>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -100,9 +100,9 @@ export default function SiteFooter() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <p className="eyebrow">KliSus · Climate Intelligence &amp; Economics</p>
-          <p className="font-mono text-[12px] text-muted">
-            © {new Date().getFullYear()} KliSus
+          <p className="voice-label">KliSus / Climate Intelligence &amp; Economics</p>
+          <p className="font-mono text-[11px] uppercase text-muted">
+            © {new Date().getFullYear()} · 25.2048° N, 55.2708° E — Dubai
           </p>
         </div>
       </div>

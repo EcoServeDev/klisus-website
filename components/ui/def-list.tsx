@@ -1,6 +1,6 @@
 /**
- * Report-contents table: mono terms, readable definitions, hairline rows.
- * Serves "What you receive", assessment-output states, and stat rows.
+ * Ledger rows: mono term … dot-leader … value. Stacks plain on mobile,
+ * keeps dl/dt/dd semantics. Serves the report mock and stat rows.
  */
 export default function DefList({
   rows,
@@ -13,24 +13,23 @@ export default function DefList({
 }) {
   return (
     <dl
-      className={`divide-y ${
-        paper ? "divide-paper-line" : "divide-line"
-      } ${className}`}
+      className={`divide-y ${paper ? "divide-paper-line" : "divide-line"} ${className}`}
     >
       {rows.map((row, i) => (
-        <div
-          key={i}
-          className="grid gap-1 py-3 sm:grid-cols-[minmax(11rem,14rem)_1fr] sm:gap-6"
-        >
+        <div key={i} className="py-3 sm:flex sm:items-baseline">
           <dt
-            className={`font-mono text-[13px] ${
+            className={`shrink-0 font-mono text-[13px] ${
               paper ? "text-ink" : "text-cream"
             }`}
           >
             {row.term}
           </dt>
+          <span
+            className={`dot-leader hidden sm:block ${paper ? "dot-leader-paper" : ""}`}
+            aria-hidden="true"
+          />
           <dd
-            className={`text-[14px] leading-relaxed ${
+            className={`mt-1 text-[14px] leading-relaxed sm:mt-0 sm:shrink-0 sm:text-right ${
               paper ? "text-paper-muted" : "text-muted"
             }`}
           >

@@ -1,6 +1,6 @@
 /**
- * Eyebrow signature: 11px mono uppercase, wide tracked. Optional section
- * numeral renders the content doc's "01 — HERO" rhythm on the page itself.
+ * Inline mono label. Section-level openers use <SectionRule> now — Eyebrow
+ * survives only for labels inside a composed block.
  */
 export default function Eyebrow({
   children,
@@ -14,8 +14,8 @@ export default function Eyebrow({
   className?: string;
 }) {
   return (
-    <p className={`eyebrow ${paper ? "eyebrow-paper" : ""} ${className}`}>
-      {n ? `${n} — ` : null}
+    <p className={`voice-label ${paper ? "voice-label-paper" : ""} ${className}`}>
+      {n ? `${n} / ` : null}
       {children}
     </p>
   );

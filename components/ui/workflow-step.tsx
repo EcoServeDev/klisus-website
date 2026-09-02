@@ -1,6 +1,6 @@
 /**
- * Numbered workflow step: mono numeral in green, left rail, quiet body.
- * `active` fills the rail (used by the scroll-linked EUDR workflow).
+ * Numbered workflow step: mono numeral, left rail that fills green when
+ * active (used by the scroll-linked EUDR workflow).
  */
 export default function WorkflowStep({
   n,
@@ -19,10 +19,14 @@ export default function WorkflowStep({
         active ? "border-ndvi-green" : "border-line"
       }`}
     >
-      <p className="font-mono text-[12px] text-ndvi-green">{n}</p>
-      <h3 className="mt-1 text-[20px] font-medium text-cream">{title}</h3>
+      <p className={`font-mono text-[20px] ${active ? "text-ndvi-green" : "text-muted"}`}>
+        {n}
+      </p>
+      <h3 className="mt-2 text-[20px] font-medium text-cream">{title}</h3>
       {children ? (
-        <p className="mt-2 text-[14px] leading-relaxed text-muted">{children}</p>
+        <p className="mt-2 max-w-[52ch] text-[14px] leading-relaxed text-muted">
+          {children}
+        </p>
       ) : null}
     </div>
   );
