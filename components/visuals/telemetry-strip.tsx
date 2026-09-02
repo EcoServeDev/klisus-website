@@ -22,9 +22,14 @@ export default function TelemetryStrip({
   return (
     <div className="relative border-t border-line bg-forest-black/70 backdrop-blur-sm">
       <div className="mx-auto w-full max-w-6xl px-6">
-        <div className="grid grid-cols-2 divide-x divide-line border-x border-line md:grid-cols-4">
-          {fields.map((field) => (
-            <div key={field.label} className="border-t-0 px-4 py-3">
+        <div className="grid grid-cols-2 border-x border-line md:grid-cols-4">
+          {fields.map((field, i) => (
+            <div
+              key={field.label}
+              className={`border-line px-4 py-3 ${i % 2 === 1 ? "border-l" : ""} ${
+                i >= 2 ? "border-t" : ""
+              } md:border-t-0 ${i > 0 ? "md:border-l" : "md:border-l-0"}`}
+            >
               <p className="font-mono text-[10px] uppercase tracking-[0.08em] text-muted">
                 {field.label}
               </p>

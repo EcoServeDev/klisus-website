@@ -1,22 +1,30 @@
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 
 export default function NotFound() {
   return (
-    <section className="mx-auto flex max-w-4xl flex-col items-start gap-6 px-6 py-32">
-      <Eyebrow>404 — Not found</Eyebrow>
-      <h1 className="font-display text-[28px] leading-[1.15] text-cream sm:text-[40px]">
-        This page is outside the assessed area.
-      </h1>
-      <p className="max-w-[60ch] text-[16px] text-muted">
-        The page you are looking for does not exist or has moved.
-      </p>
-      <div className="mt-2 flex flex-wrap gap-4">
-        <Button href="/">Back to home</Button>
-        <Button href="/plot-check" variant="secondary">
-          Open the Plot Check tool →
-        </Button>
+    <>
+      <div className="border-t border-line">
+        <div className="mx-auto flex h-10 max-w-6xl items-center justify-between px-6">
+          <span className="voice-label">404 / NOT FOUND</span>
+          <span className="voice-label hidden sm:block">NO FIX</span>
+        </div>
       </div>
-    </section>
+      <section className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-28 pt-10 lg:grid-cols-12">
+        <div className="lg:col-span-9">
+          <h1 className="font-display max-w-[16ch] text-[36px] text-cream sm:text-[44px] lg:text-[64px]">
+            This page is outside the assessed area.
+          </h1>
+          <p className="mt-6 max-w-[52ch] text-[16px] leading-relaxed text-muted">
+            The page you are looking for does not exist or has moved.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <Button href="/">Back to home</Button>
+            <Button href="/plot-check" variant="secondary">
+              Open the Plot Check tool →
+            </Button>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

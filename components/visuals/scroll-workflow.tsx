@@ -146,9 +146,9 @@ function Scene({ step }: { step: number }) {
             <>
               <YearTicker />
               <div className="flex gap-2" aria-hidden="true">
-                <div className="h-10 w-14 rounded-sm border border-line bg-ndvi-green/20" />
-                <div className="h-10 w-14 rounded-sm border border-line bg-ndvi-green/40" />
-                <div className="h-10 w-14 rounded-sm border border-line bg-ndvi-green/70" />
+                <div className="h-10 w-14 rounded-[2px] border border-line bg-ndvi-green/20" />
+                <div className="h-10 w-14 rounded-[2px] border border-line bg-ndvi-green/40" />
+                <div className="h-10 w-14 rounded-[2px] border border-line bg-ndvi-green/70" />
               </div>
             </>
           ) : null}
@@ -251,8 +251,8 @@ export default function ScrollWorkflow() {
                   <Scene step={i} />
                 </div>
               ))}
+              <CornerTicks />
             </div>
-            <CornerTicks />
           </div>
         </div>
       }

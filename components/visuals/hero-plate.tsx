@@ -115,7 +115,7 @@ export default function HeroPlate({ className = "" }: { className?: string }) {
       </div>
 
       {/* attribution — a license-required notice: readable, visible to AT */}
-      <p className="absolute bottom-3 right-4 rounded-sm bg-forest-black/60 px-2 py-0.5 font-mono text-[10px] text-cream/75">
+      <p className="absolute bottom-3 right-4 rounded-[2px] bg-forest-black/60 px-2 py-0.5 font-mono text-[10px] text-cream/75">
         Contains modified Copernicus Sentinel data (2026)
       </p>
     </div>

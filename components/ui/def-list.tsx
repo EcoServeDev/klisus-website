@@ -29,7 +29,7 @@ export default function DefList({
             aria-hidden="true"
           />
           <dd
-            className={`mt-1 text-[14px] leading-relaxed sm:mt-0 sm:shrink-0 sm:text-right ${
+            className={`mt-1 min-w-0 text-[14px] leading-relaxed sm:mt-0 sm:max-w-[55%] sm:text-right ${
               paper ? "text-paper-muted" : "text-muted"
             }`}
           >

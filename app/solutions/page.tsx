@@ -42,7 +42,7 @@ export default function SolutionsPage() {
         </div>
         <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-16 pt-8 sm:pb-20 lg:grid-cols-12">
           <div className="animate-fade-up lg:col-span-10">
-            <h1 className="font-display max-w-[14ch] text-[44px] text-cream md:text-[56px] lg:text-[72px]">
+            <h1 className="font-display max-w-[14ch] text-[36px] text-cream sm:text-[44px] md:text-[56px] lg:text-[72px]">
               Environmental intelligence, built for decisions.
             </h1>
             <p className="voice-lede mt-8 max-w-[44ch] text-[20px] text-muted md:text-[26px]">

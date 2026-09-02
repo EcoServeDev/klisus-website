@@ -14,7 +14,7 @@ export default function PartnershipsHero() {
       </div>
       <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-10 sm:pb-24 lg:grid-cols-12">
         <div className="animate-fade-up lg:col-span-10">
-          <h1 className="font-display max-w-[16ch] text-[44px] text-cream md:text-[56px] lg:text-[72px]">
+          <h1 className="font-display max-w-[16ch] text-[36px] text-cream sm:text-[44px] md:text-[56px] lg:text-[72px]">
             Build better environmental intelligence together.
           </h1>
           <p className="mt-8 max-w-[52ch] text-[16px] leading-relaxed text-muted">
