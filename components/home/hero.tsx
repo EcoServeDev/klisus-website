@@ -1,11 +1,9 @@
 import Button from "@/components/ui/button";
 import HeroPlate from "@/components/visuals/hero-plate";
-import TelemetryStrip from "@/components/visuals/telemetry-strip";
 
 /**
  * 01 — HERO. Type-led dossier opening: the headline pinned lower-left at max
- * scale over the satellite plate, pass marginalia top-right, and the
- * telemetry strip closing the frame at the bottom edge.
+ * scale over the satellite plate, pass marginalia top-right.
  */
 export default function Hero() {
   return (
@@ -23,7 +21,7 @@ export default function Hero() {
         </p>
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-10">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 lg:pb-20">
         <p className="voice-label animate-fade-up">
           SURVEY / CLIMATE INTELLIGENCE &amp; ECONOMICS
         </p>
@@ -45,16 +43,6 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-
-      <TelemetryStrip
-        fields={[
-          { label: "Production Plot", value: "17.4521° N, 78.3845° E" },
-          { label: "Analysis Period", value: "31 Dec 2020 → Present" },
-          { label: "Observed Land Change", bracket: { text: "REVIEW REQUIRED", tone: "amber" } },
-          { label: "Evidence Record", bracket: { text: "GENERATED", tone: "green" } },
-        ]}
-        caption="Illustrative example — fictional coordinates"
-      />
     </section>
   );
 }
