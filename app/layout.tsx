@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Archivo, Fragment_Mono } from "next/font/google";
+import { Fragment_Mono, Schibsted_Grotesk } from "next/font/google";
 import SiteNav from "@/components/site-nav";
 import SiteFooter from "@/components/site-footer";
 import "./globals.css";
 
-// The dossier voices: Archivo variable (the width axis carries the display
-// voice — Expanded ~125 for headlines, normal width for body) and Fragment
-// Mono for everything measured (coordinates, numerals, labels, wordmark).
-const archivo = Archivo({
-  variable: "--font-archivo",
+// Two voices: Schibsted Grotesk carries display and body (humanist warmth
+// at scale); Fragment Mono is reserved for measured data — coordinates,
+// dates, figures.
+const schibsted = Schibsted_Grotesk({
+  variable: "--font-schibsted",
   subsets: ["latin"],
-  axes: ["wdth"],
   display: "swap",
 });
 
@@ -48,7 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${fragmentMono.variable} h-full antialiased`}
+      className={`${schibsted.variable} ${fragmentMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col font-sans">
         <script

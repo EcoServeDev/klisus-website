@@ -47,11 +47,11 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
-              <Image src="/klisus-logo.png" alt="" width={22} height={22} />
+            <p className="flex items-center gap-2.5 text-[19px] font-bold tracking-[-0.01em] text-cream">
+              <Image src="/klisus-logo.png" alt="" width={26} height={26} />
               KliSus
             </p>
-            <p className="voice-label mt-2">Climate Intelligence &amp; Economics</p>
+            <p className="mt-2 text-[14px] text-muted">Climate Intelligence &amp; Economics</p>
             <p className="mt-4 font-mono text-[13px] text-muted">
               <a href="mailto:teams@klisus.com" className="transition-colors hover:text-cream">
                 teams@klisus.com
@@ -62,7 +62,7 @@ export default function SiteFooter() {
           </div>
           {COLUMNS.map((col, ci) => (
             <div key={col.title}>
-              <p className="voice-label mb-4">{`0${ci + 1} / ${col.title}`}</p>
+              <p className="mb-4 text-[14px] font-semibold text-cream">{col.title}</p>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -102,10 +102,8 @@ export default function SiteFooter() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-          <p className="voice-label">KliSus / Climate Intelligence &amp; Economics</p>
-          <p className="font-mono text-[11px] uppercase text-muted">
-            © {new Date().getFullYear()} · 25.2048° N, 55.2708° E — Dubai
-          </p>
+          <p className="text-[13px] text-muted">© {new Date().getFullYear()} KliSus · Dubai, UAE</p>
+          <p className="font-mono text-[12px] text-muted">25.2048° N, 55.2708° E</p>
         </div>
       </div>
     </footer>

@@ -1,8 +1,7 @@
 /**
- * The dossier button: squared corners, plain verbs, quiet until hovered.
- * Light-context styling by default; `onDark` swaps secondary/ghost for the
- * dark plate bands (heroes, footer). Renders a Next <Link> when `href` is
- * given, a <button> otherwise.
+ * Enterprise button: rounded, confident. Filled green primary; quiet
+ * bordered secondary; `onDark` variants for dark bands and imagery.
+ * Renders a Next <Link> when `href` is given, a <button> otherwise.
  */
 
 import Link from "next/link";
@@ -12,34 +11,28 @@ type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-[2px] " +
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold " +
   "transition-colors disabled:cursor-not-allowed disabled:opacity-40";
 
 const SIZES: Record<Size, string> = {
-  md: "text-[15px]",
-  lg: "h-12 px-6 text-[16px]",
+  md: "px-5 py-2.5 text-[15px]",
+  lg: "h-13 px-7 py-3.5 text-[16px]",
 };
 
 const LIGHT: Record<Variant, string> = {
-  primary:
-    "bg-ndvi-green px-4 py-2.5 font-medium text-forest-black " +
-    "hover:bg-ndvi-green/85 active:bg-ndvi-green/75",
+  primary: "bg-green-ink text-paper hover:bg-[#245538] active:bg-[#1d472f]",
   secondary:
-    "border border-ink/30 bg-transparent px-4 py-2.5 text-ink " +
-    "hover:border-green-ink hover:text-green-ink",
-  ghost:
-    "px-2 py-1 font-mono text-[13px] text-ink underline underline-offset-4 " +
-    "decoration-paper-line hover:decoration-green-ink",
+    "border border-ink/15 bg-paper text-ink shadow-[0_1px_2px_rgba(13,21,18,0.05)] " +
+    "hover:border-ink/30 hover:bg-paper-surface",
+  ghost: "px-2 py-1 text-green-ink underline-offset-4 hover:underline",
 };
 
 const DARK: Record<Variant, string> = {
-  primary: LIGHT.primary,
+  primary: "bg-ndvi-green text-forest-black hover:bg-[#5fb37c] active:bg-[#449760]",
   secondary:
-    "border border-cream/25 bg-transparent px-4 py-2.5 text-cream " +
-    "hover:border-ndvi-green hover:text-ndvi-green",
-  ghost:
-    "px-2 py-1 font-mono text-[13px] text-cream underline underline-offset-4 " +
-    "decoration-line hover:decoration-ndvi-green",
+    "border border-cream/30 bg-cream/5 text-cream backdrop-blur-sm " +
+    "hover:border-cream/60 hover:bg-cream/10",
+  ghost: "px-2 py-1 text-ndvi-green underline-offset-4 hover:underline",
 };
 
 type Common = { variant?: Variant; size?: Size; onDark?: boolean };

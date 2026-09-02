@@ -48,8 +48,8 @@ function NavLink({
     <Link
       href={href as never}
       onClick={onClick}
-      className={`font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-ink ${
-        active ? "border-b border-green-ink pb-0.5 text-ink" : "text-paper-muted"
+      className={`text-[15px] font-medium transition-colors hover:text-ink ${
+        active ? "text-ink" : "text-paper-muted"
       } ${className}`}
     >
       {children}
@@ -122,9 +122,9 @@ export default function SiteNav() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-ink"
+          className="flex items-center gap-2.5 text-[19px] font-bold tracking-[-0.01em] text-ink"
         >
-          <Image src="/klisus-logo.png" alt="" width={22} height={22} />
+          <Image src="/klisus-logo.png" alt="" width={26} height={26} />
           KliSus
         </Link>
 
@@ -136,8 +136,8 @@ export default function SiteNav() {
               ref={solutionsTriggerRef}
               aria-expanded={solutionsOpen}
               onClick={() => setSolutionsOpen((v) => !v)}
-              className={`inline-flex items-center gap-1 font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-ink ${
-                solutionsActive ? "border-b border-green-ink pb-0.5 text-ink" : "text-paper-muted"
+              className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors hover:text-ink ${
+                solutionsActive ? "text-ink" : "text-paper-muted"
               }`}
             >
               Solutions
@@ -151,29 +151,24 @@ export default function SiteNav() {
               </svg>
             </button>
             {solutionsOpen ? (
-              <div className="absolute left-0 top-full mt-3 w-96 rounded-[2px] border border-paper-line bg-paper shadow-2xl">
-                {SOLUTIONS_ITEMS.map((item, i) => (
+              <div className="absolute left-0 top-full mt-3 w-96 rounded-xl border border-paper-line/70 bg-paper p-2 shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)]">
+                {SOLUTIONS_ITEMS.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href as never}
-                    className="grid grid-cols-[2.5rem_1fr] gap-x-2 border-b border-paper-line p-4 transition-colors hover:bg-paper-surface"
+                    className="block rounded-lg p-4 transition-colors hover:bg-green-wash"
                   >
-                    <span className="font-mono text-[12px] text-paper-muted">
-                      0{i + 1}
+                    <span className="block text-[15px] font-semibold text-ink">
+                      {item.label}
                     </span>
-                    <span>
-                      <span className="block text-[14px] font-medium text-ink">
-                        {item.label}
-                      </span>
-                      <span className="mt-1 block text-[12px] leading-relaxed text-paper-muted">
-                        {item.desc}
-                      </span>
+                    <span className="mt-1 block text-[13px] leading-relaxed text-paper-muted">
+                      {item.desc}
                     </span>
                   </Link>
                 ))}
                 <Link
                   href="/solutions"
-                  className="block p-4 font-mono text-[11px] uppercase tracking-[0.08em] text-green-ink transition-colors hover:text-ink"
+                  className="block rounded-lg p-4 text-[14px] font-semibold text-green-ink transition-colors hover:bg-green-wash"
                 >
                   All solutions →
                 </Link>
@@ -185,12 +180,8 @@ export default function SiteNav() {
               {item.label}
             </NavLink>
           ))}
-          <Button
-            href="/plot-check"
-            variant="secondary"
-            className="!px-4 !py-2 font-mono !text-[12px] uppercase tracking-[0.08em]"
-          >
-            Request a Plot Assessment →
+          <Button href="/plot-check" className="!px-5 !py-2.5">
+            Request a Plot Assessment
           </Button>
         </div>
 
@@ -224,7 +215,7 @@ export default function SiteNav() {
                 href={item.href}
                 active={pathname === item.href}
                 onClick={() => setMobileOpen(false)}
-                className="!text-[14px]"
+                className="!text-[17px]"
               >
                 {item.label}
               </NavLink>
@@ -237,7 +228,7 @@ export default function SiteNav() {
                 href={item.href}
                 active={pathname === item.href}
                 onClick={() => setMobileOpen(false)}
-                className="!text-[14px]"
+                className="!text-[17px]"
               >
                 {item.label}
               </NavLink>

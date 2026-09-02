@@ -15,11 +15,10 @@ export default function HomePage() {
       <EudrSolution />
       <IntelligenceBanner />
       <CTABand
-        n="05"
         title="Know the land. Make the decision."
         lede="Start with KliSus EUDR Land Evidence."
-        primary={{ label: "Request a Plot Assessment →", href: "/plot-check" }}
-        secondary={{ label: "Contact KliSus →", href: "mailto:teams@klisus.com" }}
+        primary={{ label: "Request a Plot Assessment", href: "/plot-check" }}
+        secondary={{ label: "Contact KliSus", href: "mailto:teams@klisus.com" }}
       />
     </>
   );

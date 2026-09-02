@@ -1,13 +1,12 @@
-/**
- * Section h2 + lede in the dossier voices. Section labels live in
- * <SectionRule>, which owns the running label. Light by default.
- */
+/** Section opener: green eyebrow + big display title + optional lede. */
 export default function SectionHeading({
+  eyebrow,
   title,
   lede,
   tone = "light",
   className = "",
 }: {
+  eyebrow?: string;
   title: React.ReactNode;
   lede?: React.ReactNode;
   tone?: "light" | "dark";
@@ -16,8 +15,9 @@ export default function SectionHeading({
   const dark = tone === "dark";
   return (
     <div className={className}>
+      {eyebrow ? <p className="voice-label mb-4">{eyebrow}</p> : null}
       <h2
-        className={`font-display max-w-[18ch] text-[32px] md:text-[44px] lg:text-[56px] ${
+        className={`font-display max-w-[20ch] text-[34px] md:text-[44px] lg:text-[52px] ${
           dark ? "text-cream" : "text-ink"
         }`}
       >
@@ -25,7 +25,7 @@ export default function SectionHeading({
       </h2>
       {lede ? (
         <p
-          className={`voice-lede mt-6 max-w-[46ch] text-[20px] md:text-[24px] ${
+          className={`voice-lede mt-5 max-w-[52ch] text-[18px] md:text-[20px] ${
             dark ? "text-muted" : "text-paper-muted"
           }`}
         >

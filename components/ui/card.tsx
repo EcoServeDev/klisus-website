@@ -1,7 +1,4 @@
-/**
- * Squared hairline container — reserved for depicted document objects and
- * figures. Light by default; `dark` renders a dark plate.
- */
+/** Soft elevated surface. `dark` renders a dark-band card. */
 export default function Card({
   children,
   dark = false,
@@ -16,8 +13,10 @@ export default function Card({
   return (
     <div
       style={style}
-      className={`rounded-[2px] border p-6 ${
-        dark ? "dark-band border-line bg-surface-1" : "border-paper-line bg-paper-surface"
+      className={`rounded-xl p-7 ${
+        dark
+          ? "dark-band border border-line bg-surface-1"
+          : "border border-paper-line/70 bg-paper shadow-[0_1px_2px_rgba(13,21,18,0.06),0_8px_24px_rgba(13,21,18,0.08)]"
       } ${className}`}
     >
       {children}
