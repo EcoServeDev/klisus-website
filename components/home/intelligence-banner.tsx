@@ -23,7 +23,7 @@ function ContourGrid() {
           y1="0"
           x2={i * 120}
           y2="400"
-          stroke="var(--line)"
+          stroke="var(--paper-line)"
           strokeWidth="1"
           opacity="0.35"
         />
@@ -35,7 +35,7 @@ function ContourGrid() {
           y1={i * 100}
           x2="1200"
           y2={i * 100}
-          stroke="var(--line)"
+          stroke="var(--paper-line)"
           strokeWidth="1"
           opacity="0.35"
         />
@@ -43,24 +43,24 @@ function ContourGrid() {
       {/* contour lines */}
       <path
         d="M-20 300 C 160 250, 300 340, 480 290 S 820 190, 1000 250 S 1180 320, 1240 290"
-        stroke="var(--line)"
+        stroke="var(--paper-line)"
         strokeWidth="1"
       />
       <path
         d="M-20 250 C 180 200, 320 290, 500 240 S 840 140, 1020 200 S 1180 270, 1240 240"
-        stroke="var(--line)"
+        stroke="var(--paper-line)"
         strokeWidth="1"
         opacity="0.8"
       />
       <path
         d="M-20 200 C 200 150, 340 240, 520 190 S 860 90, 1040 150 S 1180 220, 1240 190"
-        stroke="var(--ndvi-green)"
+        stroke="var(--green-ink)"
         strokeWidth="1"
         opacity="0.25"
       />
       <path
         d="M-20 150 C 220 105, 360 190, 540 145 S 880 50, 1060 105 S 1180 170, 1240 145"
-        stroke="var(--line)"
+        stroke="var(--paper-line)"
         strokeWidth="1"
         opacity="0.6"
       />
@@ -70,14 +70,14 @@ function ContourGrid() {
 
 export default function IntelligenceBanner() {
   return (
-    <section className="relative overflow-hidden border-y border-line bg-surface-1">
+    <section className="relative overflow-hidden border-y border-paper-line bg-paper-surface">
       <ContourGrid />
       <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24">
         <p className="voice-label">04 / BEYOND VERIFICATION</p>
-        <h2 className="font-display mt-6 max-w-[14ch] text-[32px] text-cream md:text-[44px] lg:text-[56px]">
+        <h2 className="font-display mt-6 max-w-[14ch] text-[32px] text-ink md:text-[44px] lg:text-[56px]">
           KliSus Intelligence
         </h2>
-        <p className="voice-lede mt-6 max-w-[42ch] text-[20px] text-muted md:text-[24px]">
+        <p className="voice-lede mt-6 max-w-[42ch] text-[20px] text-paper-muted md:text-[24px]">
           Research and intelligence at the intersection of climate, land,
           nature, and economics.
         </p>

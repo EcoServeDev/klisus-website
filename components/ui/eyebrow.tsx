@@ -1,20 +1,19 @@
 /**
  * Inline mono label. Section-level openers use <SectionRule> now — Eyebrow
- * survives only for labels inside a composed block.
+ * survives only for labels inside a composed block. Color follows the
+ * voice-label context (light default, .dark-band override).
  */
 export default function Eyebrow({
   children,
   n,
-  paper = false,
   className = "",
 }: {
   children: React.ReactNode;
   n?: string;
-  paper?: boolean;
   className?: string;
 }) {
   return (
-    <p className={`voice-label ${paper ? "voice-label-paper" : ""} ${className}`}>
+    <p className={`voice-label ${className}`}>
       {n ? `${n} / ` : null}
       {children}
     </p>

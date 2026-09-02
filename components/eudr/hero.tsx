@@ -8,7 +8,7 @@ import TelemetryStrip from "@/components/visuals/telemetry-strip";
  */
 export default function EudrHero() {
   return (
-    <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden">
+    <section className="dark-band relative flex min-h-[92svh] flex-col justify-end overflow-hidden">
       <HeroPlate />
 
       {/* marginalia — one corner only */}
@@ -40,7 +40,7 @@ export default function EudrHero() {
           <Button href="/plot-check" size="lg">
             Request a Plot Assessment →
           </Button>
-          <Button href="/plot-check/r/e12fe13023e0" variant="secondary" size="lg">
+          <Button href="/plot-check/r/e12fe13023e0" variant="secondary" size="lg" onDark>
             View Sample Report →
           </Button>
         </div>

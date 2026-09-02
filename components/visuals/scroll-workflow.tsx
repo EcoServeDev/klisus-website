@@ -153,7 +153,7 @@ function Scene({ step }: { step: number }) {
             </>
           ) : null}
           {step === 2 ? (
-            <BracketLabel tone="amber">CHANGE INDICATOR IDENTIFIED</BracketLabel>
+            <BracketLabel tone="amber-dark">CHANGE INDICATOR IDENTIFIED</BracketLabel>
           ) : null}
         </>
       )}
@@ -174,7 +174,7 @@ function SceneBar({ n }: { n: number }) {
 
 function SceneFrame({ n, children }: { n: number; children: React.ReactNode }) {
   return (
-    <div className="overflow-hidden rounded-[2px] border border-line bg-surface-1">
+    <div className="dark-band overflow-hidden rounded-[2px] border border-line bg-surface-1">
       <SceneBar n={n} />
       {children}
     </div>
@@ -236,7 +236,7 @@ export default function ScrollWorkflow() {
       {
         <div className="hidden motion-safe:lg:block">
           <div
-            className="sticky top-24 flex h-[70vh] flex-col overflow-hidden rounded-[2px] border border-line bg-surface-1"
+            className="dark-band sticky top-24 flex h-[70vh] flex-col overflow-hidden rounded-[2px] border border-line bg-surface-1"
             aria-hidden="true"
           >
             <SceneBar n={active + 1} />
@@ -251,7 +251,7 @@ export default function ScrollWorkflow() {
                   <Scene step={i} />
                 </div>
               ))}
-              <CornerTicks />
+              <CornerTicks dark />
             </div>
           </div>
         </div>

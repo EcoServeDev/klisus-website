@@ -20,7 +20,7 @@ export default function TelemetryStrip({
   caption?: string;
 }) {
   return (
-    <div className="relative border-t border-line bg-forest-black/70 backdrop-blur-sm">
+    <div className="dark-band relative border-t border-line bg-forest-black/70 backdrop-blur-sm">
       <div className="mx-auto w-full max-w-6xl px-6">
         <div className="grid grid-cols-2 border-x border-line md:grid-cols-4">
           {fields.map((field, i) => (
@@ -35,7 +35,7 @@ export default function TelemetryStrip({
               </p>
               {field.bracket ? (
                 <p className="mt-1">
-                  <BracketLabel tone={field.bracket.tone}>
+                  <BracketLabel tone={`${field.bracket.tone}-dark` as const}>
                     {field.bracket.text}
                   </BracketLabel>
                 </p>

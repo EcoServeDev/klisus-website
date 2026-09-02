@@ -7,11 +7,11 @@ import SectionRule from "@/components/ui/section-rule";
  */
 export default function WhyWeExist() {
   return (
-    <section className="paper-section bg-paper">
-      <SectionRule paper n="02" label="KLISUS — WHY WE EXIST" marker="§ 02" />
+    <section className="bg-paper-surface">
+      <SectionRule n="02" label="KLISUS — WHY WE EXIST" marker="§ 02" />
       <div className="mx-auto max-w-6xl px-6 pb-14 pt-12">
         <div className="relative px-2 py-6 sm:px-6">
-          <CornerTicks paper />
+          <CornerTicks />
           <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px] lg:text-[56px]">
             Environmental change is becoming an economic reality.
           </h2>
@@ -25,7 +25,7 @@ export default function WhyWeExist() {
             should be transformed into evidence that can inform real-world
             decisions.
           </p>
-          <p className="voice-lede mt-12 max-w-[36ch] border-l-2 border-ndvi-green pl-6 text-[26px] text-ink md:text-[32px]">
+          <p className="voice-lede mt-12 max-w-[36ch] border-l-2 border-green-ink pl-6 text-[26px] text-ink md:text-[32px]">
             Our vision is a world where environmental decisions are informed by
             evidence.
           </p>

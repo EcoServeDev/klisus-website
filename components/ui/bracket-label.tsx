@@ -1,12 +1,24 @@
-/** Boxed state label, dossier-style: `[ REVIEW REQUIRED ]`. No pill, no fill. */
+/**
+ * Boxed state label, dossier-style: `[ REVIEW REQUIRED ]`.
+ * Light tones use the ink-side signal colors (AA on paper); the `-dark`
+ * tones are for dark bands (telemetry strip, scene panel).
+ */
 
-type Tone = "neutral" | "green" | "amber" | "paper";
+type Tone =
+  | "neutral"
+  | "green"
+  | "amber"
+  | "neutral-dark"
+  | "green-dark"
+  | "amber-dark";
 
 const TONES: Record<Tone, { bracket: string; text: string }> = {
-  neutral: { bracket: "text-muted", text: "text-cream" },
-  green: { bracket: "text-muted", text: "text-ndvi-green" },
-  amber: { bracket: "text-muted", text: "text-review-amber" },
-  paper: { bracket: "text-paper-muted", text: "text-ink" },
+  neutral: { bracket: "text-paper-muted", text: "text-ink" },
+  green: { bracket: "text-paper-muted", text: "text-green-ink" },
+  amber: { bracket: "text-paper-muted", text: "text-amber-ink" },
+  "neutral-dark": { bracket: "text-muted", text: "text-cream" },
+  "green-dark": { bracket: "text-muted", text: "text-ndvi-green" },
+  "amber-dark": { bracket: "text-muted", text: "text-review-amber" },
 };
 
 export default function BracketLabel({

@@ -1,24 +1,24 @@
 /**
  * Section h2 + lede in the dossier voices. Section labels live in
- * <SectionRule>, which owns the running label.
+ * <SectionRule>, which owns the running label. Light by default.
  */
 export default function SectionHeading({
   title,
   lede,
-  tone = "dark",
+  tone = "light",
   className = "",
 }: {
   title: React.ReactNode;
   lede?: React.ReactNode;
-  tone?: "dark" | "paper";
+  tone?: "light" | "dark";
   className?: string;
 }) {
-  const paper = tone === "paper";
+  const dark = tone === "dark";
   return (
     <div className={className}>
       <h2
         className={`font-display max-w-[18ch] text-[32px] md:text-[44px] lg:text-[56px] ${
-          paper ? "text-ink" : "text-cream"
+          dark ? "text-cream" : "text-ink"
         }`}
       >
         {title}
@@ -26,7 +26,7 @@ export default function SectionHeading({
       {lede ? (
         <p
           className={`voice-lede mt-6 max-w-[46ch] text-[20px] md:text-[24px] ${
-            paper ? "text-paper-muted" : "text-muted"
+            dark ? "text-muted" : "text-paper-muted"
           }`}
         >
           {lede}

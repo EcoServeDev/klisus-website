@@ -8,9 +8,8 @@ import SectionRule from "@/components/ui/section-rule";
  */
 export default function ResponsibleUseSection() {
   return (
-    <section className="paper-section bg-paper">
+    <section className="bg-paper-surface">
       <SectionRule
-        paper
         n="06"
         label="KLISUS — RESPONSIBLE USE"
         marker="§ 06"
@@ -18,7 +17,7 @@ export default function ResponsibleUseSection() {
       />
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-24">
         <div className="relative py-8">
-          <CornerTicks paper />
+          <CornerTicks />
           <div className="mx-auto max-w-[68ch] space-y-5 px-6 text-[16px] leading-[1.7] sm:px-10">
             <p className="text-ink">
               KliSus provides analytical information and evidence to support

@@ -22,7 +22,11 @@
   --risk-rust: #b4552d; /* borders/chips/>=18px text only (AA limit) */
   --risk-rust-text: #d4764a; /* body-size rust text on dark */
 
-  /* paper layer (dossier spreads, report mock) */
+  /* signal colors legible as small text on paper */
+  --green-ink: #2e6b46;
+  --amber-ink: #8a6a10;
+
+  /* paper layer (the page ground; dark survives as plates/bands) */
   --paper: #fdfcf8;
   --ink: #0d1512;
   --paper-muted: #5c5346;
@@ -41,6 +45,8 @@
   --color-review-amber: var(--review-amber);
   --color-risk-rust: var(--risk-rust);
   --color-risk-rust-text: var(--risk-rust-text);
+  --color-green-ink: var(--green-ink);
+  --color-amber-ink: var(--amber-ink);
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-paper-muted: var(--paper-muted);
@@ -55,8 +61,8 @@
 
 @layer base {
   body {
-    background: var(--forest-black);
-    color: var(--cream);
+    background: var(--paper);
+    color: var(--ink);
     font-variation-settings: "wdth" 100;
   }
 
@@ -83,11 +89,10 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-  .paper-section .voice-label,
-  .voice-label-paper {
     color: var(--paper-muted);
+  }
+  .dark-band .voice-label {
+    color: var(--muted);
   }
 
   /* Data voice: Fragment Mono is naturally wide — no extra tracking. */
@@ -96,8 +101,11 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--ndvi-green);
+    outline: 2px solid var(--green-ink);
     outline-offset: 2px;
+  }
+  .dark-band :focus-visible {
+    outline-color: var(--ndvi-green);
   }
 }
 
@@ -107,12 +115,11 @@
     margin-inline: 0.75rem;
     flex: 1 1 0%;
     align-self: flex-end;
-    border-bottom: 1px dotted var(--line);
+    border-bottom: 1px dotted var(--paper-line);
     transform: translateY(-0.3em);
   }
-  .paper-section .dot-leader,
-  .dot-leader-paper {
-    border-bottom-color: var(--paper-line);
+  .dark-band .dot-leader {
+    border-bottom-color: var(--line);
   }
 }
 

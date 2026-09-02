@@ -2,7 +2,7 @@ import Button from "@/components/ui/button";
 
 /**
  * Ruled closing block — left-aligned inside the 12-col grid, never centered.
- * Same props as before so page imports are unchanged; `n` labels the rule.
+ * Paper ground like the rest of the page.
  */
 export default function CTABand({
   title,
@@ -20,7 +20,7 @@ export default function CTABand({
   label?: string;
 }) {
   return (
-    <section className="border-t border-line">
+    <section className="border-t border-paper-line">
       <div className="mx-auto max-w-6xl px-6">
         <div className="flex h-10 items-center">
           <span className="voice-label">
@@ -31,11 +31,11 @@ export default function CTABand({
       </div>
       <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-8 sm:pb-28 lg:grid-cols-12">
         <div className="lg:col-span-9">
-          <h2 className="font-display max-w-[16ch] text-[32px] text-cream md:text-[44px] lg:text-[56px]">
+          <h2 className="font-display max-w-[16ch] text-[32px] text-ink md:text-[44px] lg:text-[56px]">
             {title}
           </h2>
           {lede ? (
-            <p className="voice-lede mt-6 max-w-[44ch] text-[20px] text-muted md:text-[24px]">
+            <p className="voice-lede mt-6 max-w-[44ch] text-[20px] text-paper-muted md:text-[24px]">
               {lede}
             </p>
           ) : null}

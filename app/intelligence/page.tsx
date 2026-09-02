@@ -45,14 +45,14 @@ export default function IntelligencePage() {
         <div className="relative mx-auto grid max-w-6xl gap-x-6 px-6 pb-16 pt-24 sm:pt-32 lg:grid-cols-12">
           <div className="animate-fade-up lg:col-span-9">
             <p className="voice-label">KLISUS INTELLIGENCE</p>
-            <h1 className="font-display mt-6 max-w-[16ch] text-[44px] text-cream md:text-[64px]">
+            <h1 className="font-display mt-6 max-w-[16ch] text-[44px] text-ink md:text-[64px]">
               Intelligence at the intersection of climate, land, nature, and economics.
             </h1>
-            <p className="mt-6 max-w-[52ch] text-[16px] leading-relaxed text-muted">
+            <p className="mt-6 max-w-[52ch] text-[16px] leading-relaxed text-paper-muted">
               Research, analysis, and perspectives exploring how environmental change shapes
               economic decisions.
             </p>
-            <p className="voice-label mt-12 border-t border-line pt-3">
+            <p className="voice-label mt-12 border-t border-paper-line pt-3">
               {"Research & Insights · Reports · Resources · Substack"}
             </p>
           </div>
@@ -60,9 +60,9 @@ export default function IntelligencePage() {
       </section>
 
       {/* 02 — INTELLIGENCE THESIS (paper dossier spread) */}
-      <section className="paper-section relative bg-paper">
-        <CornerTicks paper />
-        <SectionRule paper n="02" label="KLISUS — INTELLIGENCE THESIS" marker="§ 02" />
+      <section className="relative bg-paper-surface">
+        <CornerTicks />
+        <SectionRule n="02" label="KLISUS — INTELLIGENCE THESIS" marker="§ 02" />
         <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-8 pt-10 lg:grid-cols-12">
           <div className="lg:col-span-8">
             <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
@@ -79,9 +79,9 @@ export default function IntelligencePage() {
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <BracketLabel tone="paper">Climate</BracketLabel>
-              <BracketLabel tone="paper">{"Land & Nature"}</BracketLabel>
-              <BracketLabel tone="paper">Economics</BracketLabel>
+              <BracketLabel>Climate</BracketLabel>
+              <BracketLabel>{"Land & Nature"}</BracketLabel>
+              <BracketLabel>Economics</BracketLabel>
             </div>
           </div>
         </div>
@@ -97,33 +97,33 @@ export default function IntelligencePage() {
       <SectionRule n="03" label="FEATURED" />
       <section className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-8 lg:grid-cols-12">
         <div className="lg:col-span-9">
-          <h2 className="font-display max-w-[18ch] text-[32px] text-cream md:text-[44px]">
+          <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
             Featured Intelligence
           </h2>
-          <div className="mt-10 rounded-[2px] border border-dashed border-line p-8 sm:p-10">
-            <h3 className="font-display text-[20px] text-muted sm:text-[28px]">
+          <div className="mt-10 rounded-[2px] border border-dashed border-paper-line p-8 sm:p-10">
+            <h3 className="font-display text-[20px] text-paper-muted sm:text-[28px]">
               [Latest Research / Report]
             </h3>
-            <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-muted">
+            <p className="mt-3 max-w-[60ch] text-[14px] leading-relaxed text-paper-muted">
               Short description of the featured research, report, or analysis.
             </p>
-            <p className="mt-6 font-mono text-[12px] text-muted">
+            <p className="mt-6 font-mono text-[12px] text-paper-muted">
               {"Research & Insights · Date"}
             </p>
-            <span className="mt-5 inline-block text-[14px] text-muted">
+            <span className="mt-5 inline-block text-[14px] text-paper-muted">
               Read →<span className="sr-only"> (coming soon)</span>
             </span>
           </div>
-          <div className="mt-10 flex flex-wrap items-end justify-between gap-4 border-t border-line pt-6">
+          <div className="mt-10 flex flex-wrap items-end justify-between gap-4 border-t border-paper-line pt-6">
             <div>
-              <p className="text-[16px] font-medium text-cream">Latest Intelligence</p>
-              <p className="mt-1 text-[14px] text-muted">
+              <p className="text-[16px] font-medium text-ink">Latest Intelligence</p>
+              <p className="mt-1 text-[14px] text-paper-muted">
                 Additional research, analysis, reports, and perspectives.
               </p>
             </div>
             <Link
               href="#explore"
-              className="font-mono text-[13px] text-cream underline decoration-line underline-offset-4 transition-colors hover:decoration-ndvi-green"
+              className="font-mono text-[13px] text-ink underline decoration-paper-line underline-offset-4 transition-colors hover:decoration-green-ink"
             >
               Explore All Intelligence →
             </Link>
@@ -136,7 +136,7 @@ export default function IntelligencePage() {
         <SectionRule n="04" label="EXPLORE" />
         <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-8 lg:grid-cols-12">
           <div className="lg:col-span-10">
-            <h2 className="font-display max-w-[18ch] text-[32px] text-cream md:text-[44px]">
+            <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
               Explore KliSus Intelligence
             </h2>
             <IndexList className="mt-10">
@@ -151,11 +151,11 @@ export default function IntelligencePage() {
                 >
                   <p>{channel.body}</p>
                   {channel.soon ? (
-                    <span className="mt-3 inline-block text-[14px] text-muted">
+                    <span className="mt-3 inline-block text-[14px] text-paper-muted">
                       Explore →<span className="sr-only"> (coming soon)</span>
                     </span>
                   ) : (
-                    <span className="mt-3 inline-block text-[14px] text-muted">
+                    <span className="mt-3 inline-block text-[14px] text-paper-muted">
                       Read on Substack →<span className="sr-only"> (coming soon)</span>
                     </span>
                   )}

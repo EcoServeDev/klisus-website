@@ -28,11 +28,11 @@ export default function WhomWeServe() {
       <SectionRule n="02" label="WHOM WE SERVE" />
       <div className="mx-auto max-w-6xl px-6 pb-14 pt-8">
         <SectionHeading title="Built for decision-makers." />
-        <div className="mt-12 grid divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <div className="mt-12 grid divide-y divide-paper-line border-y border-paper-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           {AUDIENCES.map((audience) => (
             <div key={audience.tag} className="p-6">
               <BracketLabel>{audience.tag}</BracketLabel>
-              <p className="mt-4 text-[14px] leading-relaxed text-muted">{audience.body}</p>
+              <p className="mt-4 text-[14px] leading-relaxed text-paper-muted">{audience.body}</p>
             </div>
           ))}
         </div>

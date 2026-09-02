@@ -11,8 +11,10 @@ export default function ReceiveSection() {
         <div className="lg:col-span-8">
           <SectionHeading title="A structured view of the land." />
           <p className="voice-label mb-4 mt-12">KliSus Land Evidence Report</p>
-          <EvidenceRecordMock />
-          <p className="mt-8 font-mono text-[13px] text-muted">
+          <div className="rounded-[2px] border border-paper-line bg-paper-surface p-4 sm:p-6">
+            <EvidenceRecordMock />
+          </div>
+          <p className="mt-8 font-mono text-[13px] text-paper-muted">
             NOTE — Structured for review. Built for traceability.
           </p>
         </div>

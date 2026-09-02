@@ -49,7 +49,7 @@ export default function ApproachSection() {
           </IndexList>
         </div>
       </section>
-      <section aria-label="How an assessment progresses" className="border-t border-line">
+      <section aria-label="How an assessment progresses" className="border-t border-paper-line">
         <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
           <ScrollWorkflow />
         </div>

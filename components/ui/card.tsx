@@ -1,15 +1,15 @@
 /**
  * Squared hairline container — reserved for depicted document objects and
- * figures. Not for enumerable content (use IndexRow), no hover on statics.
+ * figures. Light by default; `dark` renders a dark plate.
  */
 export default function Card({
   children,
-  paper = false,
+  dark = false,
   className = "",
   style,
 }: {
   children: React.ReactNode;
-  paper?: boolean;
+  dark?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }) {
@@ -17,7 +17,7 @@ export default function Card({
     <div
       style={style}
       className={`rounded-[2px] border p-6 ${
-        paper ? "border-paper-line bg-paper-surface" : "border-line bg-surface-1"
+        dark ? "dark-band border-line bg-surface-1" : "border-paper-line bg-paper-surface"
       } ${className}`}
     >
       {children}

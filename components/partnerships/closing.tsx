@@ -9,10 +9,10 @@ export default function Closing() {
     <section>
       <div className="mx-auto grid max-w-6xl gap-x-6 px-6 py-20 sm:py-28 lg:grid-cols-12">
         <div className="lg:col-span-9">
-          <h2 className="font-display max-w-[18ch] text-[32px] text-cream md:text-[44px]">
+          <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
             Better intelligence is built together.
           </h2>
-          <p className="mt-12 flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
+          <p className="mt-12 flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-ink">
             <Image src="/klisus-logo.png" alt="" width={22} height={22} />
             KliSus
           </p>

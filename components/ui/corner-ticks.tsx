@@ -1,6 +1,6 @@
 /** Registration ticks — four `+` marks at the corners of a relative parent. */
-export default function CornerTicks({ paper = false }: { paper?: boolean }) {
-  const stroke = paper ? "var(--paper-line)" : "var(--line)";
+export default function CornerTicks({ dark = false }: { dark?: boolean }) {
+  const stroke = dark ? "var(--line)" : "var(--paper-line)";
   const tick = (pos: string) => (
     <svg
       key={pos}

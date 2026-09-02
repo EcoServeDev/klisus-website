@@ -61,7 +61,7 @@ export default function EvidenceRecordMock({
           cta ? "pb-20 sm:pb-24" : ""
         }`}
       >
-        <CornerTicks paper />
+        <CornerTicks />
         <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-muted">
             KliSus Land Evidence Record
@@ -78,19 +78,19 @@ export default function EvidenceRecordMock({
 
         <div className="mt-5 flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
-            <BracketLabel key={s} tone="paper">
+            <BracketLabel key={s} tone="neutral">
               {s}
             </BracketLabel>
           ))}
         </div>
 
-        <DefList paper className="mt-6 border-t border-paper-line" rows={ROWS} />
+        <DefList className="mt-6 border-t border-paper-line" rows={ROWS} />
       </div>
 
       {cta ? (
         <>
           <div
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-forest-black to-transparent"
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper to-transparent"
             aria-hidden="true"
           />
           <div className="absolute inset-x-0 bottom-6 flex justify-center">

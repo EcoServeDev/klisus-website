@@ -34,7 +34,7 @@ export default function EudrSolution() {
                 "Structured Evidence",
               ]}
             />
-            <p className="mt-6 font-mono text-[13px] text-muted">
+            <p className="mt-6 font-mono text-[13px] text-paper-muted">
               From coordinates to traceable land evidence.
             </p>
           </div>

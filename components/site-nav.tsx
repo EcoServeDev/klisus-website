@@ -48,8 +48,8 @@ function NavLink({
     <Link
       href={href as never}
       onClick={onClick}
-      className={`font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-cream ${
-        active ? "border-b border-ndvi-green pb-0.5 text-cream" : "text-muted"
+      className={`font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-ink ${
+        active ? "border-b border-green-ink pb-0.5 text-ink" : "text-paper-muted"
       } ${className}`}
     >
       {children}
@@ -118,11 +118,11 @@ export default function SiteNav() {
   const solutionsActive = pathname.startsWith("/solutions");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-forest-black/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-paper-line bg-paper/85 backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
-          className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream"
+          className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-ink"
         >
           <Image src="/klisus-logo.png" alt="" width={22} height={22} />
           KliSus
@@ -136,8 +136,8 @@ export default function SiteNav() {
               ref={solutionsTriggerRef}
               aria-expanded={solutionsOpen}
               onClick={() => setSolutionsOpen((v) => !v)}
-              className={`inline-flex items-center gap-1 font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-cream ${
-                solutionsActive ? "border-b border-ndvi-green pb-0.5 text-cream" : "text-muted"
+              className={`inline-flex items-center gap-1 font-mono text-[12px] uppercase tracking-[0.08em] transition-colors hover:text-ink ${
+                solutionsActive ? "border-b border-green-ink pb-0.5 text-ink" : "text-paper-muted"
               }`}
             >
               Solutions
@@ -151,21 +151,21 @@ export default function SiteNav() {
               </svg>
             </button>
             {solutionsOpen ? (
-              <div className="absolute left-0 top-full mt-3 w-96 rounded-[2px] border border-line bg-forest-black shadow-2xl">
+              <div className="absolute left-0 top-full mt-3 w-96 rounded-[2px] border border-paper-line bg-paper shadow-2xl">
                 {SOLUTIONS_ITEMS.map((item, i) => (
                   <Link
                     key={item.label}
                     href={item.href as never}
-                    className="grid grid-cols-[2.5rem_1fr] gap-x-2 border-b border-line p-4 transition-colors hover:bg-surface-1"
+                    className="grid grid-cols-[2.5rem_1fr] gap-x-2 border-b border-paper-line p-4 transition-colors hover:bg-paper-surface"
                   >
-                    <span className="font-mono text-[12px] text-muted">
+                    <span className="font-mono text-[12px] text-paper-muted">
                       0{i + 1}
                     </span>
                     <span>
-                      <span className="block text-[14px] font-medium text-cream">
+                      <span className="block text-[14px] font-medium text-ink">
                         {item.label}
                       </span>
-                      <span className="mt-1 block text-[12px] leading-relaxed text-muted">
+                      <span className="mt-1 block text-[12px] leading-relaxed text-paper-muted">
                         {item.desc}
                       </span>
                     </span>
@@ -173,7 +173,7 @@ export default function SiteNav() {
                 ))}
                 <Link
                   href="/solutions"
-                  className="block p-4 font-mono text-[11px] uppercase tracking-[0.08em] text-ndvi-green transition-colors hover:text-cream"
+                  className="block p-4 font-mono text-[11px] uppercase tracking-[0.08em] text-green-ink transition-colors hover:text-ink"
                 >
                   All solutions →
                 </Link>
@@ -198,7 +198,7 @@ export default function SiteNav() {
         <button
           type="button"
           ref={mobileTriggerRef}
-          className="p-2 text-cream md:hidden"
+          className="p-2 text-ink md:hidden"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((v) => !v)}
@@ -215,9 +215,9 @@ export default function SiteNav() {
 
       {/* Mobile sheet */}
       {mobileOpen ? (
-        <div className="fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto border-t border-line bg-forest-black px-6 py-8 md:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto border-t border-paper-line bg-paper px-6 py-8 md:hidden">
           <p className="voice-label mb-3">Solutions</p>
-          <div className="flex flex-col gap-4 border-l border-line pl-4">
+          <div className="flex flex-col gap-4 border-l border-paper-line pl-4">
             {SOLUTIONS_ITEMS.map((item) => (
               <NavLink
                 key={item.label}

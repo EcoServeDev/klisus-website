@@ -34,7 +34,7 @@ export default function SolutionsPage() {
   return (
     <>
       {/* Page title — ruled, type-led, left-hung */}
-      <section className="border-t border-line">
+      <section className="border-t border-paper-line">
         <div className="mx-auto max-w-6xl px-6">
           <div className="flex h-10 items-center">
             <span className="voice-label">SOLUTIONS</span>
@@ -42,10 +42,10 @@ export default function SolutionsPage() {
         </div>
         <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-16 pt-8 sm:pb-20 lg:grid-cols-12">
           <div className="animate-fade-up lg:col-span-10">
-            <h1 className="font-display max-w-[14ch] text-[36px] text-cream sm:text-[44px] md:text-[56px] lg:text-[72px]">
+            <h1 className="font-display max-w-[14ch] text-[36px] text-ink sm:text-[44px] md:text-[56px] lg:text-[72px]">
               Environmental intelligence, built for decisions.
             </h1>
-            <p className="voice-lede mt-8 max-w-[44ch] text-[20px] text-muted md:text-[26px]">
+            <p className="voice-lede mt-8 max-w-[44ch] text-[20px] text-paper-muted md:text-[26px]">
               KliSus provides data-driven solutions that turn environmental
               information into actionable intelligence and traceable evidence.
             </p>
@@ -64,14 +64,14 @@ export default function SolutionsPage() {
       <section>
         <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-12 px-6 py-14 lg:grid-cols-12 lg:py-20">
           <div className="lg:col-span-6">
-            <h2 className="font-display max-w-[18ch] text-[32px] text-cream md:text-[44px]">
+            <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
               Assess the land behind your supply chain.
             </h2>
-            <p className="mt-6 max-w-[40ch] text-[20px] leading-snug text-cream">
+            <p className="mt-6 max-w-[40ch] text-[20px] leading-snug text-ink">
               Plot-level satellite and geospatial intelligence to support EUDR
               due diligence.
             </p>
-            <p className="mt-4 max-w-[56ch] text-[15px] leading-relaxed text-muted">
+            <p className="mt-4 max-w-[56ch] text-[15px] leading-relaxed text-paper-muted">
               KliSus analyses production-plot locations and historical land-use
               indicators to provide structured evidence for supply-chain review
               and due-diligence workflows.
@@ -84,7 +84,7 @@ export default function SolutionsPage() {
           </div>
 
           {/* Product figure: the evidence record — no link, no CTA. */}
-          <figure className="relative min-w-0 overflow-hidden rounded-[2px] border border-line bg-surface-1 p-4 sm:p-6 lg:col-span-5 lg:col-start-8">
+          <figure className="relative min-w-0 overflow-hidden rounded-[2px] border border-paper-line bg-paper-surface p-4 sm:p-6 lg:col-span-5 lg:col-start-8">
             <EvidenceRecordMock cta={false} />
           </figure>
         </div>

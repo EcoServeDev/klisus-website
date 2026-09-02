@@ -16,11 +16,11 @@ export default function WhySection() {
       <SectionRule n="05" label="WHY KLISUS" />
       <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-28">
         <SectionHeading title="Built for evidence." />
-        <div className="mt-12 grid divide-y divide-line border-y border-line sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
+        <div className="mt-12 grid divide-y divide-paper-line border-y border-paper-line sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
           {PILLARS.map((pillar) => (
             <div key={pillar.tag} className="p-6">
               <BracketLabel>{pillar.tag}</BracketLabel>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted">{pillar.body}</p>
+              <p className="mt-3 text-[14px] leading-relaxed text-paper-muted">{pillar.body}</p>
             </div>
           ))}
         </div>

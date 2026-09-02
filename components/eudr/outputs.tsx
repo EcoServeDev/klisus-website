@@ -47,21 +47,21 @@ export default function OutputsSection() {
           {OUTPUTS.map((output) => (
             <li
               key={output.tag}
-              className="grid grid-cols-1 gap-x-4 gap-y-2 border-t border-line py-6 last:border-b sm:grid-cols-[minmax(10rem,14rem)_minmax(12rem,16rem)_1fr]"
+              className="grid grid-cols-1 gap-x-4 gap-y-2 border-t border-paper-line py-6 last:border-b sm:grid-cols-[minmax(10rem,14rem)_minmax(12rem,16rem)_1fr]"
             >
               <BracketLabel tone={output.tone} className="self-start">
                 {output.tag}
               </BracketLabel>
-              <h3 className="text-[18px] font-medium leading-snug text-cream">
+              <h3 className="text-[18px] font-medium leading-snug text-ink">
                 {output.title}
               </h3>
-              <p className="max-w-[56ch] text-[14px] leading-relaxed text-muted">
+              <p className="max-w-[56ch] text-[14px] leading-relaxed text-paper-muted">
                 {output.body}
               </p>
             </li>
           ))}
         </ul>
-        <p className="mt-8 font-mono text-[13px] leading-relaxed text-muted">
+        <p className="mt-8 font-mono text-[13px] leading-relaxed text-paper-muted">
           NOTE — Assessment terminology is governed by the applicable
           methodology, data quality, and stated limitations.
         </p>

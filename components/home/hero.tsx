@@ -7,7 +7,7 @@ import HeroPlate from "@/components/visuals/hero-plate";
  */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden">
+    <section className="dark-band relative flex min-h-[92svh] flex-col justify-end overflow-hidden bg-forest-black">
       <HeroPlate />
 
       {/* pass marginalia — one corner only */}
@@ -38,7 +38,7 @@ export default function Hero() {
           <Button href="/solutions/eudr-land-evidence" size="lg">
             Explore EUDR Land Evidence →
           </Button>
-          <Button href="mailto:teams@klisus.com" variant="secondary" size="lg">
+          <Button href="mailto:teams@klisus.com" variant="secondary" onDark size="lg">
             Talk to KliSus
           </Button>
         </div>

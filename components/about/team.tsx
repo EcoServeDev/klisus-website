@@ -27,20 +27,20 @@ function PhotoPlaceholder() {
   return (
     <div
       aria-hidden="true"
-      className="relative flex aspect-[4/5] items-center justify-center rounded-[2px] border border-line bg-surface-2"
+      className="relative flex aspect-[4/5] items-center justify-center rounded-[2px] border border-paper-line bg-paper-surface"
     >
       <CornerTicks />
       <svg
         viewBox="0 0 96 96"
-        className="h-20 w-20 opacity-15"
+        className="h-20 w-20 opacity-20"
         fill="none"
-        stroke="var(--cream)"
+        stroke="var(--paper-muted)"
         strokeWidth="2"
       >
         <circle cx="48" cy="34" r="14" />
         <path d="M20 82c0-15.5 12.5-26 28-26s28 10.5 28 26" />
       </svg>
-      <span className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.08em] text-muted">
+      <span className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.08em] text-paper-muted">
         [PHOTO]
       </span>
     </div>
@@ -60,10 +60,10 @@ export default function Team() {
           {TEAM.map((member) => (
             <figure key={member.specialties}>
               <PhotoPlaceholder />
-              <figcaption className="mt-5 divide-y divide-line border-b border-line">
-                <p className="py-2 text-[16px] font-medium text-cream">[Name]</p>
-                <p className="py-2 font-mono text-[12px] text-muted">{member.role}</p>
-                <p className="py-2 font-mono text-[11px] leading-relaxed text-muted">
+              <figcaption className="mt-5 divide-y divide-paper-line border-b border-paper-line">
+                <p className="py-2 text-[16px] font-medium text-ink">[Name]</p>
+                <p className="py-2 font-mono text-[12px] text-paper-muted">{member.role}</p>
+                <p className="py-2 font-mono text-[11px] leading-relaxed text-paper-muted">
                   {member.specialties}
                 </p>
               </figcaption>

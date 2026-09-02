@@ -43,7 +43,7 @@ const DISCLAIMER =
 
 export default function SiteFooter() {
   return (
-    <footer className="border-t border-line">
+    <footer className="dark-band border-t border-line bg-forest-black">
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>

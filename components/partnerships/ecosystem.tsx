@@ -24,7 +24,7 @@ export default function Ecosystem() {
         srTitle="Institutional and ecosystem engagement"
       />
       <div className="mx-auto max-w-6xl px-6 pb-14 pt-8">
-        <p className="max-w-[62ch] text-[16px] leading-relaxed text-muted">
+        <p className="max-w-[62ch] text-[16px] leading-relaxed text-paper-muted">
           KliSus engages with organisations and initiatives working across
           climate action, environmental integrity, sustainable development,
           research, and innovation.
@@ -34,7 +34,7 @@ export default function Ecosystem() {
             <BracketLabel key={category}>{category}</BracketLabel>
           ))}
         </div>
-        <p className="mt-6 font-mono text-[12px] text-muted">
+        <p className="mt-6 font-mono text-[12px] text-paper-muted">
           Relationships are listed here as they are established.
         </p>
       </div>
