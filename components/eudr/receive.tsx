@@ -1,17 +1,19 @@
 import SectionHeading from "@/components/ui/section-heading";
+import SectionRule from "@/components/ui/section-rule";
 import EvidenceRecordMock from "@/components/visuals/evidence-record-mock";
 
-/** 03 — WHAT YOU RECEIVE: the paper report mock, framed like a document. */
+/** 03 — WHAT YOU RECEIVE: the paper report mock, left-anchored like a filed exhibit. */
 export default function ReceiveSection() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <SectionHeading n="03" eyebrow="WHAT YOU RECEIVE" title="A structured view of the land." />
-        <div className="mx-auto mt-12 max-w-3xl">
-          <p className="eyebrow mb-4 text-center">KliSus Land Evidence Report</p>
+    <section>
+      <SectionRule n="03" label="WHAT YOU RECEIVE" />
+      <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-10 sm:pb-28 lg:grid-cols-12">
+        <div className="lg:col-span-8">
+          <SectionHeading title="A structured view of the land." />
+          <p className="voice-label mb-4 mt-12">KliSus Land Evidence Report</p>
           <EvidenceRecordMock />
-          <p className="mt-8 text-center text-[16px] text-cream">
-            Structured for review. Built for traceability.
+          <p className="mt-8 font-mono text-[13px] text-muted">
+            NOTE — Structured for review. Built for traceability.
           </p>
         </div>
       </div>

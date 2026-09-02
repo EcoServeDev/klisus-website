@@ -1,10 +1,11 @@
-import Card from "@/components/ui/card";
+import CornerTicks from "@/components/ui/corner-ticks";
 import SectionHeading from "@/components/ui/section-heading";
+import SectionRule from "@/components/ui/section-rule";
 
 /**
- * 03 — PEOPLE BEHIND KLISUS. Three real team cards with placeholder identity
+ * 03 — PEOPLE BEHIND KLISUS. Survey figures with placeholder identity
  * ([Name] and photo blocks stay placeholders by explicit decision — no fake
- * photos, no fake names). A quiet person silhouette keeps the block dignified.
+ * photos, no fake names). Ruled caption rows, no cards, no hover.
  */
 
 const TEAM = [
@@ -26,8 +27,9 @@ function PhotoPlaceholder() {
   return (
     <div
       aria-hidden="true"
-      className="relative flex aspect-[4/5] items-center justify-center rounded-sm border border-line bg-surface-2"
+      className="relative flex aspect-[4/5] items-center justify-center rounded-[2px] border border-line bg-surface-2"
     >
+      <CornerTicks />
       <svg
         viewBox="0 0 96 96"
         className="h-20 w-20 opacity-15"
@@ -47,24 +49,25 @@ function PhotoPlaceholder() {
 
 export default function Team() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
+    <section>
+      <SectionRule n="03" label="PEOPLE BEHIND KLISUS" />
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-28">
         <SectionHeading
-          n="03"
-          eyebrow="PEOPLE BEHIND KLISUS"
           title="People behind KliSus"
           lede="A multidisciplinary team working across technology, environmental science, and strategy."
         />
-        <div className="stagger mt-14 grid gap-4 sm:grid-cols-3">
-          {TEAM.map((member, i) => (
-            <Card key={member.specialties} style={{ "--i": i } as React.CSSProperties}>
+        <div className="mt-14 grid gap-6 sm:grid-cols-3">
+          {TEAM.map((member) => (
+            <figure key={member.specialties}>
               <PhotoPlaceholder />
-              <h3 className="mt-5 text-[16px] font-medium text-cream">[Name]</h3>
-              <p className="mt-1 font-mono text-[13px] text-muted">{member.role}</p>
-              <p className="mt-3 font-mono text-[12px] leading-relaxed text-muted">
-                {member.specialties}
-              </p>
-            </Card>
+              <figcaption className="mt-5 divide-y divide-line border-b border-line">
+                <p className="py-2 text-[16px] font-medium text-cream">[Name]</p>
+                <p className="py-2 font-mono text-[12px] text-muted">{member.role}</p>
+                <p className="py-2 font-mono text-[11px] leading-relaxed text-muted">
+                  {member.specialties}
+                </p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

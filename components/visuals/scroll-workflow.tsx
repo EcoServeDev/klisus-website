@@ -8,7 +8,8 @@
  */
 
 import { useEffect, useRef, useState } from "react";
-import Tag from "@/components/ui/tag";
+import BracketLabel from "@/components/ui/bracket-label";
+import CornerTicks from "@/components/ui/corner-ticks";
 import WorkflowStep from "@/components/ui/workflow-step";
 
 const STEPS = [
@@ -114,7 +115,7 @@ function MiniRecord() {
     ["Sources & limitations", "Stated"],
   ];
   return (
-    <div className="w-64 rounded-sm border border-paper-line bg-paper p-4 text-ink shadow-2xl">
+    <div className="w-64 rounded-[2px] border border-paper-line bg-paper p-4 text-ink shadow-2xl">
       <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper-muted">
         KliSus Land Evidence Record
       </p>
@@ -151,16 +152,30 @@ function Scene({ step }: { step: number }) {
               </div>
             </>
           ) : null}
-          {step === 2 ? <Tag tone="amber">CHANGE INDICATOR IDENTIFIED</Tag> : null}
+          {step === 2 ? (
+            <BracketLabel tone="amber">CHANGE INDICATOR IDENTIFIED</BracketLabel>
+          ) : null}
         </>
       )}
     </div>
   );
 }
 
-function SceneFrame({ children }: { children: React.ReactNode }) {
+function SceneBar({ n }: { n: number }) {
   return (
-    <div className="overflow-hidden rounded-sm border border-line bg-surface-1">
+    <p
+      className="border-b border-line px-4 py-2 font-mono text-[10px] uppercase tracking-[0.08em] text-muted"
+      aria-hidden="true"
+    >
+      SCENE 0{n} / 04
+    </p>
+  );
+}
+
+function SceneFrame({ n, children }: { n: number; children: React.ReactNode }) {
+  return (
+    <div className="overflow-hidden rounded-[2px] border border-line bg-surface-1">
+      <SceneBar n={n} />
       {children}
     </div>
   );
@@ -210,7 +225,7 @@ export default function ScrollWorkflow() {
             {/* Inline scene: always on mobile; on desktop only when motion
                 is reduced (the sticky panel is not rendered then). */}
             <div className="mt-6 motion-safe:lg:hidden">
-              <SceneFrame>
+              <SceneFrame n={i + 1}>
                 <Scene step={i} />
               </SceneFrame>
             </div>
@@ -221,19 +236,23 @@ export default function ScrollWorkflow() {
       {
         <div className="hidden motion-safe:lg:block">
           <div
-            className="sticky top-24 h-[70vh] overflow-hidden rounded-sm border border-line bg-surface-1"
+            className="sticky top-24 flex h-[70vh] flex-col overflow-hidden rounded-[2px] border border-line bg-surface-1"
             aria-hidden="true"
           >
-            {STEPS.map((step, i) => (
-              <div
-                key={step.n}
-                className={`absolute inset-0 transition-opacity duration-[400ms] ${
-                  i === active ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <Scene step={i} />
-              </div>
-            ))}
+            <SceneBar n={active + 1} />
+            <div className="relative flex-1">
+              {STEPS.map((step, i) => (
+                <div
+                  key={step.n}
+                  className={`absolute inset-0 transition-opacity duration-[400ms] ${
+                    i === active ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <Scene step={i} />
+                </div>
+              ))}
+            </div>
+            <CornerTicks />
           </div>
         </div>
       }

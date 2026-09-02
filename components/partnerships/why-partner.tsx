@@ -1,10 +1,8 @@
-import Card from "@/components/ui/card";
 import SectionHeading from "@/components/ui/section-heading";
+import SectionRule from "@/components/ui/section-rule";
+import IndexRow, { IndexList } from "@/components/ui/index-row";
 
-/**
- * 01 — WHY PARTNER WITH KLISUS. Four quiet cards, 2×2 on sm+, staggered
- * entrance on first view.
- */
+/** 01 — WHY PARTNER WITH KLISUS. Four numbered index rows, not cards. */
 
 const REASONS = [
   {
@@ -27,21 +25,17 @@ const REASONS = [
 
 export default function WhyPartner() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <SectionHeading
-          n="01"
-          eyebrow="WHY PARTNER WITH KLISUS"
-          title="Where environmental intelligence meets opportunity."
-        />
-        <div className="stagger mt-14 grid gap-4 sm:grid-cols-2">
+    <section>
+      <SectionRule n="01" label="WHY PARTNER WITH KLISUS" />
+      <div className="mx-auto max-w-6xl px-6 pb-16 pt-8 lg:pb-20">
+        <SectionHeading title="Where environmental intelligence meets opportunity." />
+        <IndexList className="mt-12">
           {REASONS.map((reason, i) => (
-            <Card key={reason.title} style={{ "--i": i } as React.CSSProperties}>
-              <h3 className="text-[20px] font-medium text-cream">{reason.title}</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted">{reason.body}</p>
-            </Card>
+            <IndexRow key={reason.title} n={`0${i + 1}`} title={reason.title}>
+              {reason.body}
+            </IndexRow>
           ))}
-        </div>
+        </IndexList>
       </div>
     </section>
   );

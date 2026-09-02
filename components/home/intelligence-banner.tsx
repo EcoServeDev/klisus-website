@@ -1,9 +1,9 @@
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 
 /**
- * 04 — INTELLIGENCE BANNER. Quiet full-width interlude with a faint
- * contour/coordinate-grid drawing behind. Calm by design: one accent, no motion.
+ * 04 — INTELLIGENCE BANNER. Home's one quiet full-width moment — still
+ * left-aligned, never centered. Faint contour/coordinate drawing behind;
+ * one accent, no motion.
  */
 
 function ContourGrid() {
@@ -72,17 +72,17 @@ export default function IntelligenceBanner() {
   return (
     <section className="relative overflow-hidden border-y border-line bg-surface-1">
       <ContourGrid />
-      <div className="relative mx-auto max-w-6xl px-6 py-20 text-center sm:py-24">
-        <Eyebrow className="mb-4">Beyond verification</Eyebrow>
-        <h2 className="font-display text-[28px] leading-[1.15] text-cream sm:text-[40px]">
+      <div className="relative mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <p className="voice-label">04 / BEYOND VERIFICATION</p>
+        <h2 className="font-display mt-6 max-w-[14ch] text-[32px] text-cream md:text-[44px] lg:text-[56px]">
           KliSus Intelligence
         </h2>
-        <p className="mx-auto mt-4 max-w-[52ch] text-[16px] leading-relaxed text-muted">
+        <p className="voice-lede mt-6 max-w-[42ch] text-[20px] text-muted md:text-[24px]">
           Research and intelligence at the intersection of climate, land,
           nature, and economics.
         </p>
-        <div className="mt-8 flex justify-center">
-          <Button href="/intelligence" variant="secondary" size="lg">
+        <div className="mt-8">
+          <Button href="/intelligence" variant="ghost">
             Explore KliSus Intelligence →
           </Button>
         </div>

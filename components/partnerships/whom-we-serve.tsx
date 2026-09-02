@@ -1,9 +1,10 @@
+import BracketLabel from "@/components/ui/bracket-label";
 import SectionHeading from "@/components/ui/section-heading";
-import Tag from "@/components/ui/tag";
+import SectionRule from "@/components/ui/section-rule";
 
 /**
- * 02 — WHOM WE SERVE. Three columns, each headed by a tag chip, separated by
- * hairlines on sm+ so the row reads as one instrument panel.
+ * 02 — WHOM WE SERVE. Three-column ruled table — one instrument panel,
+ * bracket-labelled.
  */
 
 const AUDIENCES = [
@@ -23,17 +24,14 @@ const AUDIENCES = [
 
 export default function WhomWeServe() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <SectionHeading n="02" eyebrow="WHOM WE SERVE" title="Built for decision-makers." />
-        <div className="stagger mt-14 grid gap-10 sm:grid-cols-3 sm:gap-8">
-          {AUDIENCES.map((audience, i) => (
-            <div
-              key={audience.tag}
-              style={{ "--i": i } as React.CSSProperties}
-              className="border-t border-line pt-6"
-            >
-              <Tag>{audience.tag}</Tag>
+    <section>
+      <SectionRule n="02" label="WHOM WE SERVE" />
+      <div className="mx-auto max-w-6xl px-6 pb-14 pt-8">
+        <SectionHeading title="Built for decision-makers." />
+        <div className="mt-12 grid divide-y divide-line border-y border-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          {AUDIENCES.map((audience) => (
+            <div key={audience.tag} className="p-6">
+              <BracketLabel>{audience.tag}</BracketLabel>
               <p className="mt-4 text-[14px] leading-relaxed text-muted">{audience.body}</p>
             </div>
           ))}

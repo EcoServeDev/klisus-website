@@ -3,9 +3,10 @@
  * dark ground like a printed document. Clearly watermarked as illustrative.
  */
 
+import BracketLabel from "@/components/ui/bracket-label";
 import Button from "@/components/ui/button";
+import CornerTicks from "@/components/ui/corner-ticks";
 import DefList from "@/components/ui/def-list";
-import Tag from "@/components/ui/tag";
 
 const SECTIONS = [
   "PLOT",
@@ -56,29 +57,30 @@ export default function EvidenceRecordMock({
   return (
     <div className={`relative ${className}`}>
       <div
-        className={`mx-auto max-w-2xl rounded-sm border border-paper-line bg-paper p-6 text-ink shadow-2xl sm:p-8 ${
+        className={`relative mx-auto max-w-2xl rounded-[2px] border border-paper-line bg-paper p-6 text-ink shadow-2xl sm:p-8 ${
           cta ? "pb-20 sm:pb-24" : ""
         }`}
       >
+        <CornerTicks paper />
         <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
           <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-muted">
             KliSus Land Evidence Record
           </p>
-          <div className="text-right">
+          <div className="flex flex-col items-end gap-2 text-right">
             <p className="font-mono text-[12px] text-paper-muted">
               KLS-2026-00417 · 01 Sep 2026
             </p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-paper-muted">
+            <span className="inline-block -rotate-2 border border-dashed border-paper-muted/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-paper-muted">
               Illustrative sample
-            </p>
+            </span>
           </div>
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
-            <Tag key={s} tone="paper">
+            <BracketLabel key={s} tone="paper">
               {s}
-            </Tag>
+            </BracketLabel>
           ))}
         </div>
 

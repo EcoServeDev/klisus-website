@@ -1,42 +1,58 @@
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
 import HeroPlate from "@/components/visuals/hero-plate";
-import FlowStrip from "@/components/visuals/flow-strip";
+import TelemetryStrip from "@/components/visuals/telemetry-strip";
 
-/** Flagship hero: satellite plate behind, headline left, flow strip below. */
+/**
+ * Flagship hero, dossier grammar: type pinned lower-left over the plate,
+ * assessment flow as the bottom telemetry strip.
+ */
 export default function EudrHero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative flex min-h-[92svh] flex-col justify-end overflow-hidden">
       <HeroPlate />
-      <div className="relative mx-auto max-w-6xl px-6 pb-16 pt-24 sm:pb-24 sm:pt-36">
-        <div className="max-w-3xl animate-fade-up">
-          <Eyebrow className="mb-5">EUDR LAND EVIDENCE</Eyebrow>
-          <h1 className="font-display text-[40px] leading-[1.1] text-cream lg:text-[56px]">
-            Assess the land behind your supply chain.
-          </h1>
-          <p className="mt-5 max-w-[46ch] text-[20px] leading-relaxed text-cream">
-            Plot-level satellite and geospatial intelligence to support EUDR due
-            diligence.
-          </p>
-          <p className="mt-4 max-w-[60ch] text-[16px] leading-relaxed text-muted">
-            KliSus analyses production-plot locations and historical land-use
-            indicators to provide structured evidence for supply-chain review
-            and due-diligence workflows.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <Button href="/plot-check" size="lg">
-              Request a Plot Assessment →
-            </Button>
-            <Button href="/plot-check/r/e12fe13023e0" variant="secondary" size="lg">
-              View Sample Report →
-            </Button>
-          </div>
-          <FlowStrip
-            className="mt-12"
-            items={["Production Plot", "Historical Satellite Analysis", "Land Evidence"]}
-          />
+
+      {/* marginalia — one corner only */}
+      <div className="absolute right-6 top-24 hidden text-right md:block" aria-hidden="true">
+        <p className="font-mono text-[10px] leading-relaxed text-muted">
+          S2 PASS 2026-09-01
+          <br />
+          TILE 20MQD · CLOUD 4%
+          <br />
+          ILLUSTRATIVE
+        </p>
+      </div>
+
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-10">
+        <p className="voice-label animate-fade-up">EUDR LAND EVIDENCE</p>
+        <h1 className="font-display animate-fade-up mt-6 max-w-[13ch] text-[44px] text-cream md:text-[64px] lg:text-[84px]">
+          Assess the land behind your supply chain.
+        </h1>
+        <p className="voice-lede mt-6 max-w-[40ch] text-[20px] text-cream md:text-[24px]">
+          Plot-level satellite and geospatial intelligence to support EUDR due
+          diligence.
+        </p>
+        <p className="mt-4 max-w-[52ch] text-[16px] leading-relaxed text-cream/85">
+          KliSus analyses production-plot locations and historical land-use
+          indicators to provide structured evidence for supply-chain review
+          and due-diligence workflows.
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          <Button href="/plot-check" size="lg">
+            Request a Plot Assessment →
+          </Button>
+          <Button href="/plot-check/r/e12fe13023e0" variant="secondary" size="lg">
+            View Sample Report →
+          </Button>
         </div>
       </div>
+
+      <TelemetryStrip
+        fields={[
+          { label: "01 PRODUCTION PLOT", value: "SUBMITTED" },
+          { label: "02 HISTORICAL SATELLITE ANALYSIS", value: "ASSESSED" },
+          { label: "03 LAND EVIDENCE", value: "STRUCTURED" },
+        ]}
+      />
     </section>
   );
 }

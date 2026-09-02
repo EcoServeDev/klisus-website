@@ -1,5 +1,6 @@
+import BracketLabel from "@/components/ui/bracket-label";
 import SectionHeading from "@/components/ui/section-heading";
-import Tag from "@/components/ui/tag";
+import SectionRule from "@/components/ui/section-rule";
 
 const PILLARS = [
   { tag: "PLOT-LEVEL", body: "Analysis tied to defined production areas." },
@@ -8,16 +9,17 @@ const PILLARS = [
   { tag: "TRACEABLE", body: "Structured outputs with documented data sources and methodology." },
 ] as const;
 
-/** 05 — WHY KLISUS: quiet four-column trust strip. */
+/** 05 — WHY KLISUS: ruled four-column trust table. */
 export default function WhySection() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <SectionHeading n="05" eyebrow="WHY KLISUS" title="Built for evidence." />
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <section>
+      <SectionRule n="05" label="WHY KLISUS" />
+      <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-28">
+        <SectionHeading title="Built for evidence." />
+        <div className="mt-12 grid divide-y divide-line border-y border-line sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
           {PILLARS.map((pillar) => (
-            <div key={pillar.tag} className="border-t border-line pt-5">
-              <Tag>{pillar.tag}</Tag>
+            <div key={pillar.tag} className="p-6">
+              <BracketLabel>{pillar.tag}</BracketLabel>
               <p className="mt-3 text-[14px] leading-relaxed text-muted">{pillar.body}</p>
             </div>
           ))}

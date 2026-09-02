@@ -1,9 +1,9 @@
 import Button from "@/components/ui/button";
-import Eyebrow from "@/components/ui/eyebrow";
+import SectionRule from "@/components/ui/section-rule";
 
 /**
- * 04 — CONTACT. The page's working CTA, given presence as a split bordered
- * card: invitation left, data-voice contact rows + button right.
+ * 04 — CONTACT. The page's working CTA as a full-bleed ruled spread:
+ * invitation left, dot-leader contact ledger + button right.
  */
 
 const BODY =
@@ -13,39 +13,36 @@ const BODY =
 
 export default function Contact() {
   return (
-    <section className="border-t border-line">
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-28">
-        <div className="animate-fade-up rounded-sm border border-line bg-surface-1">
-          <div className="grid gap-10 p-8 sm:p-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
-            <div>
-              <h2 className="sr-only">Contact</h2>
-              <Eyebrow n="04" className="mb-4">
-                CONTACT
-              </Eyebrow>
-              <p className="max-w-[52ch] text-[16px] leading-relaxed text-cream">{BODY}</p>
+    <section className="border-b border-line">
+      <SectionRule n="04" label="CONTACT" srTitle="Contact" />
+      <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-12 px-6 pb-20 pt-8 lg:grid-cols-12 lg:pb-28">
+        <div className="lg:col-span-6">
+          <p className="voice-lede max-w-[44ch] text-[20px] text-cream md:text-[24px]">
+            {BODY}
+          </p>
+        </div>
+        <div className="lg:col-start-8 lg:col-span-5">
+          <dl className="divide-y divide-line border-y border-line">
+            <div className="flex items-baseline py-3">
+              <dt className="voice-label shrink-0">Email</dt>
+              <span className="dot-leader" aria-hidden="true" />
+              <dd className="shrink-0 font-mono text-[13px] text-cream">
+                <a
+                  href="mailto:teams@klisus.com"
+                  className="transition-colors hover:text-ndvi-green"
+                >
+                  teams@klisus.com
+                </a>
+              </dd>
             </div>
-            <div className="lg:border-l lg:border-line lg:pl-16">
-              <dl className="space-y-4">
-                <div>
-                  <dt className="eyebrow mb-1.5">Email</dt>
-                  <dd className="font-mono text-[13px] text-cream">
-                    <a
-                      href="mailto:teams@klisus.com"
-                      className="transition-colors hover:text-ndvi-green"
-                    >
-                      teams@klisus.com
-                    </a>
-                  </dd>
-                </div>
-                <div>
-                  <dt className="eyebrow mb-1.5">Location</dt>
-                  <dd className="font-mono text-[13px] text-cream">Dubai, UAE</dd>
-                </div>
-              </dl>
-              <div className="mt-8">
-                <Button href="mailto:teams@klisus.com">Start a Conversation →</Button>
-              </div>
+            <div className="flex items-baseline py-3">
+              <dt className="voice-label shrink-0">Location</dt>
+              <span className="dot-leader" aria-hidden="true" />
+              <dd className="shrink-0 font-mono text-[13px] text-cream">Dubai, UAE</dd>
             </div>
+          </dl>
+          <div className="mt-8">
+            <Button href="mailto:teams@klisus.com">Start a Conversation →</Button>
           </div>
         </div>
       </div>
