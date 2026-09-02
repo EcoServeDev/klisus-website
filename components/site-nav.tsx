@@ -6,6 +6,7 @@
  * The Solutions dropdown always shows two rich rows, never an empty panel.
  */
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -121,8 +122,9 @@ export default function SiteNav() {
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
-          className="font-mono text-[13px] uppercase tracking-[0.28em] text-cream"
+          className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream"
         >
+          <Image src="/klisus-logo.png" alt="" width={22} height={22} />
           KliSus
         </Link>
 

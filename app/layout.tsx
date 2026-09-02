@@ -38,7 +38,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "KliSus",
   url: "https://klisus.com",
-  logo: "https://klisus.com/klisus-logo.jpeg",
+  logo: "https://klisus.com/klisus-logo.png",
   email: "teams@klisus.com",
   address: { "@type": "PostalAddress", addressLocality: "Dubai", addressCountry: "AE" },
   sameAs: ["https://x.com/Klisus_io", "https://www.linkedin.com/company/klisus/"],

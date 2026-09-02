@@ -2,6 +2,8 @@
  * 05 — CLOSING. Quiet left-aligned close: display line + wordmark. No
  * buttons — the working CTA lives in the contact spread above.
  */
+import Image from "next/image";
+
 export default function Closing() {
   return (
     <section>
@@ -10,7 +12,8 @@ export default function Closing() {
           <h2 className="font-display max-w-[18ch] text-[32px] text-cream md:text-[44px]">
             Better intelligence is built together.
           </h2>
-          <p className="mt-12 font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
+          <p className="mt-12 flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
+            <Image src="/klisus-logo.png" alt="" width={22} height={22} />
             KliSus
           </p>
           <p className="voice-label mt-2">Climate Intelligence &amp; Economics</p>

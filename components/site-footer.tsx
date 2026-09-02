@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 /**
@@ -46,7 +47,8 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-6xl px-6 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
+            <p className="flex items-center gap-2.5 font-mono text-[13px] uppercase tracking-[0.28em] text-cream">
+              <Image src="/klisus-logo.png" alt="" width={22} height={22} />
               KliSus
             </p>
             <p className="voice-label mt-2">Climate Intelligence &amp; Economics</p>
