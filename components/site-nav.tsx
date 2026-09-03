@@ -118,7 +118,7 @@ export default function SiteNav() {
   const solutionsActive = pathname.startsWith("/solutions");
 
   return (
-    <header className="dark-band sticky top-0 z-50 bg-forest-black/85 backdrop-blur">
+    <header className="dark-band sticky top-0 z-50 bg-espresso/85 backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
@@ -151,12 +151,12 @@ export default function SiteNav() {
               </svg>
             </button>
             {solutionsOpen ? (
-              <div className="absolute left-0 top-full mt-3 w-96 rounded-xl border border-line bg-forest-black p-2 shadow-[0_16px_40px_rgba(13,21,18,0.35)]">
+              <div className="absolute left-0 top-full mt-3 w-96 rounded-xl border border-cream/10 bg-espresso p-2 shadow-[0_16px_40px_rgba(13,21,18,0.35)]">
                 {SOLUTIONS_ITEMS.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href as never}
-                    className="block rounded-lg p-4 transition-colors hover:bg-surface-2"
+                    className="block rounded-lg p-4 transition-colors hover:bg-cream/10"
                   >
                     <span className="block text-[15px] font-semibold text-cream">
                       {item.label}
@@ -168,7 +168,7 @@ export default function SiteNav() {
                 ))}
                 <Link
                   href="/solutions"
-                  className="block rounded-lg p-4 text-[14px] font-semibold text-ndvi-green transition-colors hover:bg-surface-2"
+                  className="block rounded-lg p-4 text-[14px] font-semibold text-ndvi-green transition-colors hover:bg-cream/10"
                 >
                   All solutions →
                 </Link>
@@ -206,9 +206,9 @@ export default function SiteNav() {
 
       {/* Mobile sheet */}
       {mobileOpen ? (
-        <div className="dark-band fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto border-t border-line bg-forest-black px-6 py-8 md:hidden">
+        <div className="dark-band fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto border-t border-cream/10 bg-espresso px-6 py-8 md:hidden">
           <p className="voice-label mb-3">Solutions</p>
-          <div className="flex flex-col gap-4 border-l border-line pl-4">
+          <div className="flex flex-col gap-4 border-l border-cream/15 pl-4">
             {SOLUTIONS_ITEMS.map((item) => (
               <NavLink
                 key={item.label}

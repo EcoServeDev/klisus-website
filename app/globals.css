@@ -34,6 +34,9 @@
 
   /* soft tint washes */
   --green-wash: #eef4ee;
+
+  /* warm dark bar (nav) */
+  --espresso: #2a231c;
 }
 
 @theme inline {
@@ -55,6 +58,7 @@
   --color-paper-surface: var(--paper-surface);
   --color-paper-line: var(--paper-line);
   --color-green-wash: var(--green-wash);
+  --color-espresso: var(--espresso);
 
   --font-sans: var(--font-schibsted);
   --font-mono: var(--font-fragment);
