@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   // OG image routes read TTFs via process.cwd()/assets — static tracing can't
   // see through that, so include them for every route's function output.
   outputFileTracingIncludes: { "/**": ["./assets/**"] },
