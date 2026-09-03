@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import SectionHeading from "@/components/ui/section-heading";
+import Reveal from "@/components/visuals/reveal";
 
 const MODULES = [
   {
@@ -33,30 +33,49 @@ const MODULES = [
   },
 ];
 
-/** 02 — WHAT WE DO */
+/** Full-viewport sand panel: headline left, module cards revealing right. */
 export default function WhatWeDo() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
-      <p className="kicker">What we do</p>
-      <SectionHeading
-        className="mt-5"
-        title="The intelligence layer between environmental change and economic decisions."
-        lede="KliSus transforms complex environmental information into structured intelligence and traceable evidence for business, investment, regulatory, and market decisions."
-      />
-      <div className="stagger mt-14 grid gap-6 md:grid-cols-3">
-        {MODULES.map((m, i) => (
-          <div
-            key={m.title}
-            style={{ "--i": i } as CSSProperties}
-            className="rounded-2xl bg-paper p-8 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)]"
+    <section className="stack-panel bg-paper-surface">
+      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 py-24 lg:grid-cols-[1.1fr_1fr] lg:gap-20">
+        <Reveal>
+          <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+            What we do
+          </p>
+          <h2
+            className="font-display mt-5 max-w-[16ch] text-[34px] font-medium text-ink sm:text-[44px]"
+            style={{ "--i": 1 } as CSSProperties}
           >
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-wash text-green-ink">
-              {m.icon}
-            </span>
-            <h3 className="mt-6 text-[21px] font-semibold text-ink">{m.title}</h3>
-            <p className="mt-2.5 text-[15px] leading-relaxed text-paper-muted">{m.line}</p>
-          </div>
-        ))}
+            The intelligence layer between environmental change and economic
+            decisions.
+          </h2>
+          <p
+            className="mt-6 max-w-[50ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 2 } as CSSProperties}
+          >
+            KliSus transforms complex environmental information into structured
+            intelligence and traceable evidence for business, investment,
+            regulatory, and market decisions.
+          </p>
+        </Reveal>
+
+        <Reveal className="grid gap-5">
+          {MODULES.map((m, i) => (
+            <div
+              key={m.title}
+              style={{ "--i": i } as CSSProperties}
+              className="flex items-start gap-5 rounded-2xl bg-paper p-7 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)]"
+            >
+              <span className="inline-flex h-12 w-12 flex-none items-center justify-center rounded-full bg-green-wash text-green-ink">
+                {m.icon}
+              </span>
+              <span>
+                <h3 className="text-[20px] font-semibold text-ink">{m.title}</h3>
+                <p className="mt-1.5 text-[15px] leading-relaxed text-paper-muted">{m.line}</p>
+              </span>
+            </div>
+          ))}
+        </Reveal>
       </div>
     </section>
   );

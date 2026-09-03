@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "@/components/ui/button";
+import StatCounter from "@/components/visuals/stat-counter";
 
 /**
  * Full-bleed satellite hero with a graded overlay, kicker + big sentence
@@ -7,14 +8,14 @@ import Button from "@/components/ui/button";
  * only — never invented metrics).
  */
 const STATS = [
-  { num: "6", label: "independent public datasets" },
-  { num: "10 m", label: "imagery resolution" },
-  { num: "2020", label: "EUDR cutoff baseline" },
+  { value: 6, suffix: "", label: "independent public datasets" },
+  { value: 10, suffix: " m", label: "imagery resolution" },
+  { value: 2020, suffix: "", label: "EUDR cutoff baseline" },
 ];
 
 export default function Hero() {
   return (
-    <section className="dark-band relative overflow-hidden bg-forest-black">
+    <section className="dark-band stack-panel relative justify-end overflow-hidden bg-forest-black">
       <Image
         src="/plates/apui-hero-2025.jpg"
         alt="Sentinel-2 satellite view of the Apuí deforestation frontier, Amazonas, Brazil"
@@ -51,7 +52,9 @@ export default function Hero() {
         <div className="mt-20 grid gap-10 border-t border-cream/15 pt-10 sm:grid-cols-3">
           {STATS.map((s) => (
             <div key={s.label}>
-              <p className="stat-num text-[52px] text-paper sm:text-[60px]">{s.num}</p>
+              <p className="stat-num text-[52px] text-paper sm:text-[60px]">
+                <StatCounter value={s.value} suffix={s.suffix} />
+              </p>
               <p className="mt-2 text-[14px] text-cream/75">{s.label}</p>
             </div>
           ))}

@@ -1,5 +1,7 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Button from "@/components/ui/button";
+import Reveal from "@/components/visuals/reveal";
 
 /** Closing CTA: full-bleed satellite band with graded overlay. */
 export default function CTABand({
@@ -26,16 +28,25 @@ export default function CTABand({
         aria-hidden="true"
       />
       <div className="absolute inset-0 bg-forest-black/60" aria-hidden="true" />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 text-center lg:py-32">
-        <h2 className="font-display mx-auto max-w-[18ch] text-[34px] font-medium text-paper md:text-[46px]">
+      <Reveal className="relative mx-auto max-w-6xl px-6 py-24 text-center lg:py-32">
+        <h2
+          className="font-display mx-auto max-w-[18ch] text-[34px] font-medium text-paper md:text-[46px]"
+          style={{ "--i": 0 } as CSSProperties}
+        >
           {title}
         </h2>
         {lede ? (
-          <p className="voice-lede mx-auto mt-4 max-w-[44ch] text-[18px] text-cream/85">
+          <p
+            className="voice-lede mx-auto mt-4 max-w-[44ch] text-[18px] text-cream/85"
+            style={{ "--i": 1 } as CSSProperties}
+          >
             {lede}
           </p>
         ) : null}
-        <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+        <div
+          className="mt-9 flex flex-wrap items-center justify-center gap-4"
+          style={{ "--i": 2 } as CSSProperties}
+        >
           <Button href={primary.href} size="lg" onDark>
             {primary.label}
           </Button>
@@ -45,7 +56,7 @@ export default function CTABand({
             </Button>
           ) : null}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
