@@ -91,7 +91,7 @@ export default function CompareSlider({
             `${v}% — ${afterChip} imagery revealed`,
           );
         }}
-        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0 [touch-action:pan-y]"
+        className="absolute inset-0 h-full w-full cursor-ew-resize opacity-0 [touch-action:pan-y_pinch-zoom]"
       />
     </div>
   );

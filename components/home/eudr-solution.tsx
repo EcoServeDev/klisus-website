@@ -6,8 +6,8 @@ import Reveal from "@/components/visuals/reveal";
 /** Full-viewport product panel: blurred imagery + lockup left, copy right. */
 export default function EudrSolution() {
   return (
-    <section className="stack-panel bg-forest-black lg:flex-row lg:items-stretch">
-      <div className="relative flex min-h-[380px] flex-1 items-center justify-center overflow-hidden lg:min-h-0">
+    <section className="stack-panel grid bg-forest-black lg:grid-cols-2">
+      <div className="relative flex min-h-[260px] items-center justify-center overflow-hidden sm:min-h-[380px] lg:min-h-0">
         <Image
           src="/plates/apui-tc-2025.jpg"
           alt=""
@@ -19,7 +19,7 @@ export default function EudrSolution() {
         <div className="absolute inset-0 bg-forest-black/35" aria-hidden="true" />
         <Reveal className="relative px-8 text-center">
           <span
-            className="font-display block text-[46px] font-medium leading-none text-ndvi-green sm:text-[60px]"
+            className="font-display block text-[36px] font-medium leading-none text-ndvi-green sm:text-[52px] lg:text-[60px]"
             style={{ "--i": 0 } as CSSProperties}
           >
             Land Evidence
@@ -33,7 +33,7 @@ export default function EudrSolution() {
         </Reveal>
       </div>
 
-      <div className="dark-band flex flex-1 items-center bg-forest-black">
+      <div className="dark-band flex items-center bg-forest-black">
         <Reveal className="px-8 py-16 sm:px-12 lg:px-16">
           <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
             Our first solution

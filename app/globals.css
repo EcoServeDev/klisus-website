@@ -157,14 +157,18 @@
    while the next slides over it (the Ahya scroll effect).
 --------------------------------------------------------------------------- */
 @layer components {
-  .stack-panel {
-    position: sticky;
-    top: 0;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 -40px 80px rgba(13, 21, 18, 0.28);
+  /* Sticky panel stacking is a DESKTOP effect only: on phones a pinned
+     panel taller than the viewport makes its lower content unreachable. */
+  @media (min-width: 1024px) {
+    .stack-panel {
+      position: sticky;
+      top: 0;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 -40px 80px rgba(13, 21, 18, 0.28);
+    }
   }
 }
 

@@ -79,7 +79,7 @@ export default function SolutionsPage() {
           <div className="absolute inset-0 bg-forest-black/35" aria-hidden="true" />
           <Reveal className="relative px-8 text-center">
             <span
-              className="font-display block text-[46px] font-medium leading-none text-ndvi-green sm:text-[60px]"
+              className="font-display block text-[36px] sm:text-[46px] font-medium leading-none text-ndvi-green sm:text-[60px]"
               style={{ "--i": 0 } as CSSProperties}
             >
               Land Evidence

@@ -96,7 +96,13 @@ export default function SiteNav() {
   }, [solutionsOpen]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    // iOS-safe scroll lock: fix the body in place instead of overflow:hidden.
+    if (mobileOpen) {
+      const y = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${y}px`;
+      document.body.style.width = "100%";
+    }
     // Keep scroll-locked background content out of the tab order while the
     // sheet is open (the sheet lives inside <header>, which stays live).
     const inertTargets = document.querySelectorAll("main, footer");
@@ -109,7 +115,11 @@ export default function SiteNav() {
     };
     document.addEventListener("keydown", onKey);
     return () => {
-      document.body.style.overflow = "";
+      const y = -parseInt(document.body.style.top || "0", 10);
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (y) window.scrollTo(0, y);
       for (const el of inertTargets) el.removeAttribute("inert");
       document.removeEventListener("keydown", onKey);
     };
@@ -118,7 +128,7 @@ export default function SiteNav() {
   const solutionsActive = pathname.startsWith("/solutions");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-paper-line/70 bg-paper/85 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-paper-line/70 bg-paper lg:bg-paper/85 lg:backdrop-blur">
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-6">
         <Link
           href="/"
@@ -129,7 +139,7 @@ export default function SiteNav() {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
@@ -180,7 +190,7 @@ export default function SiteNav() {
               {item.label}
             </NavLink>
           ))}
-          <Button href="/plot-check">
+          <Button href="/plot-check" className="shrink-0 whitespace-nowrap">
             Request a Plot Assessment
           </Button>
         </div>
@@ -189,7 +199,7 @@ export default function SiteNav() {
         <button
           type="button"
           ref={mobileTriggerRef}
-          className="p-2 text-ink md:hidden"
+          className="-mr-2 flex h-11 w-11 items-center justify-center text-ink lg:hidden"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen((v) => !v)}
@@ -206,7 +216,7 @@ export default function SiteNav() {
 
       {/* Mobile sheet */}
       {mobileOpen ? (
-        <div className="fixed inset-x-0 bottom-0 top-16 z-50 flex flex-col overflow-y-auto border-t border-paper-line bg-paper px-6 py-8 md:hidden">
+        <div className="fixed inset-x-0 top-16 z-50 flex h-[calc(100svh-4rem)] flex-col overflow-y-auto overscroll-contain border-t border-paper-line bg-paper px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-8 lg:hidden">
           <p className="voice-label mb-3">Solutions</p>
           <div className="flex flex-col gap-4 border-l border-paper-line pl-4">
             {SOLUTIONS_ITEMS.map((item) => (
