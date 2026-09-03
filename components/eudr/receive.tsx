@@ -1,24 +1,37 @@
-import SectionHeading from "@/components/ui/section-heading";
-import SectionRule from "@/components/ui/section-rule";
+import type { CSSProperties } from "react";
 import EvidenceRecordMock from "@/components/visuals/evidence-record-mock";
+import Reveal from "@/components/visuals/reveal";
 
-/** 03 — WHAT YOU RECEIVE: the paper report mock, left-anchored like a filed exhibit. */
+/** WHAT YOU RECEIVE: the report mock as a centered exhibit. */
 export default function ReceiveSection() {
   return (
-    <section>
-      <SectionRule n="03" label="WHAT YOU RECEIVE" />
-      <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-10 sm:pb-28 lg:grid-cols-12">
-        <div className="lg:col-span-8">
-          <SectionHeading title="A structured view of the land." />
-          <p className="voice-label mb-4 mt-12">KliSus Land Evidence Report</p>
-          <div className="rounded-[2px] border border-paper-line bg-paper-surface p-4 sm:p-6">
-            <EvidenceRecordMock />
-          </div>
-          <p className="mt-8 font-mono text-[13px] text-paper-muted">
-            NOTE — Structured for review. Built for traceability.
-          </p>
+    <section className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+      <Reveal>
+        <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+          What you receive
+        </p>
+        <h2
+          className="font-display mt-5 max-w-[16ch] text-[32px] font-medium text-ink sm:text-[42px]"
+          style={{ "--i": 1 } as CSSProperties}
+        >
+          A structured view of the land.
+        </h2>
+        <p
+          className="mt-4 text-[15px] font-semibold text-paper-muted"
+          style={{ "--i": 2 } as CSSProperties}
+        >
+          KliSus Land Evidence Report
+        </p>
+        <div className="mt-8 max-w-2xl" style={{ "--i": 3 } as CSSProperties}>
+          <EvidenceRecordMock />
         </div>
-      </div>
+        <p
+          className="mt-8 text-[15px] text-paper-muted"
+          style={{ "--i": 4 } as CSSProperties}
+        >
+          Structured for review. Built for traceability.
+        </p>
+      </Reveal>
     </section>
   );
 }

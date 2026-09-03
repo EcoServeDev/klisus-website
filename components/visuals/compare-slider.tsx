@@ -30,7 +30,7 @@ export default function CompareSlider({
   return (
     <div
       ref={box}
-      className={`relative select-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-green-ink ${className}`}
+      className={`relative select-none overflow-hidden rounded-2xl focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-green-ink ${className}`}
       style={
         {
           "--split": "50%",
@@ -63,16 +63,16 @@ export default function CompareSlider({
         className="absolute inset-y-0 w-[2px] bg-paper"
         style={{ left: "var(--split)" }}
       >
-        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-[2px] border border-paper-line bg-paper px-1.5 py-0.5 font-mono text-[10px] text-ink">
+        <span className="absolute left-1/2 top-1/2 grid h-9 w-9 -translate-x-1/2 -translate-y-1/2 place-items-center whitespace-nowrap rounded-full bg-paper text-[11px] text-ink shadow-[0_2px_8px_rgba(13,21,18,0.35)]">
           ◂ ▸
         </span>
       </div>
 
       {/* dated chips, both sides always labeled */}
-      <span className="absolute left-2 top-2 rounded-[2px] bg-paper/85 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-ink">
+      <span className="absolute left-3 top-3 rounded-md bg-forest-black/70 px-2.5 py-1 text-[11px] font-medium text-cream backdrop-blur-sm">
         {beforeChip}
       </span>
-      <span className="absolute right-2 top-2 rounded-[2px] bg-paper/85 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-ink">
+      <span className="absolute right-3 top-3 rounded-md bg-forest-black/70 px-2.5 py-1 text-[11px] font-medium text-cream backdrop-blur-sm">
         {afterChip}
       </span>
 

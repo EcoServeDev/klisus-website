@@ -1,32 +1,27 @@
 import type { Metadata } from "next";
-import BracketLabel from "@/components/ui/bracket-label";
+import type { CSSProperties } from "react";
+import Image from "next/image";
 import Button from "@/components/ui/button";
 import CTABand from "@/components/ui/cta-band";
-import IndexRow, { IndexList } from "@/components/ui/index-row";
-import SectionHeading from "@/components/ui/section-heading";
-import SectionRule from "@/components/ui/section-rule";
-import EvidencePlate from "@/components/visuals/evidence-plate";
-import EvidenceRecordMock from "@/components/visuals/evidence-record-mock";
-import { PLATES } from "@/lib/plates";
+import Reveal from "@/components/visuals/reveal";
 
 export const metadata: Metadata = {
   title: "Solutions",
   description: "Environmental intelligence, built for decisions — plot-level land evidence, climate intelligence, and climate economics.",
 };
 
+const DOMAINS = ["Climate", "Land", "Nature", "Economics"] as const;
+
 const GROWING_SOLUTIONS = [
   {
-    n: "01",
     title: "Climate Intelligence",
     body: "Understanding environmental risks and changing conditions.",
   },
   {
-    n: "02",
     title: "Land & Nature Intelligence",
     body: "Analysing environmental change across landscapes and assets.",
   },
   {
-    n: "03",
     title: "Climate Economics",
     body: "Connecting environmental change with markets, capital, and economic decisions.",
   },
@@ -35,105 +30,151 @@ const GROWING_SOLUTIONS = [
 export default function SolutionsPage() {
   return (
     <>
-      {/* Page title — ruled, type-led, left-hung */}
-      <section className="border-t border-paper-line">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="flex h-10 items-center">
-            <span className="voice-label">SOLUTIONS</span>
+      {/* Sand hero */}
+      <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-36">
+        <Reveal>
+          <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+            Solutions
+          </p>
+          <h1
+            className="font-display mt-5 max-w-[18ch] text-[38px] font-medium text-ink sm:text-[48px]"
+            style={{ "--i": 1 } as CSSProperties}
+          >
+            Environmental intelligence, built for decisions.
+          </h1>
+          <p
+            className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 2 } as CSSProperties}
+          >
+            KliSus provides data-driven solutions that turn environmental
+            information into actionable intelligence and traceable evidence.
+          </p>
+          <div
+            className="mt-8 flex flex-wrap items-center gap-3"
+            style={{ "--i": 3 } as CSSProperties}
+          >
+            {DOMAINS.map((d) => (
+              <span
+                key={d}
+                className="rounded-full bg-paper px-4 py-1.5 text-[14px] font-medium text-paper-muted shadow-sm"
+              >
+                {d}
+              </span>
+            ))}
           </div>
-        </div>
-        <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-16 pt-8 sm:pb-20 lg:grid-cols-12">
-          <div className="animate-fade-up lg:col-span-10">
-            <h1 className="font-display max-w-[14ch] text-[36px] text-ink sm:text-[44px] md:text-[56px] lg:text-[72px]">
-              Environmental intelligence, built for decisions.
-            </h1>
-            <p className="voice-lede mt-8 max-w-[44ch] text-[20px] text-paper-muted md:text-[26px]">
-              KliSus provides data-driven solutions that turn environmental
-              information into actionable intelligence and traceable evidence.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2">
-              <BracketLabel>Climate</BracketLabel>
-              <BracketLabel>Land</BracketLabel>
-              <BracketLabel>Nature</BracketLabel>
-              <BracketLabel>Economics</BracketLabel>
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </section>
 
-      {/* 01 — EUDR Land Evidence */}
-      <SectionRule n="01" label="EUDR LAND EVIDENCE" marker="FIRST SOLUTION" />
-      <section>
-        <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-12 px-6 py-14 lg:grid-cols-12 lg:py-20">
-          <div className="lg:col-span-6">
-            <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px]">
+      {/* EUDR feature panel — dark split */}
+      <section className="grid bg-forest-black lg:grid-cols-2 lg:items-stretch">
+        <div className="relative flex min-h-[380px] items-center justify-center overflow-hidden lg:min-h-[560px]">
+          <Image
+            src="/plates/apui-tc-2025.jpg"
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="scale-110 object-cover opacity-80 blur-[6px]"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-forest-black/35" aria-hidden="true" />
+          <Reveal className="relative px-8 text-center">
+            <span
+              className="font-display block text-[46px] font-medium leading-none text-ndvi-green sm:text-[60px]"
+              style={{ "--i": 0 } as CSSProperties}
+            >
+              Land Evidence
+            </span>
+            <span
+              className="mt-3 block text-[18px] font-medium text-cream"
+              style={{ "--i": 1 } as CSSProperties}
+            >
+              by KliSus
+            </span>
+          </Reveal>
+        </div>
+
+        <div className="dark-band flex items-center bg-forest-black">
+          <Reveal className="px-8 py-16 sm:px-12 lg:px-16 lg:py-24">
+            <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+              EUDR Land Evidence
+            </p>
+            <h2
+              className="font-display mt-5 max-w-[16ch] text-[32px] font-medium text-cream sm:text-[40px]"
+              style={{ "--i": 1 } as CSSProperties}
+            >
               Assess the land behind your supply chain.
             </h2>
-            <p className="mt-6 max-w-[40ch] text-[20px] leading-snug text-ink">
+            <p
+              className="mt-5 max-w-[44ch] text-[18px] leading-snug text-cream/90"
+              style={{ "--i": 2 } as CSSProperties}
+            >
               Plot-level satellite and geospatial intelligence to support EUDR
               due diligence.
             </p>
-            <p className="mt-4 max-w-[56ch] text-[15px] leading-relaxed text-paper-muted">
+            <p
+              className="mt-4 max-w-[52ch] text-[16px] leading-relaxed text-muted"
+              style={{ "--i": 3 } as CSSProperties}
+            >
               KliSus analyses production-plot locations and historical land-use
               indicators to provide structured evidence for supply-chain review
               and due-diligence workflows.
             </p>
-            <div className="mt-8">
-              <Button href="/solutions/eudr-land-evidence">
-                Explore EUDR Land Evidence →
+            <div className="mt-9" style={{ "--i": 4 } as CSSProperties}>
+              <Button href="/solutions/eudr-land-evidence" onDark>
+                Explore EUDR Land Evidence
               </Button>
             </div>
-          </div>
-
-          {/* Product figure: the evidence record — no link, no CTA. */}
-          <figure className="relative min-w-0 overflow-hidden rounded-[2px] border border-paper-line bg-paper-surface p-4 sm:p-6 lg:col-span-5 lg:col-start-8">
-            <EvidenceRecordMock cta={false} />
-          </figure>
+          </Reveal>
         </div>
       </section>
 
-      {/* 02 — Growing the intelligence layer */}
-      <SectionRule n="02" label="GROWING THE INTELLIGENCE LAYER" />
-      <section>
-        <div className="mx-auto grid max-w-6xl gap-x-6 px-6 py-14 lg:grid-cols-12 lg:py-20">
-          <SectionHeading
-            className="lg:col-span-8"
-            title="More intelligence. More solutions."
-            lede="KliSus is building solutions across climate, land, nature, and environmental economics — turning complex environmental data into decision-ready intelligence."
-          />
-          <div className="mt-12 lg:col-span-7">
-            <IndexList>
-              {GROWING_SOLUTIONS.map((s) => (
-                <IndexRow key={s.n} n={s.n} title={s.title}>
-                  {s.body}
-                </IndexRow>
-              ))}
-            </IndexList>
-            <div className="mt-10">
-              <Button href="/intelligence" variant="secondary">
-                Explore KliSus Intelligence →
-              </Button>
+      {/* Growing the intelligence layer */}
+      <section className="mx-auto w-full max-w-6xl px-6 py-24 lg:py-28">
+        <Reveal>
+          <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+            Growing the intelligence layer
+          </p>
+          <h2
+            className="font-display mt-5 max-w-[16ch] text-[34px] font-medium text-ink sm:text-[44px]"
+            style={{ "--i": 1 } as CSSProperties}
+          >
+            More intelligence. More solutions.
+          </h2>
+          <p
+            className="mt-6 max-w-[52ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 2 } as CSSProperties}
+          >
+            KliSus is building solutions across climate, land, nature, and
+            environmental economics — turning complex environmental data into
+            decision-ready intelligence.
+          </p>
+        </Reveal>
+        <Reveal className="mt-12 grid gap-6 md:grid-cols-3">
+          {GROWING_SOLUTIONS.map((s, i) => (
+            <div
+              key={s.title}
+              style={{ "--i": i } as CSSProperties}
+              className="rounded-2xl bg-paper p-8 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)]"
+            >
+              <h3 className="text-[20px] font-semibold text-ink">{s.title}</h3>
+              <p className="mt-2.5 text-[15px] leading-relaxed text-paper-muted">{s.body}</p>
             </div>
+          ))}
+        </Reveal>
+        <Reveal className="mt-12">
+          <div style={{ "--i": 0 } as CSSProperties}>
+            <Button href="/intelligence" variant="secondary">
+              Explore KliSus Intelligence
+            </Button>
           </div>
-          {/* Real analytical figure: vegetation-index change at the Jharkhand
-              example site — ink only where greenness changed. */}
-          <EvidencePlate
-            plate={PLATES["jharkhand-ndvi-delta"]}
-            n="01"
-            className="mt-12 lg:col-span-4 lg:col-start-9"
-          />
-        </div>
+        </Reveal>
       </section>
 
-      {/* 03 — Closing */}
+      {/* Closing */}
       <CTABand
-        n="03"
         title="Start with the land."
         lede="Explore KliSus EUDR Land Evidence."
-        primary={{
-          label: "Explore EUDR Land Evidence →",
-          href: "/solutions/eudr-land-evidence",
-        }}
+        primary={{ label: "Explore EUDR Land Evidence", href: "/solutions/eudr-land-evidence" }}
       />
     </>
   );

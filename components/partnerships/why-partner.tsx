@@ -1,8 +1,5 @@
-import SectionHeading from "@/components/ui/section-heading";
-import SectionRule from "@/components/ui/section-rule";
-import IndexRow, { IndexList } from "@/components/ui/index-row";
-
-/** 01 — WHY PARTNER WITH KLISUS. Four numbered index rows, not cards. */
+import type { CSSProperties } from "react";
+import Reveal from "@/components/visuals/reveal";
 
 const REASONS = [
   {
@@ -23,20 +20,33 @@ const REASONS = [
   },
 ];
 
+const CARD =
+  "rounded-2xl bg-paper p-7 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] " +
+  "transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 " +
+  "hover:shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)]";
+
 export default function WhyPartner() {
   return (
-    <section>
-      <SectionRule n="01" label="WHY PARTNER WITH KLISUS" />
-      <div className="mx-auto max-w-6xl px-6 pb-16 pt-8 lg:pb-20">
-        <SectionHeading title="Where environmental intelligence meets opportunity." />
-        <IndexList className="mt-12">
-          {REASONS.map((reason, i) => (
-            <IndexRow key={reason.title} n={`0${i + 1}`} title={reason.title}>
-              {reason.body}
-            </IndexRow>
-          ))}
-        </IndexList>
-      </div>
+    <section className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+      <Reveal>
+        <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+          Why partner with KliSus
+        </p>
+        <h2
+          className="font-display mt-5 max-w-[18ch] text-[32px] font-medium text-ink sm:text-[42px]"
+          style={{ "--i": 1 } as CSSProperties}
+        >
+          Where environmental intelligence meets opportunity.
+        </h2>
+      </Reveal>
+      <Reveal className="mt-12 grid gap-6 sm:grid-cols-2">
+        {REASONS.map((reason, i) => (
+          <div key={reason.title} style={{ "--i": i } as CSSProperties} className={CARD}>
+            <h3 className="text-[20px] font-semibold text-ink">{reason.title}</h3>
+            <p className="mt-2.5 text-[15px] leading-relaxed text-paper-muted">{reason.body}</p>
+          </div>
+        ))}
+      </Reveal>
     </section>
   );
 }

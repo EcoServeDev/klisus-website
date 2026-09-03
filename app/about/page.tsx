@@ -16,11 +16,10 @@ export default function AboutPage() {
       <WhyWeExist />
       <Team />
       <CTABand
-        n="04"
         title="Better intelligence. Better decisions."
         lede="KliSus is building the intelligence layer for a world where environmental change increasingly shapes economic decisions."
-        primary={{ label: "Explore Our Solutions →", href: "/solutions" }}
-        secondary={{ label: "Explore KliSus Intelligence →", href: "/intelligence" }}
+        primary={{ label: "Explore Our Solutions", href: "/solutions" }}
+        secondary={{ label: "Explore KliSus Intelligence", href: "/intelligence" }}
       />
     </>
   );

@@ -1,11 +1,8 @@
+import type { CSSProperties } from "react";
 import Button from "@/components/ui/button";
-import SectionRule from "@/components/ui/section-rule";
+import Reveal from "@/components/visuals/reveal";
 
-/**
- * 04 — CONTACT. The page's working CTA as a full-bleed ruled spread:
- * invitation left, dot-leader contact ledger + button right.
- */
-
+/** The page's working CTA: a green-washed rounded panel. */
 const BODY =
   "Whether you are exploring a strategic partnership, institutional " +
   "collaboration, research opportunity, or KliSus solution, we'd like to " +
@@ -13,38 +10,25 @@ const BODY =
 
 export default function Contact() {
   return (
-    <section className="border-b border-paper-line">
-      <SectionRule n="04" label="CONTACT" srTitle="Contact" />
-      <div className="mx-auto grid max-w-6xl gap-x-6 gap-y-12 px-6 pb-20 pt-8 lg:grid-cols-12 lg:pb-28">
-        <div className="lg:col-span-6">
-          <p className="voice-lede max-w-[44ch] text-[20px] text-ink md:text-[24px]">
-            {BODY}
-          </p>
-        </div>
-        <div className="lg:col-start-8 lg:col-span-5">
-          <dl className="divide-y divide-paper-line border-y border-paper-line">
-            <div className="flex items-baseline py-3">
-              <dt className="voice-label shrink-0">Email</dt>
-              <span className="dot-leader" aria-hidden="true" />
-              <dd className="shrink-0 font-mono text-[13px] text-ink">
-                <a
-                  href="mailto:teams@klisus.com"
-                  className="transition-colors hover:text-ndvi-green"
-                >
-                  teams@klisus.com
-                </a>
-              </dd>
-            </div>
-            <div className="flex items-baseline py-3">
-              <dt className="voice-label shrink-0">Location</dt>
-              <span className="dot-leader" aria-hidden="true" />
-              <dd className="shrink-0 font-mono text-[13px] text-ink">Dubai, UAE</dd>
-            </div>
-          </dl>
-          <div className="mt-8">
-            <Button href="mailto:teams@klisus.com">Start a Conversation →</Button>
+    <section className="mx-auto max-w-6xl px-6 py-16 lg:py-20">
+      <h2 className="sr-only">Contact</h2>
+      <div className="rounded-2xl bg-green-wash p-8 sm:p-12">
+        <Reveal className="grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <div style={{ "--i": 0 } as CSSProperties}>
+            <p className="voice-lede max-w-[44ch] text-[20px] text-ink md:text-[24px]">{BODY}</p>
           </div>
-        </div>
+          <div style={{ "--i": 1 } as CSSProperties}>
+            <p className="text-[16px] font-medium text-ink">
+              <a href="mailto:teams@klisus.com" className="transition-colors hover:text-green-ink">
+                teams@klisus.com
+              </a>
+            </p>
+            <p className="mt-1 text-[15px] text-paper-muted">Dubai, UAE</p>
+            <div className="mt-6">
+              <Button href="mailto:teams@klisus.com">Start a Conversation</Button>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

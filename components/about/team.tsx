@@ -1,11 +1,10 @@
-import CornerTicks from "@/components/ui/corner-ticks";
-import SectionHeading from "@/components/ui/section-heading";
-import SectionRule from "@/components/ui/section-rule";
+import type { CSSProperties } from "react";
+import Reveal from "@/components/visuals/reveal";
 
 /**
- * 03 — PEOPLE BEHIND KLISUS. Survey figures with placeholder identity
- * ([Name] and photo blocks stay placeholders by explicit decision — no fake
- * photos, no fake names). Ruled caption rows, no cards, no hover.
+ * People behind KliSus. Placeholder identity by explicit decision — no fake
+ * photos, no fake names; a dignified silhouette block stands in until real
+ * team assets exist.
  */
 
 const TEAM = [
@@ -27,12 +26,11 @@ function PhotoPlaceholder() {
   return (
     <div
       aria-hidden="true"
-      className="relative flex aspect-[4/5] items-center justify-center rounded-[2px] border border-paper-line bg-paper-surface"
+      className="flex aspect-[4/5] items-center justify-center rounded-xl bg-paper-surface"
     >
-      <CornerTicks />
       <svg
         viewBox="0 0 96 96"
-        className="h-20 w-20 opacity-20"
+        className="h-20 w-20 opacity-15"
         fill="none"
         stroke="var(--paper-muted)"
         strokeWidth="2"
@@ -40,36 +38,50 @@ function PhotoPlaceholder() {
         <circle cx="48" cy="34" r="14" />
         <path d="M20 82c0-15.5 12.5-26 28-26s28 10.5 28 26" />
       </svg>
-      <span className="absolute bottom-3 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[0.08em] text-paper-muted">
-        [PHOTO]
-      </span>
     </div>
   );
 }
 
 export default function Team() {
   return (
-    <section>
-      <SectionRule n="03" label="PEOPLE BEHIND KLISUS" />
-      <div className="mx-auto max-w-6xl px-6 pb-20 pt-10 sm:pb-28">
-        <SectionHeading
-          title="People behind KliSus"
-          lede="A multidisciplinary team working across technology, environmental science, and strategy."
-        />
-        <div className="mt-14 grid gap-6 sm:grid-cols-3">
-          {TEAM.map((member) => (
-            <figure key={member.specialties}>
+    <section className="bg-paper-surface">
+      <div className="mx-auto max-w-6xl px-6 pb-24 pt-8 sm:pb-28">
+        <Reveal>
+          <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+            People behind KliSus
+          </p>
+          <h2
+            className="font-display mt-5 max-w-[16ch] text-[32px] font-medium text-ink sm:text-[42px]"
+            style={{ "--i": 1 } as CSSProperties}
+          >
+            People behind KliSus
+          </h2>
+          <p
+            className="mt-5 max-w-[50ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 2 } as CSSProperties}
+          >
+            A multidisciplinary team working across technology, environmental
+            science, and strategy.
+          </p>
+        </Reveal>
+        <Reveal className="mt-12 grid gap-6 sm:grid-cols-3">
+          {TEAM.map((member, i) => (
+            <figure
+              key={member.specialties}
+              style={{ "--i": i } as CSSProperties}
+              className="rounded-2xl bg-paper p-5 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] transition-[transform,box-shadow] duration-300 motion-safe:hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)]"
+            >
               <PhotoPlaceholder />
-              <figcaption className="mt-5 divide-y divide-paper-line border-b border-paper-line">
-                <p className="py-2 text-[16px] font-medium text-ink">[Name]</p>
-                <p className="py-2 font-mono text-[12px] text-paper-muted">{member.role}</p>
-                <p className="py-2 font-mono text-[11px] leading-relaxed text-paper-muted">
+              <figcaption className="px-1 pb-1 pt-5">
+                <p className="text-[17px] font-semibold text-ink">[Name]</p>
+                <p className="mt-1 text-[14px] text-paper-muted">{member.role}</p>
+                <p className="mt-2 text-[13px] leading-relaxed text-paper-muted">
                   {member.specialties}
                 </p>
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

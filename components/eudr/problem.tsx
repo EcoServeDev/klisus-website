@@ -1,38 +1,55 @@
-import SectionHeading from "@/components/ui/section-heading";
-import SectionRule from "@/components/ui/section-rule";
-import FlowStrip from "@/components/visuals/flow-strip";
+import type { CSSProperties } from "react";
+import Reveal from "@/components/visuals/reveal";
 
-/** 01 — THE PROBLEM */
+const FLOW = ["Location", "History", "Evidence"];
+
+/** THE PROBLEM */
 export default function ProblemSection() {
   return (
-    <section>
-      <SectionRule n="01" label="THE PROBLEM" />
-      <div className="mx-auto grid max-w-6xl gap-x-6 px-6 pb-20 pt-10 sm:pb-28 lg:grid-cols-12">
-        <div className="lg:col-span-6">
-          <SectionHeading title="Can you evidence where your commodities come from?" />
-          <div className="mt-8 max-w-[60ch] space-y-4 text-[16px] leading-relaxed text-paper-muted">
-            <p>
-              EUDR due diligence requires businesses to collect information about
-              relevant commodities, including the geolocation of the land where
-              they were produced. Environmental and legal assessments may also
-              require evidence from multiple sources.
-            </p>
-            <p>
-              A location is the starting point. A credible review also requires
-              historical context, documented methods, and traceable evidence.
-            </p>
-          </div>
-          <a
-            href="#how-it-works"
-            className="mt-8 inline-block font-mono text-[13px] text-ink underline decoration-paper-line underline-offset-4 transition-colors hover:decoration-green-ink"
-          >
-            See How It Works →
-          </a>
+    <section className="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+      <Reveal>
+        <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+          The problem
+        </p>
+        <h2
+          className="font-display mt-5 max-w-[18ch] text-[32px] font-medium text-ink sm:text-[42px]"
+          style={{ "--i": 1 } as CSSProperties}
+        >
+          Can you evidence where your commodities come from?
+        </h2>
+        <div
+          className="mt-6 max-w-[60ch] space-y-4 text-[16px] leading-relaxed text-paper-muted"
+          style={{ "--i": 2 } as CSSProperties}
+        >
+          <p>
+            EUDR due diligence requires businesses to collect information about
+            relevant commodities, including the geolocation of the land where
+            they were produced. Environmental and legal assessments may also
+            require evidence from multiple sources.
+          </p>
+          <p>
+            A location is the starting point. A credible review also requires
+            historical context, documented methods, and traceable evidence.
+          </p>
         </div>
-        <div className="mt-12 lg:col-span-5 lg:col-start-8 lg:mt-0">
-          <FlowStrip direction="vertical" items={["Location", "History", "Evidence"]} />
+        <div
+          className="mt-9 flex flex-wrap items-center gap-3"
+          style={{ "--i": 3 } as CSSProperties}
+        >
+          {FLOW.map((step, i) => (
+            <span key={step} className="flex items-center gap-3">
+              <span className="rounded-full bg-paper px-5 py-2 text-[15px] font-semibold text-ink shadow-[0_1px_2px_rgba(13,21,18,0.05),0_6px_18px_rgba(13,21,18,0.07)]">
+                {step}
+              </span>
+              {i < FLOW.length - 1 ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" className="text-green-ink">
+                  <path d="M3 8h10m0 0L8.8 3.8M13 8l-4.2 4.2" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              ) : null}
+            </span>
+          ))}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

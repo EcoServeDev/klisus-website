@@ -1,39 +1,45 @@
-import CornerTicks from "@/components/ui/corner-ticks";
-import SectionRule from "@/components/ui/section-rule";
+import type { CSSProperties } from "react";
+import Reveal from "@/components/visuals/reveal";
 
-/**
- * 02 — WHY WE EXIST. A dossier page: running header rule, prose column,
- * the vision line on a green rail, registration ticks, folio row.
- */
+/** Paper card panel: the founding argument, closing on the vision line. */
 export default function WhyWeExist() {
   return (
     <section className="bg-paper-surface">
-      <SectionRule n="02" label="KLISUS — WHY WE EXIST" marker="§ 02" />
-      <div className="mx-auto max-w-6xl px-6 pb-14 pt-12">
-        <div className="relative px-2 py-6 sm:px-6">
-          <CornerTicks />
-          <h2 className="font-display max-w-[18ch] text-[32px] text-ink md:text-[44px] lg:text-[56px]">
+      <div className="mx-auto max-w-6xl px-6 py-12 sm:py-16">
+        <Reveal className="rounded-2xl bg-paper p-8 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] sm:p-12">
+          <p className="kicker" style={{ "--i": 0 } as CSSProperties}>
+            Why we exist
+          </p>
+          <h2
+            className="font-display mt-5 max-w-[18ch] text-[32px] font-medium text-ink sm:text-[42px]"
+            style={{ "--i": 1 } as CSSProperties}
+          >
             Environmental change is becoming an economic reality.
           </h2>
-          <p className="mt-8 max-w-[68ch] text-[16px] leading-[1.7] text-ink">
+          <p
+            className="mt-7 max-w-[62ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 2 } as CSSProperties}
+          >
             The world is generating unprecedented amounts of environmental data,
             yet decision-makers still lack accessible, reliable, and actionable
             intelligence.
           </p>
-          <p className="mt-4 max-w-[68ch] text-[16px] leading-[1.7] text-ink">
+          <p
+            className="mt-4 max-w-[62ch] text-[17px] leading-relaxed text-paper-muted"
+            style={{ "--i": 3 } as CSSProperties}
+          >
             KliSus was founded on a simple belief: environmental information
             should be transformed into evidence that can inform real-world
             decisions.
           </p>
-          <p className="voice-lede mt-12 max-w-[36ch] border-l-2 border-green-ink pl-6 text-[26px] text-ink md:text-[32px]">
+          <p
+            className="font-display mt-10 max-w-[30ch] text-[24px] font-medium leading-snug text-green-ink sm:text-[30px]"
+            style={{ "--i": 4 } as CSSProperties}
+          >
             Our vision is a world where environmental decisions are informed by
             evidence.
           </p>
-        </div>
-        <div className="mt-12 flex items-center justify-between border-t border-paper-line pt-4 font-mono text-[10px] uppercase tracking-[0.08em] text-paper-muted">
-          <span>KLISUS — ABOUT</span>
-          <span>PAGE 01</span>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

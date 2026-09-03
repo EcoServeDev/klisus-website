@@ -1,21 +1,19 @@
 /**
- * A KliSus Land Evidence Record mocked in the paper palette, sitting on the
- * dark ground like a printed document. Clearly watermarked as illustrative.
+ * A KliSus Land Evidence Record mocked as a soft paper document card.
+ * Clearly labeled as illustrative.
  */
 
-import BracketLabel from "@/components/ui/bracket-label";
 import Button from "@/components/ui/button";
-import CornerTicks from "@/components/ui/corner-ticks";
 import DefList from "@/components/ui/def-list";
 
 const SECTIONS = [
-  "PLOT",
-  "PERIOD",
-  "LAND USE",
-  "CHANGE",
-  "SOURCES",
-  "METHODOLOGY",
-  "LIMITATIONS",
+  "Plot",
+  "Period",
+  "Land use",
+  "Change",
+  "Sources",
+  "Methodology",
+  "Limitations",
 ];
 
 const ROWS = [
@@ -57,20 +55,19 @@ export default function EvidenceRecordMock({
   return (
     <div className={`relative ${className}`}>
       <div
-        className={`relative mx-auto max-w-2xl rounded-[2px] border border-paper-line bg-paper p-6 text-ink shadow-2xl sm:p-8 ${
+        className={`relative mx-auto max-w-2xl rounded-2xl bg-paper p-6 text-ink shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.12)] sm:p-8 ${
           cta ? "pb-20 sm:pb-24" : ""
         }`}
       >
-        <CornerTicks />
         <div className="flex flex-wrap items-start justify-between gap-x-6 gap-y-2">
-          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-paper-muted">
+          <p className="text-[12px] font-semibold uppercase tracking-[0.1em] text-paper-muted">
             KliSus Land Evidence Record
           </p>
           <div className="flex flex-col items-end gap-2 text-right">
-            <p className="font-mono text-[12px] text-paper-muted">
+            <p className="font-mono text-[11px] text-paper-muted">
               KLS-2026-00417 · 01 Sep 2026
             </p>
-            <span className="inline-block -rotate-2 border border-dashed border-paper-muted/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.08em] text-paper-muted">
+            <span className="rounded-md border border-paper-line px-2 py-0.5 text-[10px] font-medium uppercase tracking-[0.06em] text-paper-muted">
               Illustrative sample
             </span>
           </div>
@@ -78,9 +75,12 @@ export default function EvidenceRecordMock({
 
         <div className="mt-5 flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
-            <BracketLabel key={s} tone="neutral">
+            <span
+              key={s}
+              className="rounded-md bg-green-wash px-2.5 py-1 text-[11px] font-semibold text-green-ink"
+            >
               {s}
-            </BracketLabel>
+            </span>
           ))}
         </div>
 
@@ -90,12 +90,12 @@ export default function EvidenceRecordMock({
       {cta ? (
         <>
           <div
-            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper to-transparent"
+            className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper-surface to-transparent"
             aria-hidden="true"
           />
           <div className="absolute inset-x-0 bottom-6 flex justify-center">
             <Button href="/plot-check/r/e12fe13023e0" variant="secondary">
-              View Sample Report →
+              View Sample Report
             </Button>
           </div>
         </>

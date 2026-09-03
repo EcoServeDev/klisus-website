@@ -20,7 +20,6 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import BracketLabel from "@/components/ui/bracket-label";
 import { PLATES } from "@/lib/plates";
 
 const YEARS = [2020, 2021, 2022, 2023, 2024, 2025] as const;
@@ -187,13 +186,13 @@ export default function ChangeTimeline() {
           style={{ "--draw": 0 } as React.CSSProperties}
         >
           {/* frames */}
-          <div className="ct-frames relative border border-paper-line p-2 sm:p-3">
+          <div className="ct-frames relative rounded-2xl bg-paper p-2 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)] sm:p-3">
             <div className="ct-well relative">
               {YEARS.map((y) => {
                 const plate = PLATES[`apui-${y}`];
                 return (
                   <figure key={y} data-frame={y} className="ct-frame m-0">
-                    <div className="relative">
+                    <div className="relative overflow-hidden rounded-xl">
                       <Image
                         src={plate.src}
                         width={plate.width}
@@ -206,9 +205,9 @@ export default function ChangeTimeline() {
                       {/* film-strip mode: the identical outline on every frame */}
                       <AoiOutline className="ct-aoi-static" drawn />
                     </div>
-                    <figcaption className="ct-frame-caption voice-label mb-5 mt-2">
-                      MEDIAN JUN–SEP {y}
-                      {y === 2020 ? " · EUDR CUTOFF BASELINE · 31 DEC 2020" : ""}
+                    <figcaption className="ct-frame-caption mb-5 mt-2.5 text-[12px] font-medium text-paper-muted">
+                      Median Jun–Sep {y}
+                      {y === 2020 ? " · EUDR cutoff baseline · 31 Dec 2020" : ""}
                     </figcaption>
                   </figure>
                 );
@@ -216,11 +215,12 @@ export default function ChangeTimeline() {
               {/* scrub mode: one outline drawing on over the stacked frames */}
               <AoiOutline className="ct-aoi-scrub hidden" drawn={false} />
               <div
-                className="ct-annotation pointer-events-none absolute hidden bg-paper/85 px-1.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.08em] text-risk-rust"
+                className="ct-annotation pointer-events-none absolute hidden items-center gap-1.5 rounded-md bg-forest-black/70 px-2.5 py-1 text-[11px] font-medium text-cream backdrop-blur-sm"
                 style={{ left: "33%", top: "84%" }}
                 aria-hidden="true"
               >
-                [ CHANGE INDICATOR IDENTIFIED ]
+                <span className="h-1.5 w-1.5 flex-none rounded-full bg-risk-rust-text" />
+                Change indicator identified
               </div>
             </div>
           </div>
@@ -229,24 +229,28 @@ export default function ChangeTimeline() {
           <div>
             <p
               ref={yearRef}
-              className="ct-year hidden font-mono text-[64px] leading-none text-ink tabular-nums"
+              className="ct-year stat-num hidden text-[64px] leading-none text-ink"
               aria-hidden="true"
             >
               2020
             </p>
-            <p className="ct-baseline voice-label mt-2 hidden">
-              EUDR CUTOFF BASELINE · 31 DEC 2020
+            <p className="ct-baseline mt-2 hidden text-[12px] font-medium text-paper-muted">
+              EUDR cutoff baseline · 31 Dec 2020
             </p>
-            <ul className="ct-record mt-8 list-none divide-y divide-paper-line border-y border-paper-line">
+            <ul className="ct-record mt-8 list-none space-y-3">
               {RECORD_ROWS.map((row) => (
                 <li
                   key={row.term}
-                  className="ct-record-row flex items-baseline justify-between gap-4 py-3"
+                  className="ct-record-row flex items-baseline justify-between gap-4 rounded-xl bg-paper p-4 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_6px_18px_rgba(13,21,18,0.06)]"
                 >
-                  <span className="voice-label">{row.term}</span>
-                  <BracketLabel tone={row.value === "IDENTIFIED" ? "amber" : "neutral"}>
+                  <span className="text-[15px] font-semibold text-ink">{row.term}</span>
+                  <span
+                    className={`text-[13px] font-semibold ${
+                      row.value === "IDENTIFIED" ? "text-amber-ink" : "text-green-ink"
+                    }`}
+                  >
                     {row.value}
-                  </BracketLabel>
+                  </span>
                 </li>
               ))}
             </ul>
@@ -255,14 +259,13 @@ export default function ChangeTimeline() {
 
         {/* caption deck — the timeline participates in the plate language */}
         <figure className="m-0 mt-6 max-w-[70ch]">
-          <p className="text-[16px] leading-relaxed text-ink">
+          <p className="text-[15px] font-medium leading-relaxed text-ink">
             Recent clearing east of the Transamazônica, Apuí frontier.
           </p>
-          <p className="voice-label mt-2 normal-case tracking-[0.02em]">
-            {base.place} · {base.coords} · SENTINEL-2 L2A · TRUE COLOR · MEDIAN
-            JUN–SEP 2020–2025 · 10 M/PX
+          <p className="mt-2 font-mono text-[11px] text-paper-muted">
+            {base.place} · {base.coords} · Median Jun–Sep 2020–2025
           </p>
-          <p className="mt-1 font-mono text-[10px] text-paper-muted/90">
+          <p className="mt-1.5 font-mono text-[10px] text-paper-muted/80">
             Contains modified Copernicus Sentinel data (2020–2025), processed by
             KliSus
           </p>
@@ -285,6 +288,7 @@ export default function ChangeTimeline() {
           .ct-frames { max-width: calc((100dvh - 16rem) * 4 / 3); }
           .ct-well { aspect-ratio: 4 / 3; }
           .ct-frame { position: absolute; inset: 0; opacity: 0; transition: opacity 120ms linear; }
+          .ct-frame > div { height: 100%; }
           .ct-frame img { height: 100%; object-fit: cover; }
           .ct-frame-caption { display: none; }
           .ct-aoi-static { display: none; }
@@ -298,7 +302,7 @@ export default function ChangeTimeline() {
           .ct-root[data-year="2025"] .ct-frame[data-frame="2025"] { opacity: 1; }
           .ct-baseline { display: block; opacity: 0; transition: opacity 120ms linear; }
           .ct-root[data-year="2020"] .ct-baseline { opacity: 1; }
-          .ct-annotation { display: block; opacity: 0; transition: opacity 200ms ease-out; }
+          .ct-annotation { display: inline-flex; opacity: 0; transition: opacity 200ms ease-out; }
           .ct-root[data-phase="3"] .ct-annotation,
           .ct-root[data-phase="4"] .ct-annotation { opacity: 1; }
           .ct-record-row { opacity: 0; transform: translateY(8px); transition: opacity 300ms ease-out, transform 300ms ease-out; }
