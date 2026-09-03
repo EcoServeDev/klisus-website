@@ -66,7 +66,7 @@
 
 @layer base {
   body {
-    background: var(--paper);
+    background: var(--paper-surface);
     color: var(--ink);
     font-size: 16px;
     line-height: 1.6;
@@ -87,16 +87,38 @@
     line-height: 1.4;
   }
 
-  /* Eyebrow: small confident green label, sentence case — not mono. */
-  .voice-label {
+  /* Kicker: tiny tracked uppercase label with a leading square bullet. */
+  .voice-label,
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     font-family: var(--font-schibsted);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.01em;
-    color: var(--green-ink);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--paper-muted);
   }
-  .dark-band .voice-label {
-    color: var(--ndvi-green);
+  .voice-label::before,
+  .kicker::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--ndvi-green);
+    flex: none;
+  }
+  .dark-band .voice-label,
+  .dark-band .kicker {
+    color: var(--muted);
+  }
+
+  /* Stat numerals: huge and light. */
+  .stat-num {
+    font-family: var(--font-schibsted);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1;
   }
 
   /* Data voice: mono, reserved for measured values. */

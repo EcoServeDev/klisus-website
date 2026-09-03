@@ -1,41 +1,23 @@
 import Button from "@/components/ui/button";
 
-/** 04 — Beyond verification: quiet dark interlude with contour texture. */
+/** 04 — Beyond verification: gradient product strip (Ahya AI panel analog). */
 export default function IntelligenceBanner() {
   return (
-    <section className="dark-band relative overflow-hidden bg-forest-black">
-      <svg
-        className="absolute inset-0 h-full w-full"
-        aria-hidden="true"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        {[12, 30, 48, 66, 84].map((y, i) => (
-          <path
-            key={i}
-            d={`M 0 ${y} C 25 ${y - 9}, 50 ${y + 7}, 100 ${y - 4}`}
-            fill="none"
-            stroke={i === 2 ? "var(--ndvi-green)" : "var(--line)"}
-            strokeOpacity={i === 2 ? 0.3 : 0.55}
-            strokeWidth="0.15"
-            vectorEffect="non-scaling-stroke"
-          />
-        ))}
-      </svg>
-      <div className="relative mx-auto max-w-6xl px-6 py-24 lg:py-28">
-        <p className="voice-label">Beyond verification</p>
-        <h2 className="font-display mt-4 max-w-[16ch] text-[34px] text-cream md:text-[44px]">
-          KliSus Intelligence
-        </h2>
-        <p className="voice-lede mt-4 max-w-[46ch] text-[18px] text-muted md:text-[20px]">
-          Research and intelligence at the intersection of climate, land,
-          nature, and economics.
-        </p>
-        <div className="mt-8">
-          <Button href="/intelligence" variant="secondary" onDark>
-            Explore KliSus Intelligence
-          </Button>
+    <section className="dark-band bg-[linear-gradient(100deg,#123a34_0%,#12314c_55%,#0c1e3e_100%)]">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 lg:grid-cols-[1fr_auto] lg:py-24">
+        <div>
+          <p className="kicker">Beyond verification</p>
+          <h2 className="font-display mt-4 text-[36px] font-medium text-paper sm:text-[46px]">
+            KliSus <span className="text-[#7fd6c2]">Intelligence</span>
+          </h2>
+          <p className="mt-4 max-w-[52ch] text-[17px] leading-relaxed text-cream/85">
+            Research and intelligence at the intersection of climate, land,
+            nature, and economics.
+          </p>
         </div>
+        <Button href="/intelligence" variant="secondary" size="lg" onDark>
+          Explore KliSus Intelligence
+        </Button>
       </div>
     </section>
   );

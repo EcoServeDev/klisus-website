@@ -1,53 +1,53 @@
 import Image from "next/image";
 import Button from "@/components/ui/button";
-import SectionHeading from "@/components/ui/section-heading";
 
-/** 03 — OUR FIRST SOLUTION: feature panel with the real change imagery. */
+/**
+ * 03 — Product panel (Ahya-style): blurred satellite imagery carrying the
+ * two-tone product lockup on the left, copy on deep forest on the right.
+ */
 export default function EudrSolution() {
   return (
-    <section className="mx-auto max-w-6xl px-6 pb-24 lg:pb-28">
-      <div className="grid items-center gap-12 rounded-2xl bg-paper-surface p-8 sm:p-12 lg:grid-cols-2 lg:gap-16">
-        <div>
-          <SectionHeading
-            eyebrow="Our first solution"
-            title="Understand the land behind your supply chain."
-          />
-          <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-paper-muted">
-            KliSus uses satellite and geospatial analysis to assess plot-level
-            land-use history and identify relevant environmental change
-            indicators. The resulting evidence can support EUDR due-diligence
-            processes and internal supply-chain review.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button href="/solutions/eudr-land-evidence" size="lg">
-              Explore EUDR Land Evidence
-            </Button>
-          </div>
-        </div>
+    <section className="grid lg:grid-cols-2">
+      <div className="relative flex min-h-[380px] items-center justify-center overflow-hidden bg-forest-black lg:min-h-[560px]">
+        <Image
+          src="/plates/apui-tc-2025.jpg"
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          className="scale-110 object-cover opacity-80 blur-[6px]"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-forest-black/35" aria-hidden="true" />
+        <p className="relative px-8 text-center">
+          <span className="font-display block text-[44px] font-medium leading-none text-ndvi-green sm:text-[56px]">
+            Land Evidence
+          </span>
+          <span className="mt-3 block text-[18px] font-medium text-cream">by KliSus</span>
+        </p>
+      </div>
 
-        <figure>
-          <div className="relative overflow-hidden rounded-xl shadow-[0_2px_4px_rgba(13,21,18,0.06),0_16px_40px_rgba(13,21,18,0.14)]">
-            <Image
-              src="/plates/apui-tc-2025.jpg"
-              alt="True-color Sentinel-2 composite of the Apuí clearing, 2025"
-              width={1800}
-              height={1350}
-              sizes="(min-width: 1024px) 520px, 100vw"
-              className="w-full"
-            />
-            <span className="absolute left-3 top-3 rounded-md bg-forest-black/70 px-2.5 py-1 font-mono text-[11px] text-cream backdrop-blur-sm">
-              Apuí, Amazonas · 2020 → 2025
-            </span>
-          </div>
-          <figcaption className="mt-4 flex flex-wrap items-baseline justify-between gap-2">
-            <span className="text-[14px] text-paper-muted">
-              From coordinates to traceable land evidence.
-            </span>
-            <Button href="/solutions/eudr-land-evidence#how-it-works" variant="ghost">
-              See the full change timeline →
-            </Button>
-          </figcaption>
-        </figure>
+      <div className="dark-band bg-forest-black px-8 py-16 sm:px-12 lg:px-16 lg:py-24">
+        <p className="kicker">Our first solution</p>
+        <h2 className="font-display mt-5 max-w-[16ch] text-[32px] font-medium text-cream sm:text-[40px]">
+          Understand the land behind your supply chain.
+        </h2>
+        <p className="mt-5 max-w-[52ch] text-[16px] leading-relaxed text-muted">
+          KliSus uses satellite and geospatial analysis to assess plot-level
+          land-use history and identify relevant environmental change
+          indicators. The resulting evidence can support EUDR due-diligence
+          processes and internal supply-chain review.
+        </p>
+        <p className="mt-6 max-w-[52ch] text-[15px] text-cream/80">
+          From coordinates to traceable land evidence.
+        </p>
+        <div className="mt-9 flex flex-wrap items-center gap-4">
+          <Button href="/solutions/eudr-land-evidence" onDark>
+            Explore EUDR Land Evidence
+          </Button>
+          <Button href="/solutions/eudr-land-evidence#how-it-works" variant="ghost" onDark>
+            See the change timeline
+          </Button>
+        </div>
       </div>
     </section>
   );

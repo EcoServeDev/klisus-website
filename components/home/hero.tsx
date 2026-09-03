@@ -2,31 +2,38 @@ import Image from "next/image";
 import Button from "@/components/ui/button";
 
 /**
- * Cinematic full-bleed hero: the real Apuí Sentinel-2 frontier edge-to-edge
- * under a graded forest overlay, headline anchored lower-left.
+ * Full-bleed satellite hero with a graded overlay, kicker + big sentence
+ * headline, pill CTAs, and a factual stat row (methodology-true figures
+ * only — never invented metrics).
  */
+const STATS = [
+  { num: "6", label: "independent public datasets" },
+  { num: "10 m", label: "imagery resolution" },
+  { num: "2020", label: "EUDR cutoff baseline" },
+];
+
 export default function Hero() {
   return (
-    <section className="dark-band relative flex min-h-[88svh] flex-col justify-end overflow-hidden bg-forest-black">
+    <section className="dark-band relative overflow-hidden bg-forest-black">
       <Image
         src="/plates/apui-hero-2025.jpg"
         alt="Sentinel-2 satellite view of the Apuí deforestation frontier, Amazonas, Brazil"
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className="object-cover opacity-90"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-tr from-forest-black/95 via-forest-black/50 to-forest-black/15"
+        className="absolute inset-0 bg-gradient-to-b from-forest-black/80 via-forest-black/55 to-forest-black/90"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto w-full max-w-6xl px-6 pb-20 pt-40">
-        <p className="voice-label animate-fade-up">Climate Intelligence &amp; Economics</p>
-        <h1 className="font-display animate-fade-up mt-5 max-w-[15ch] text-[42px] text-paper sm:text-[56px] lg:text-[72px]">
+      <div className="relative mx-auto w-full max-w-6xl px-6 pb-16 pt-36 lg:pt-44">
+        <p className="kicker animate-fade-up">Climate Intelligence &amp; Economics</p>
+        <h1 className="font-display animate-fade-up mt-6 max-w-[17ch] text-[40px] font-medium text-paper sm:text-[52px] lg:text-[64px]">
           Evidence for decisions in a changing climate.
         </h1>
-        <p className="animate-fade-up mt-6 max-w-[56ch] text-[17px] leading-relaxed text-cream/90 md:text-[19px]">
+        <p className="animate-fade-up mt-6 max-w-[58ch] text-[17px] leading-relaxed text-cream/90">
           KliSus combines Earth observation, geospatial intelligence, and
           environmental analysis to help businesses, institutions, and
           investors assess environmental risk, evaluate climate and nature
@@ -40,11 +47,19 @@ export default function Hero() {
             Talk to KliSus
           </Button>
         </div>
+
+        <div className="mt-20 grid gap-10 border-t border-cream/15 pt-10 sm:grid-cols-3">
+          {STATS.map((s) => (
+            <div key={s.label}>
+              <p className="stat-num text-[52px] text-paper sm:text-[60px]">{s.num}</p>
+              <p className="mt-2 text-[14px] text-cream/75">{s.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
-      <p className="relative mx-auto w-full max-w-6xl px-6 pb-5 text-right font-mono text-[11px] text-cream/50">
-        Apuí, Amazonas · 7.32° S, 59.62° W · Contains modified Copernicus
-        Sentinel data (2025), processed by KliSus
+      <p className="relative mx-auto w-full max-w-6xl px-6 pb-4 text-right font-mono text-[10px] text-cream/40">
+        Contains modified Copernicus Sentinel data (2025), processed by KliSus
       </p>
     </section>
   );

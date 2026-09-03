@@ -1,5 +1,4 @@
 import type { CSSProperties } from "react";
-import Card from "@/components/ui/card";
 import SectionHeading from "@/components/ui/section-heading";
 
 const MODULES = [
@@ -38,20 +37,25 @@ const MODULES = [
 export default function WhatWeDo() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 lg:py-28">
+      <p className="kicker">What we do</p>
       <SectionHeading
-        eyebrow="What we do"
+        className="mt-5"
         title="The intelligence layer between environmental change and economic decisions."
         lede="KliSus transforms complex environmental information into structured intelligence and traceable evidence for business, investment, regulatory, and market decisions."
       />
       <div className="stagger mt-14 grid gap-6 md:grid-cols-3">
         {MODULES.map((m, i) => (
-          <Card key={m.title} style={{ "--i": i } as CSSProperties}>
-            <span className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-green-wash text-green-ink">
+          <div
+            key={m.title}
+            style={{ "--i": i } as CSSProperties}
+            className="rounded-2xl bg-paper p-8 shadow-[0_1px_2px_rgba(13,21,18,0.05),0_10px_28px_rgba(13,21,18,0.07)]"
+          >
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-green-wash text-green-ink">
               {m.icon}
             </span>
-            <h3 className="mt-5 text-[20px] font-bold text-ink">{m.title}</h3>
+            <h3 className="mt-6 text-[21px] font-semibold text-ink">{m.title}</h3>
             <p className="mt-2.5 text-[15px] leading-relaxed text-paper-muted">{m.line}</p>
-          </Card>
+          </div>
         ))}
       </div>
     </section>
