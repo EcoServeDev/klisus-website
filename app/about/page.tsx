@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import AboutHero from "@/components/about/hero";
 import WhyWeExist from "@/components/about/why-we-exist";
-import Team from "@/components/about/team";
+// Hidden until real team photos/bios exist — re-enable with the <Team /> line below.
+// import Team from "@/components/about/team";
 import CTABand from "@/components/ui/cta-band";
 
 export const metadata: Metadata = {
@@ -14,7 +15,7 @@ export default function AboutPage() {
     <>
       <AboutHero />
       <WhyWeExist />
-      <Team />
+      {/* <Team /> */}
       <CTABand
         title="Better intelligence. Better decisions."
         lede="KliSus is building the intelligence layer for a world where environmental change increasingly shapes economic decisions."
