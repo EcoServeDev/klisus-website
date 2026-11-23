@@ -14,6 +14,7 @@ const COLUMNS: { title: string; links: { label: string; href: string | null; ext
       { label: "EUDR Land Evidence", href: "/solutions/eudr-land-evidence" },
       { label: "Climate Intelligence", href: "/intelligence" },
       { label: "Plot Check tool", href: "/plot-check" },
+      { label: "Free climate tools", href: "/tools" },
     ],
   },
   {

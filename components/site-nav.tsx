@@ -14,6 +14,7 @@ import Button from "@/components/ui/button";
 
 const NAV_ITEMS = [
   { label: "Intelligence", href: "/intelligence" },
+  { label: "Free Tools", href: "/tools" },
   { label: "About", href: "/about" },
   { label: "Partnerships", href: "/partnerships" },
 ];
