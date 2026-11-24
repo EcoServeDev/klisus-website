@@ -23,8 +23,8 @@ const CARDS = [
   {
     tag: "Free tool",
     title: "Plot Check",
-    line: "Run a free satellite check on any single plot — no signup required.",
-    href: "/plot-check",
+    line: "Free single-plot satellite check. Invite-only during early access — request access.",
+    href: "/request",
     img: "/plates/nyeri-tc-2025.jpg",
     alt: "Sentinel-2 view of coffee country near Nyeri, Kenya",
   },

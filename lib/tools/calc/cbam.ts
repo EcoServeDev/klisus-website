@@ -58,6 +58,20 @@ export function checkCbamCode(raw: string): CodeCheck {
   return { status: "out", digits };
 }
 
+/** Caveats for a code-check result. In-scope results carry the de minimis and timing notes. */
+export function cbamCodeCaveats(status: CodeCheck["status"]): string[] {
+  const base = [
+    "Checks the code against Annex I as in force. The Commission has proposed extending CBAM to some downstream products; that is not reflected until adopted.",
+    "Classification is the importer's legal responsibility. Confirm the code with your customs broker if unsure.",
+  ];
+  if (status !== "in") return base;
+  return [
+    "Importers bringing in less than 50 tonnes of CBAM goods a year in total (excluding electricity and hydrogen) are exempt since 1 January 2026 under the 2025 simplification. Ask your buyer whether they are above the threshold.",
+    "Certificate sales start in February 2027; the first annual declaration and surrender, for 2026 imports, is due by 30 September 2027.",
+    ...base,
+  ];
+}
+
 /* ------------------------------------------------------------------ */
 /* Cost projection                                                     */
 /* ------------------------------------------------------------------ */

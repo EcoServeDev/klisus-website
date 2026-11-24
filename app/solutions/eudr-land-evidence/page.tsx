@@ -28,7 +28,7 @@ export default function EUDRLandEvidencePage() {
       <CTABand
         title="Know the land behind your supply chain."
         lede="Start your EUDR land evidence assessment with KliSus."
-        primary={{ label: "Request a Plot Assessment", href: "/plot-check" }}
+        primary={{ label: "Request a Plot Assessment", href: "/request" }}
         secondary={{ label: "Contact KliSus", href: "mailto:teams@klisus.com" }}
       />
     </>

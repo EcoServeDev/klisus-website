@@ -23,7 +23,7 @@ export default function HomePage() {
         <CTABand
           title="Know the land. Make the decision."
           lede="Start with KliSus EUDR Land Evidence."
-          primary={{ label: "Request a Plot Assessment", href: "/plot-check" }}
+          primary={{ label: "Request a Plot Assessment", href: "/request" }}
           secondary={{ label: "Contact KliSus", href: "mailto:teams@klisus.com" }}
         />
       </div>

@@ -33,7 +33,7 @@ export default function EudrHero() {
           and due-diligence workflows.
         </p>
         <div className="animate-fade-up mt-9 flex flex-wrap items-center gap-4">
-          <Button href="/plot-check" size="lg" onDark>
+          <Button href="/request" size="lg" onDark>
             Request a Plot Assessment
           </Button>
           <Button href="/plot-check/r/e12fe13023e0" variant="secondary" size="lg" onDark>

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { calcCarbonPricing } from "@/lib/tools/calc/carbon-pricing";
-import { calcCbamCost, checkCbamCode } from "@/lib/tools/calc/cbam";
+import { calcCbamCost, cbamCodeCaveats, checkCbamCode } from "@/lib/tools/calc/cbam";
 import { calcCloud, serversToKwh } from "@/lib/tools/calc/cloud";
 import { calcElectricity } from "@/lib/tools/calc/electricity";
 import { calcFreight } from "@/lib/tools/calc/freight";
@@ -125,6 +125,12 @@ describe("CBAM code checker", () => {
     ["72", "invalid"],
   ])("%s → %s", (code, status) => {
     expect(checkCbamCode(code).status).toBe(status);
+  });
+  it("in-scope results carry the 50 t de minimis and 2027 timing notes; others don't", () => {
+    const inScope = cbamCodeCaveats(checkCbamCode("7208 51 20").status).join(" ");
+    expect(inScope).toMatch(/50 tonnes/);
+    expect(inScope).toMatch(/February 2027/);
+    expect(cbamCodeCaveats("out").join(" ")).not.toMatch(/50 tonnes/);
   });
 });
 

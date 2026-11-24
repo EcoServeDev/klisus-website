@@ -100,7 +100,7 @@ export default function AccessPage() {
         </h1>
         <p className="mt-3 text-[15px] leading-relaxed text-paper-muted">
           Enter your access code to continue. Don&apos;t have one?{" "}
-          <a href="mailto:teams@klisus.com" className="font-medium text-green-ink hover:underline">
+          <a href="/request" className="font-medium text-green-ink hover:underline">
             Request an invite
           </a>
           .

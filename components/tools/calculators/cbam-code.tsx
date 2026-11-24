@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CalcLayout, InputCard, TextField } from "@/components/tools/fields";
 import { ResultPanel } from "@/components/tools/result-panel";
-import { checkCbamCode } from "@/lib/tools/calc/cbam";
+import { checkCbamCode, cbamCodeCaveats } from "@/lib/tools/calc/cbam";
 import { CBAM_SUPPLIER_ASKS } from "@/lib/tools/factors/cbam";
 
 const EXAMPLES = ["7208 51 20", "7604 29 10", "3102 10 10", "6109 10 00", "7202"];
@@ -122,10 +122,7 @@ export default function CbamCodeChecker() {
           empty={r.status === "invalid" ? r.reason : null}
           steps={[]}
           sourceIds={["cbamReg"]}
-          caveats={[
-            "Checks the code against Annex I as in force. The Commission has proposed extending CBAM to some downstream products; that is not reflected until adopted.",
-            "Classification is the importer's legal responsibility. Confirm the code with your customs broker if unsure.",
-          ]}
+          caveats={cbamCodeCaveats(r.status)}
         >
           {body}
         </ResultPanel>

@@ -155,22 +155,57 @@ export default function IntelligencePage() {
             Featured Intelligence
           </h2>
           <div
-            className="mt-10 rounded-2xl border-2 border-dashed border-paper-line bg-paper/60 p-8 sm:p-10"
+            className="mt-10 grid gap-6 md:grid-cols-2"
             style={{ "--i": 2 } as CSSProperties}
           >
-            <h3 className="font-display text-[22px] font-medium text-paper-muted sm:text-[28px]">
-              [Latest Research / Report]
-            </h3>
-            <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-paper-muted">
-              Short description of the featured research, report, or analysis.
-            </p>
-            <p className="mt-6 font-mono text-[12px] text-paper-muted">
-              {"Research & Insights · Date"}
-            </p>
-            <span className="mt-5 inline-block text-[15px] font-medium text-paper-muted">
-              Read →<span className="sr-only"> (coming soon)</span>
-            </span>
+            <div className="rounded-2xl border border-paper-line bg-paper p-8 sm:p-10">
+              <p className="font-mono text-[12px] uppercase tracking-[0.08em] text-paper-muted">
+                Regulation · timeline
+              </p>
+              <h3 className="font-display mt-3 text-[22px] font-medium text-ink sm:text-[26px]">
+                EUDR applies from 30 December 2026.
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-paper-muted">
+                Large and medium operators and traders apply from 30 December 2026. Most micro and
+                small undertakings apply from 30 June 2027; those already covered by the EU Timber
+                Regulation apply from 30 December 2026. The Commission&apos;s May 2026 simplification
+                review did not move these dates.
+              </p>
+              <p className="mt-4 font-mono text-[12px] text-paper-muted">
+                Source: Council of the EU, 18 Dec 2025; European Commission review, 4 May 2026
+              </p>
+              <Link
+                href="/solutions/eudr-land-evidence"
+                className="mt-5 inline-block text-[15px] font-semibold text-green-ink transition-colors hover:text-ink"
+              >
+                EUDR Land Evidence →
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-paper-line bg-paper p-8 sm:p-10">
+              <p className="font-mono text-[12px] uppercase tracking-[0.08em] text-paper-muted">
+                Resources · free tools
+              </p>
+              <h3 className="font-display mt-3 text-[22px] font-medium text-ink sm:text-[26px]">
+                Ten free climate calculators.
+              </h3>
+              <p className="mt-3 text-[15px] leading-relaxed text-paper-muted">
+                Electricity, fuel, freight and product footprints, CBAM scope and cost, carbon-price
+                exposure and solar payback. Every result shows its arithmetic and sources.
+              </p>
+              <Link
+                href="/tools"
+                className="mt-5 inline-block text-[15px] font-semibold text-green-ink transition-colors hover:text-ink"
+              >
+                Open the tools →
+              </Link>
+            </div>
           </div>
+          <p
+            className="mt-6 text-[14px] text-paper-muted"
+            style={{ "--i": 3 } as CSSProperties}
+          >
+            Our first long-form research publication is in preparation.
+          </p>
           <div
             className="mt-10 flex flex-wrap items-end justify-between gap-4"
             style={{ "--i": 3 } as CSSProperties}

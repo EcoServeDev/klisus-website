@@ -5,6 +5,8 @@
  * the caveats — in that order, always. Sticky beside the inputs on desktop.
  */
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { SOURCES } from "@/lib/tools/factors/sources";
 import type { Step } from "@/lib/tools/types";
@@ -83,7 +85,25 @@ export function ResultPanel({
           ))}
         </ul>
       ) : null}
+
+      <TalkToUs />
     </aside>
+  );
+}
+
+/** Quiet lead line: carries the tool slug so requests show where they came from. */
+function TalkToUs() {
+  const slug = (usePathname() ?? "").split("/").filter(Boolean).pop() ?? "tools";
+  return (
+    <p className="mt-6 border-t border-line pt-5 text-[13px] leading-relaxed text-muted">
+      Need this for a buyer, a CBAM request or EUDR due diligence?{" "}
+      <Link
+        href={`/request?from=${encodeURIComponent(slug)}` as never}
+        className="font-medium text-cream underline decoration-line underline-offset-2 hover:decoration-ndvi-green"
+      >
+        Talk to KliSus
+      </Link>
+    </p>
   );
 }
 

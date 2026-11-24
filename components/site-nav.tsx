@@ -191,7 +191,7 @@ export default function SiteNav() {
               {item.label}
             </NavLink>
           ))}
-          <Button href="/plot-check" className="shrink-0 whitespace-nowrap">
+          <Button href="/request" className="shrink-0 whitespace-nowrap">
             Request a Plot Assessment
           </Button>
         </div>
@@ -246,7 +246,7 @@ export default function SiteNav() {
             ))}
           </div>
           <div className="mt-auto pt-10">
-            <Button href="/plot-check" className="w-full justify-between" size="lg">
+            <Button href="/request" className="w-full justify-between" size="lg">
               Request a Plot Assessment
             </Button>
           </div>
